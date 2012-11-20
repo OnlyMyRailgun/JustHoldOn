@@ -1,0 +1,433 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		48A47A24165A1CDC00DD878D /* JHOLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 48A47A22165A1CDC00DD878D /* JHOLoginViewController.m */; };
+		48A47A25165A1CDC00DD878D /* JHOLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48A47A23165A1CDC00DD878D /* JHOLoginViewController.xib */; };
+		ED462EC51658CC2000E53720 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED462EC41658CC2000E53720 /* UIKit.framework */; };
+		ED462EC71658CC2000E53720 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED462EC61658CC2000E53720 /* Foundation.framework */; };
+		ED462EC91658CC2000E53720 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED462EC81658CC2000E53720 /* CoreGraphics.framework */; };
+		ED462ECF1658CC2000E53720 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = ED462ECD1658CC2000E53720 /* InfoPlist.strings */; };
+		ED462ED11658CC2000E53720 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = ED462ED01658CC2000E53720 /* main.m */; };
+		ED462ED51658CC2000E53720 /* JHOAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ED462ED41658CC2000E53720 /* JHOAppDelegate.m */; };
+		ED462EE11658CCF500E53720 /* IIViewDeckController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED462EDE1658CCF500E53720 /* IIViewDeckController.m */; };
+		ED462EE21658CCF500E53720 /* WrapController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED462EE01658CCF500E53720 /* WrapController.m */; };
+		ED462EF01658CF2400E53720 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED462EEF1658CF2400E53720 /* QuartzCore.framework */; };
+		ED462EFD1658D33300E53720 /* JHOSlideMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED462EFB1658D33300E53720 /* JHOSlideMenuViewController.m */; };
+		ED462EFE1658D33300E53720 /* JHOSlideMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED462EFC1658D33300E53720 /* JHOSlideMenuViewController.xib */; };
+		ED462F081658D86A00E53720 /* JHOMainFrameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED462F071658D86A00E53720 /* JHOMainFrameViewController.m */; };
+		ED462F521658DB6000E53720 /* cell_background.png in Resources */ = {isa = PBXBuildFile; fileRef = ED462F4C1658DB6000E53720 /* cell_background.png */; };
+		ED462F531658DB6000E53720 /* cell_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ED462F4D1658DB6000E53720 /* cell_background@2x.png */; };
+		ED462F541658DB6000E53720 /* cell_selected_background.png in Resources */ = {isa = PBXBuildFile; fileRef = ED462F4E1658DB6000E53720 /* cell_selected_background.png */; };
+		ED462F551658DB6000E53720 /* cell_selected_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ED462F4F1658DB6000E53720 /* cell_selected_background@2x.png */; };
+		ED462F561658DB6000E53720 /* section_background.png in Resources */ = {isa = PBXBuildFile; fileRef = ED462F501658DB6000E53720 /* section_background.png */; };
+		ED462F571658DB6000E53720 /* section_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ED462F511658DB6000E53720 /* section_background@2x.png */; };
+		ED462F6A1658E8DC00E53720 /* JHOMyHomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED462F691658E8DC00E53720 /* JHOMyHomePageViewController.m */; };
+		ED462F6C1658E93900E53720 /* homepagebackground.png in Resources */ = {isa = PBXBuildFile; fileRef = ED462F6B1658E93900E53720 /* homepagebackground.png */; };
+		ED462F761658EBF000E53720 /* JHOSlideViewTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED462F751658EBF000E53720 /* JHOSlideViewTableCell.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		48A47A21165A1CDC00DD878D /* JHOLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JHOLoginViewController.h; path = Controllers/JHOLoginViewController.h; sourceTree = "<group>"; };
+		48A47A22165A1CDC00DD878D /* JHOLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JHOLoginViewController.m; path = Controllers/JHOLoginViewController.m; sourceTree = "<group>"; };
+		48A47A23165A1CDC00DD878D /* JHOLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = JHOLoginViewController.xib; path = Controllers/JHOLoginViewController.xib; sourceTree = "<group>"; };
+		ED462EC01658CC2000E53720 /* JustHoldOn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JustHoldOn.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED462EC41658CC2000E53720 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		ED462EC61658CC2000E53720 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		ED462EC81658CC2000E53720 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		ED462ECC1658CC2000E53720 /* JustHoldOn-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "JustHoldOn-Info.plist"; sourceTree = "<group>"; };
+		ED462ECE1658CC2000E53720 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		ED462ED01658CC2000E53720 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		ED462ED21658CC2000E53720 /* JustHoldOn-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JustHoldOn-Prefix.pch"; sourceTree = "<group>"; };
+		ED462ED31658CC2000E53720 /* JHOAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JHOAppDelegate.h; sourceTree = "<group>"; };
+		ED462ED41658CC2000E53720 /* JHOAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JHOAppDelegate.m; sourceTree = "<group>"; };
+		ED462EDD1658CCF500E53720 /* IIViewDeckController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IIViewDeckController.h; sourceTree = "<group>"; };
+		ED462EDE1658CCF500E53720 /* IIViewDeckController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IIViewDeckController.m; sourceTree = "<group>"; };
+		ED462EDF1658CCF500E53720 /* WrapController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WrapController.h; sourceTree = "<group>"; };
+		ED462EE01658CCF500E53720 /* WrapController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WrapController.m; sourceTree = "<group>"; };
+		ED462EEF1658CF2400E53720 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		ED462EFA1658D33300E53720 /* JHOSlideMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JHOSlideMenuViewController.h; path = Controllers/JHOSlideMenuViewController.h; sourceTree = "<group>"; };
+		ED462EFB1658D33300E53720 /* JHOSlideMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JHOSlideMenuViewController.m; path = Controllers/JHOSlideMenuViewController.m; sourceTree = "<group>"; };
+		ED462EFC1658D33300E53720 /* JHOSlideMenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = JHOSlideMenuViewController.xib; path = Controllers/JHOSlideMenuViewController.xib; sourceTree = "<group>"; };
+		ED462F061658D86A00E53720 /* JHOMainFrameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JHOMainFrameViewController.h; path = Controllers/JHOMainFrameViewController.h; sourceTree = "<group>"; };
+		ED462F071658D86A00E53720 /* JHOMainFrameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JHOMainFrameViewController.m; path = Controllers/JHOMainFrameViewController.m; sourceTree = "<group>"; };
+		ED462F4C1658DB6000E53720 /* cell_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cell_background.png; path = Resources/cell_background.png; sourceTree = "<group>"; };
+		ED462F4D1658DB6000E53720 /* cell_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "cell_background@2x.png"; path = "Resources/cell_background@2x.png"; sourceTree = "<group>"; };
+		ED462F4E1658DB6000E53720 /* cell_selected_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cell_selected_background.png; path = Resources/cell_selected_background.png; sourceTree = "<group>"; };
+		ED462F4F1658DB6000E53720 /* cell_selected_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "cell_selected_background@2x.png"; path = "Resources/cell_selected_background@2x.png"; sourceTree = "<group>"; };
+		ED462F501658DB6000E53720 /* section_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = section_background.png; path = Resources/section_background.png; sourceTree = "<group>"; };
+		ED462F511658DB6000E53720 /* section_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "section_background@2x.png"; path = "Resources/section_background@2x.png"; sourceTree = "<group>"; };
+		ED462F681658E8DC00E53720 /* JHOMyHomePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JHOMyHomePageViewController.h; path = Controllers/JHOMyHomePageViewController.h; sourceTree = "<group>"; };
+		ED462F691658E8DC00E53720 /* JHOMyHomePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JHOMyHomePageViewController.m; path = Controllers/JHOMyHomePageViewController.m; sourceTree = "<group>"; };
+		ED462F6B1658E93900E53720 /* homepagebackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = homepagebackground.png; path = Resources/homepagebackground.png; sourceTree = "<group>"; };
+		ED462F741658EBF000E53720 /* JHOSlideViewTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JHOSlideViewTableCell.h; path = Views/JHOSlideViewTableCell.h; sourceTree = "<group>"; };
+		ED462F751658EBF000E53720 /* JHOSlideViewTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JHOSlideViewTableCell.m; path = Views/JHOSlideViewTableCell.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		ED462EBD1658CC2000E53720 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ED462EF01658CF2400E53720 /* QuartzCore.framework in Frameworks */,
+				ED462EC51658CC2000E53720 /* UIKit.framework in Frameworks */,
+				ED462EC71658CC2000E53720 /* Foundation.framework in Frameworks */,
+				ED462EC91658CC2000E53720 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		48A47A1F165A1CBB00DD878D /* LoginController */ = {
+			isa = PBXGroup;
+			children = (
+				48A47A21165A1CDC00DD878D /* JHOLoginViewController.h */,
+				48A47A22165A1CDC00DD878D /* JHOLoginViewController.m */,
+				48A47A23165A1CDC00DD878D /* JHOLoginViewController.xib */,
+			);
+			name = LoginController;
+			sourceTree = "<group>";
+		};
+		ED462EB51658CC2000E53720 = {
+			isa = PBXGroup;
+			children = (
+				ED462F041658D7F400E53720 /* Resources */,
+				ED462EDB1658CCE800E53720 /* ThirdParts */,
+				ED462ECA1658CC2000E53720 /* JustHoldOn */,
+				ED462EC31658CC2000E53720 /* Frameworks */,
+				ED462EC11658CC2000E53720 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		ED462EC11658CC2000E53720 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				ED462EC01658CC2000E53720 /* JustHoldOn.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		ED462EC31658CC2000E53720 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				ED462EEF1658CF2400E53720 /* QuartzCore.framework */,
+				ED462EC41658CC2000E53720 /* UIKit.framework */,
+				ED462EC61658CC2000E53720 /* Foundation.framework */,
+				ED462EC81658CC2000E53720 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		ED462ECA1658CC2000E53720 /* JustHoldOn */ = {
+			isa = PBXGroup;
+			children = (
+				ED462F721658EBC700E53720 /* View */,
+				ED462F711658EBB900E53720 /* Controllers */,
+				ED462ED31658CC2000E53720 /* JHOAppDelegate.h */,
+				ED462ED41658CC2000E53720 /* JHOAppDelegate.m */,
+				ED462ECB1658CC2000E53720 /* Supporting Files */,
+			);
+			path = JustHoldOn;
+			sourceTree = "<group>";
+		};
+		ED462ECB1658CC2000E53720 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				ED462ECC1658CC2000E53720 /* JustHoldOn-Info.plist */,
+				ED462ECD1658CC2000E53720 /* InfoPlist.strings */,
+				ED462ED01658CC2000E53720 /* main.m */,
+				ED462ED21658CC2000E53720 /* JustHoldOn-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		ED462EDB1658CCE800E53720 /* ThirdParts */ = {
+			isa = PBXGroup;
+			children = (
+				ED462EDC1658CCF500E53720 /* ViewDeck */,
+			);
+			name = ThirdParts;
+			sourceTree = "<group>";
+		};
+		ED462EDC1658CCF500E53720 /* ViewDeck */ = {
+			isa = PBXGroup;
+			children = (
+				ED462EDD1658CCF500E53720 /* IIViewDeckController.h */,
+				ED462EDE1658CCF500E53720 /* IIViewDeckController.m */,
+				ED462EDF1658CCF500E53720 /* WrapController.h */,
+				ED462EE01658CCF500E53720 /* WrapController.m */,
+			);
+			name = ViewDeck;
+			path = ThirdParts/ViewDeck;
+			sourceTree = "<group>";
+		};
+		ED462EF11658CF5D00E53720 /* SlideMenu */ = {
+			isa = PBXGroup;
+			children = (
+				ED462EFA1658D33300E53720 /* JHOSlideMenuViewController.h */,
+				ED462EFB1658D33300E53720 /* JHOSlideMenuViewController.m */,
+				ED462EFC1658D33300E53720 /* JHOSlideMenuViewController.xib */,
+			);
+			name = SlideMenu;
+			sourceTree = "<group>";
+		};
+		ED462F041658D7F400E53720 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				ED462F6B1658E93900E53720 /* homepagebackground.png */,
+				ED462F4C1658DB6000E53720 /* cell_background.png */,
+				ED462F4D1658DB6000E53720 /* cell_background@2x.png */,
+				ED462F4E1658DB6000E53720 /* cell_selected_background.png */,
+				ED462F4F1658DB6000E53720 /* cell_selected_background@2x.png */,
+				ED462F501658DB6000E53720 /* section_background.png */,
+				ED462F511658DB6000E53720 /* section_background@2x.png */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		ED462F051658D84200E53720 /* MainFrameViewDeck */ = {
+			isa = PBXGroup;
+			children = (
+				ED462F061658D86A00E53720 /* JHOMainFrameViewController.h */,
+				ED462F071658D86A00E53720 /* JHOMainFrameViewController.m */,
+			);
+			name = MainFrameViewDeck;
+			sourceTree = "<group>";
+		};
+		ED462F421658D8B200E53720 /* MyHomePage */ = {
+			isa = PBXGroup;
+			children = (
+				ED462F681658E8DC00E53720 /* JHOMyHomePageViewController.h */,
+				ED462F691658E8DC00E53720 /* JHOMyHomePageViewController.m */,
+			);
+			name = MyHomePage;
+			sourceTree = "<group>";
+		};
+		ED462F711658EBB900E53720 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				48A47A1F165A1CBB00DD878D /* LoginController */,
+				ED462F421658D8B200E53720 /* MyHomePage */,
+				ED462F051658D84200E53720 /* MainFrameViewDeck */,
+				ED462EF11658CF5D00E53720 /* SlideMenu */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		ED462F721658EBC700E53720 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				ED462F731658EBD200E53720 /* SlideViewTableCell */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		ED462F731658EBD200E53720 /* SlideViewTableCell */ = {
+			isa = PBXGroup;
+			children = (
+				ED462F741658EBF000E53720 /* JHOSlideViewTableCell.h */,
+				ED462F751658EBF000E53720 /* JHOSlideViewTableCell.m */,
+			);
+			name = SlideViewTableCell;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		ED462EBF1658CC2000E53720 /* JustHoldOn */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ED462ED81658CC2000E53720 /* Build configuration list for PBXNativeTarget "JustHoldOn" */;
+			buildPhases = (
+				ED462EBC1658CC2000E53720 /* Sources */,
+				ED462EBD1658CC2000E53720 /* Frameworks */,
+				ED462EBE1658CC2000E53720 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = JustHoldOn;
+			productName = JustHoldOn;
+			productReference = ED462EC01658CC2000E53720 /* JustHoldOn.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		ED462EB71658CC2000E53720 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = JHO;
+				LastUpgradeCheck = 0440;
+				ORGANIZATIONNAME = Heartunderblade;
+			};
+			buildConfigurationList = ED462EBA1658CC2000E53720 /* Build configuration list for PBXProject "JustHoldOn" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = ED462EB51658CC2000E53720;
+			productRefGroup = ED462EC11658CC2000E53720 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				ED462EBF1658CC2000E53720 /* JustHoldOn */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		ED462EBE1658CC2000E53720 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ED462ECF1658CC2000E53720 /* InfoPlist.strings in Resources */,
+				ED462EFE1658D33300E53720 /* JHOSlideMenuViewController.xib in Resources */,
+				ED462F521658DB6000E53720 /* cell_background.png in Resources */,
+				ED462F531658DB6000E53720 /* cell_background@2x.png in Resources */,
+				ED462F541658DB6000E53720 /* cell_selected_background.png in Resources */,
+				ED462F551658DB6000E53720 /* cell_selected_background@2x.png in Resources */,
+				ED462F561658DB6000E53720 /* section_background.png in Resources */,
+				ED462F571658DB6000E53720 /* section_background@2x.png in Resources */,
+				ED462F6C1658E93900E53720 /* homepagebackground.png in Resources */,
+				48A47A25165A1CDC00DD878D /* JHOLoginViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		ED462EBC1658CC2000E53720 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ED462ED11658CC2000E53720 /* main.m in Sources */,
+				ED462ED51658CC2000E53720 /* JHOAppDelegate.m in Sources */,
+				ED462EE11658CCF500E53720 /* IIViewDeckController.m in Sources */,
+				ED462EE21658CCF500E53720 /* WrapController.m in Sources */,
+				ED462EFD1658D33300E53720 /* JHOSlideMenuViewController.m in Sources */,
+				ED462F081658D86A00E53720 /* JHOMainFrameViewController.m in Sources */,
+				ED462F6A1658E8DC00E53720 /* JHOMyHomePageViewController.m in Sources */,
+				ED462F761658EBF000E53720 /* JHOSlideViewTableCell.m in Sources */,
+				48A47A24165A1CDC00DD878D /* JHOLoginViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		ED462ECD1658CC2000E53720 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ED462ECE1658CC2000E53720 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		ED462ED61658CC2000E53720 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		ED462ED71658CC2000E53720 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		ED462ED91658CC2000E53720 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "JustHoldOn/JustHoldOn-Prefix.pch";
+				INFOPLIST_FILE = "JustHoldOn/JustHoldOn-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		ED462EDA1658CC2000E53720 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "JustHoldOn/JustHoldOn-Prefix.pch";
+				INFOPLIST_FILE = "JustHoldOn/JustHoldOn-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		ED462EBA1658CC2000E53720 /* Build configuration list for PBXProject "JustHoldOn" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ED462ED61658CC2000E53720 /* Debug */,
+				ED462ED71658CC2000E53720 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ED462ED81658CC2000E53720 /* Build configuration list for PBXNativeTarget "JustHoldOn" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ED462ED91658CC2000E53720 /* Debug */,
+				ED462EDA1658CC2000E53720 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = ED462EB71658CC2000E53720 /* Project object */;
+}

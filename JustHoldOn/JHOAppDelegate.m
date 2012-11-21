@@ -7,10 +7,12 @@
 //
 
 #import "JHOAppDelegate.h"
-#import "JHOMainFrameViewController.h"
+#import "JHOLoginViewController.h"
+#import "ASIDownloadCache.h"
 @implementation JHOAppDelegate
 
 @synthesize window = _window;
+@synthesize downloadCache = _downloadCache;
 
 - (void)dealloc
 {
@@ -22,14 +24,47 @@
 {
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     // Override point for customization after application launch.
-    JHOMainFrameViewController *viewDeck = [[JHOMainFrameViewController alloc] init];
-    self.window.rootViewController = viewDeck;
-    [viewDeck release];
+    JHOLoginViewController *loginViewController = [[JHOLoginViewController alloc] init];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:loginViewController];
+    loginViewController.navigationController.navigationBarHidden = YES;
+    self.window.rootViewController = nav;
+    [loginViewController release];
+    [nav release];
+    
+    //设置缓存策略
+    [self setupDownloadCacheStrategy];
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;
 }
 
+- (void)setupDownloadCacheStrategy
+{
+    //初始化ASIDownloadCache缓存对象
+    
+    ASIDownloadCache *cache = [[ASIDownloadCache alloc] init];
+    
+    self.downloadCache = cache;
+    
+    [cache release];
+    
+    
+    
+    //路径
+    
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES);
+    
+    NSString *documentDirectory = [paths objectAtIndex:0];
+    
+    
+    //设置缓存存放路径
+    
+    [self.downloadCache setStoragePath:[documentDirectory stringByAppendingPathComponent:@"resource"]];
+    
+    //设置缓存策略
+    
+    [self.downloadCache setDefaultCachePolicy:ASIOnlyLoadIfNotCachedCachePolicy];
+}
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

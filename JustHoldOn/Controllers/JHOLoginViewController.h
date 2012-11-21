@@ -7,7 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WeiboAccounts.h"
+#import "WeiboAccount.h"
+#import "WeiboSignIn.h"
+#import "UserQuery.h"
+#import "JHOModifyUserInfoViewController.h"
 
-@interface JHOLoginViewController : UIViewController
+@interface JHOLoginViewController : UIViewController<WeiboSignInDelegate>
+{
+    WeiboSignIn *_weiboSignIn;
+}
 
 @end

@@ -7,15 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "WeiboAccounts.h"
-#import "WeiboAccount.h"
-#import "WeiboSignIn.h"
-#import "UserQuery.h"
 #import "JHOModifyUserInfoViewController.h"
+#import "SinaWeibo.h"
 
-@interface JHOLoginViewController : UIViewController<WeiboSignInDelegate>
+@interface JHOLoginViewController : UIViewController
 {
-    WeiboSignIn *_weiboSignIn;
+    NSDictionary *userInfo;
+    SinaWeibo *sinaWeibo;
 }
-
+@property (nonatomic, strong) SinaWeibo *sinaWeibo;
 @end

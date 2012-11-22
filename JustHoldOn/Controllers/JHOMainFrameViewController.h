@@ -7,7 +7,12 @@
 //
 
 #import "IIViewDeckController.h"
-
+@class SinaWeibo;
 @interface JHOMainFrameViewController : IIViewDeckController
-
+{
+    SinaWeibo *sinaweibo;
+}
+@property (readonly, nonatomic) SinaWeibo *sinaweibo;
+- (BOOL)handleOpenURL:(NSURL *)url;
+- (void)applicationDidBecomeActive;
 @end

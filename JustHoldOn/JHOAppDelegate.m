@@ -8,7 +8,14 @@
 
 #import "JHOAppDelegate.h"
 #import "JHOLoginViewController.h"
+#import "JHOMainFrameViewController.h"
 #import "ASIDownloadCache.h"
+#import "SinaWeibo.h"
+
+#define kAppKey             @"1481623116"
+#define kAppSecret          @"308f792a8a1f7ca244da5c81d3a8798b"
+#define kAppRedirectURI     @"https://api.weibo.com/oauth2/default.html"
+
 @implementation JHOAppDelegate
 
 @synthesize window = _window;
@@ -16,6 +23,8 @@
 
 - (void)dealloc
 {
+    [_downloadCache release];
+    [_viewDeck release];
     [_window release];
     [super dealloc];
 }
@@ -24,15 +33,13 @@
 {
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     // Override point for customization after application launch.
-    JHOLoginViewController *loginViewController = [[JHOLoginViewController alloc] init];
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:loginViewController];
-    loginViewController.navigationController.navigationBarHidden = YES;
-    self.window.rootViewController = nav;
-    [loginViewController release];
-    [nav release];
     
+    _viewDeck= [[JHOMainFrameViewController alloc] init];
+    self.window.rootViewController = _viewDeck;
+
     //设置缓存策略
     [self setupDownloadCacheStrategy];
+    
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;
@@ -59,12 +66,13 @@
     
     //设置缓存存放路径
     
-    [self.downloadCache setStoragePath:[documentDirectory stringByAppendingPathComponent:@"resource"]];
+    [self.downloadCache setStoragePath:[documentDirectory stringByAppendingPathComponent:@"tmp"]];
     
     //设置缓存策略
     
     [self.downloadCache setDefaultCachePolicy:ASIOnlyLoadIfNotCachedCachePolicy];
 }
+
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -85,6 +93,7 @@
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    [self.viewDeck applicationDidBecomeActive];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
@@ -92,4 +101,13 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
+{
+    return [self.viewDeck handleOpenURL:url];
+}
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
+    return [self.viewDeck handleOpenURL:url];
+}
 @end

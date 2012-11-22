@@ -8,10 +8,15 @@
 
 #import <UIKit/UIKit.h>
 @class ASIDownloadCache;
+@class JHOMainFrameViewController;
 
 @interface JHOAppDelegate : UIResponder <UIApplicationDelegate>
+{
+    JHOMainFrameViewController *viewDeck;
+}
 
 @property (strong, nonatomic) UIWindow *window;
 @property (nonatomic, retain) ASIDownloadCache	 *downloadCache;
+@property (strong, nonatomic) JHOMainFrameViewController *viewDeck;
 
 @end

@@ -10,7 +10,6 @@
 
 @interface JHOModifyUserInfoViewController ()
 {
-    WeiboAccount *userAccount;
 }
 @end
 
@@ -18,25 +17,16 @@
 @synthesize avatar;
 @synthesize userName;
 
-- (id) initWithWeiboAccount:(WeiboAccount *)account 
-{
-    self = [super init];
-    if(self){
-        // Custom initialization
-        userAccount = account;
-    }
-    return self;
-}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.navigationController.navigationBarHidden = NO;
-    self.title = userAccount.screenName; 
-    self.userName.text = userAccount.screenName;
-    NSData *avatarData = [NSData dataWithContentsOfURL:[NSURL URLWithString:userAccount.profileImageUrl]];
-    UIImage *imageAvatar = [UIImage imageWithData:avatarData];
-    [self.avatar setImage:imageAvatar];
+//    self.title = userAccount.screenName; 
+//    self.userName.text = userAccount.screenName;
+//    NSData *avatarData = [NSData dataWithContentsOfURL:[NSURL URLWithString:userAccount.profileImageUrl]];
+//    UIImage *imageAvatar = [UIImage imageWithData:avatarData];
+//    [self.avatar setImage:imageAvatar];
 }
 
 - (void)viewDidUnload

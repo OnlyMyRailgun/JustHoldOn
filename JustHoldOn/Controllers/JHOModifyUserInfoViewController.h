@@ -7,10 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "WeiboAccount.h"
 
 @interface JHOModifyUserInfoViewController : UIViewController
 @property (retain, nonatomic) IBOutlet UITextField *userName;
-- (id) initWithWeiboAccount:(WeiboAccount* )account;
 @property (retain, nonatomic) IBOutlet UIImageView *avatar;
 @end

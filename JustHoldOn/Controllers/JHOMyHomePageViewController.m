@@ -19,10 +19,21 @@
 
 @synthesize table, bgImgView;
 
-- (void)viewDidLoad
+#pragma mark - singleton default
+static JHOMyHomePageViewController *sharedMyHomePageViewController = nil;
+
++ (JHOMyHomePageViewController *)shared
 {
-    [super viewDidLoad];
-    
+    if(sharedMyHomePageViewController == nil)
+    {
+        sharedMyHomePageViewController = [[JHOMyHomePageViewController alloc] init];
+        [sharedMyHomePageViewController initializeCustomView];
+    }
+    return sharedMyHomePageViewController;
+}
+
+- (void)initializeCustomView
+{
     self.title = @"个人主页";
     self.navigationController.navigationBar.tintColor = UIColorFromRGB(0x3B5998);
     // 设置table的背景，但是不属于table的subView
@@ -48,6 +59,11 @@
     [header release];
     
     self.view.backgroundColor = [UIColor whiteColor];
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
 }
 
 - (void)viewDidUnload

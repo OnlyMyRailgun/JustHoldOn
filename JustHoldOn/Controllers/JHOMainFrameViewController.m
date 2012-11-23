@@ -10,6 +10,7 @@
 #import "JHOSlideMenuViewController.h"
 #import "JHOMyHomePageViewController.h"
 #import "JHOLoginViewController.h"
+#import "JHOHabitsListViewController.h"
 #import "SinaWeibo.h"
 
 
@@ -30,44 +31,62 @@
         // Custom initialization
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         NSDictionary *appUserInfo = [defaults objectForKey:@"AppUserData"];
-        if ([appUserInfo objectForKey:@"UserName"] && [appUserInfo objectForKey:@"UserPwd"])
+        if ([appUserInfo objectForKey:@"username"] && [appUserInfo objectForKey:@"password"])
         {
             [self initializeViewControllers];
+            [self changeCenterControllerAtIndex:0];
         }
         else
         {
             JHOLoginViewController *loginViewController = [[JHOLoginViewController alloc] init];
             [self initializeSinaWeiboWithDelegate:loginViewController];
             loginViewController.sinaWeibo = _sinaweibo;
-            if(loginViewController.sinaWeibo == nil)
-                NSLog(@"MainFrame nil");
-            self.centerController = loginViewController;
+            UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:loginViewController];
+            [loginViewController release];
+            self.centerController = nav;
+            [nav release];
             self.leftController = nil;
             self.rightController = nil;
         }
+        //properties
+        self.centerhiddenInteractivity = IIViewDeckCenterHiddenNotUserInteractiveWithTapToClose;
+        self.leftLedge = 86;
     }
     return self;
 }
 
 - (void)initializeViewControllers
 {
-    //中间View
-    JHOMyHomePageViewController *homePageViewController = [[JHOMyHomePageViewController alloc] init];
-    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:homePageViewController];
-    self.centerController = navController;
-    [homePageViewController release];
-    [navController release];
-    
     //左侧View
-    JHOSlideMenuViewController *slideMenuViewController = [[JHOSlideMenuViewController alloc] initWithNibName:@"JHOSlideMenuViewController" bundle:nil];
-    self.leftController = slideMenuViewController;
-    [slideMenuViewController release];
-    
-    //properties
-    self.centerhiddenInteractivity = IIViewDeckCenterHiddenNotUserInteractiveWithTapToClose;
-    self.leftLedge = 86;
+    if(self.leftController == nil)
+    {
+        JHOSlideMenuViewController *slideMenuViewController = [[JHOSlideMenuViewController alloc] initWithNibName:@"JHOSlideMenuViewController" bundle:nil];
+        self.leftController = slideMenuViewController;
+        [slideMenuViewController release];
+    }
 }
 
+- (void)changeCenterControllerAtIndex:(NSInteger) index
+{
+    switch (index) {
+        case 0:
+        {
+            JHOMyHomePageViewController *homePageViewController = [JHOMyHomePageViewController shared];
+            UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:homePageViewController];
+            self.centerController = navController;
+            [navController release];
+            break;
+        }
+        case 1:
+        {
+            JHOHabitsListViewController *habitsListViewController = [JHOHabitsListViewController shared];
+            self.centerController = habitsListViewController;
+            break;
+        }
+        default:
+            break;
+    }
+}
 
 - (void)initializeSinaWeiboWithDelegate:(id)delegate
 {

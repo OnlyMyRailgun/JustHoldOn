@@ -120,6 +120,7 @@
         [navBar pushNavigationItem:navItem animated:YES];
         [navItem release];
         [self.view addSubview:navBar];
+        [navBar release];
         
         webView = [[UIWebView alloc] init];
         webView.delegate = self;

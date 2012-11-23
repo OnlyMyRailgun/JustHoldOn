@@ -110,4 +110,25 @@
 {
     return [self.viewDeck handleOpenURL:url];
 }
+
+- (void)application:(UIApplication*)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData*)deviceToken
+{
+	NSLog(@"My token is: %@", deviceToken);
+}
+
+- (void)application:(UIApplication*)application didFailToRegisterForRemoteNotificationsWithError:(NSError*)error
+{
+	NSLog(@"Failed to get token, error: %@", error);
+}
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
+{
+    NSLog(@"recieved remoteNotification:%@",userInfo);
+    UIAlertView *reciecedNotification = [[UIAlertView alloc] initWithTitle:@"推送通知" message:[NSString stringWithFormat:@"%@", userInfo] delegate:nil cancelButtonTitle:@"好的" otherButtonTitles: nil];
+    if(![reciecedNotification isVisible])
+    {
+        [reciecedNotification show];
+    }
+    [reciecedNotification release];
+}
 @end

@@ -8,6 +8,7 @@
 
 #import "JHOSlideMenuViewController.h"
 #import "JHOSlideViewTableCell.h"
+#import "JHOMainFrameViewController.h"
 
 @interface JHOSlideMenuViewController ()
 {
@@ -131,13 +132,16 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     [detailViewController release];
-     */
+    if(indexPath.section == 0)
+    {
+        JHOMainFrameViewController *viewDeck = (JHOMainFrameViewController *)self.viewDeckController;
+        [viewDeck changeCenterControllerAtIndex:indexPath.row];
+        [viewDeck closeLeftViewAnimated:YES];
+    }
+    else if (indexPath.section == 1)
+    {
+        
+    }
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {

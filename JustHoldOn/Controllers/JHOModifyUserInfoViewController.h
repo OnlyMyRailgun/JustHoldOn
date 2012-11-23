@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MBProgressHUD.h"
 
-@interface JHOModifyUserInfoViewController : UIViewController
+@interface JHOModifyUserInfoViewController : UIViewController<MBProgressHUDDelegate>
 @property (retain, nonatomic) IBOutlet UITextField *userName;
 @property (retain, nonatomic) IBOutlet UIImageView *avatar;
+@property (retain, nonatomic) IBOutlet UITextView *descriptionTextView;
 @end

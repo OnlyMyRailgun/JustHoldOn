@@ -47,6 +47,17 @@
 		ED919378165CC0B400A488AF /* JHOModifyUserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED919376165CC0B400A488AF /* JHOModifyUserInfoViewController.m */; };
 		ED919379165CC0B400A488AF /* JHOModifyUserInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED919377165CC0B400A488AF /* JHOModifyUserInfoViewController.xib */; };
 		EDA88A14165B62C800805500 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = EDA88A13165B62C800805500 /* JSONKit.m */; };
+		EDB1F72D165F251700FFD7F9 /* JHOAlternativeTargetsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB1F72B165F251700FFD7F9 /* JHOAlternativeTargetsViewController.m */; };
+		EDB1F72E165F251700FFD7F9 /* JHOAlternativeTargetsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDB1F72C165F251700FFD7F9 /* JHOAlternativeTargetsViewController.xib */; };
+		EDB1F730165F339500FFD7F9 /* IMG_0022.JPG in Resources */ = {isa = PBXBuildFile; fileRef = EDB1F72F165F339500FFD7F9 /* IMG_0022.JPG */; };
+		EDB1F739165F3A0600FFD7F9 /* JHOHabitsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB1F737165F3A0600FFD7F9 /* JHOHabitsListViewController.m */; };
+		EDB1F73A165F3A0600FFD7F9 /* JHOHabitsListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDB1F738165F3A0600FFD7F9 /* JHOHabitsListViewController.xib */; };
+		EDB1F741165F3B8000FFD7F9 /* ButtonSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = EDB1F73C165F3B8000FFD7F9 /* ButtonSelected.png */; };
+		EDB1F742165F3B8000FFD7F9 /* MenuBar.png in Resources */ = {isa = PBXBuildFile; fileRef = EDB1F73D165F3B8000FFD7F9 /* MenuBar.png */; };
+		EDB1F743165F3B8000FFD7F9 /* MenuBar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EDB1F73E165F3B8000FFD7F9 /* MenuBar@2x.png */; };
+		EDB1F744165F3B8000FFD7F9 /* MKHorizMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB1F740165F3B8000FFD7F9 /* MKHorizMenu.m */; };
+		EDB1F785165F476100FFD7F9 /* JHONetworkHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB1F784165F476100FFD7F9 /* JHONetworkHelper.m */; };
+		EDB1F78A165F7F3500FFD7F9 /* JHOAppUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB1F789165F7F3500FFD7F9 /* JHOAppUserInfo.m */; };
 		EDDA5EBD165E1F030002B38A /* SinaWeibo.bundle in Resources */ = {isa = PBXBuildFile; fileRef = EDDA5EB5165E1F030002B38A /* SinaWeibo.bundle */; };
 		EDDA5EBE165E1F030002B38A /* SinaWeibo.m in Sources */ = {isa = PBXBuildFile; fileRef = EDDA5EB7165E1F030002B38A /* SinaWeibo.m */; };
 		EDDA5EBF165E1F030002B38A /* SinaWeiboAuthorizeView.m in Sources */ = {isa = PBXBuildFile; fileRef = EDDA5EB9165E1F030002B38A /* SinaWeiboAuthorizeView.m */; };
@@ -121,6 +132,22 @@
 		ED919377165CC0B400A488AF /* JHOModifyUserInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = JHOModifyUserInfoViewController.xib; path = Controllers/JHOModifyUserInfoViewController.xib; sourceTree = "<group>"; };
 		EDA88A12165B62C800805500 /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
 		EDA88A13165B62C800805500 /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
+		EDB1F72A165F251700FFD7F9 /* JHOAlternativeTargetsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JHOAlternativeTargetsViewController.h; path = Controllers/JHOAlternativeTargetsViewController.h; sourceTree = "<group>"; };
+		EDB1F72B165F251700FFD7F9 /* JHOAlternativeTargetsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JHOAlternativeTargetsViewController.m; path = Controllers/JHOAlternativeTargetsViewController.m; sourceTree = "<group>"; };
+		EDB1F72C165F251700FFD7F9 /* JHOAlternativeTargetsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = JHOAlternativeTargetsViewController.xib; path = Controllers/JHOAlternativeTargetsViewController.xib; sourceTree = "<group>"; };
+		EDB1F72F165F339500FFD7F9 /* IMG_0022.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = IMG_0022.JPG; path = Resources/IMG_0022.JPG; sourceTree = "<group>"; };
+		EDB1F736165F3A0600FFD7F9 /* JHOHabitsListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JHOHabitsListViewController.h; path = Controllers/JHOHabitsListViewController.h; sourceTree = "<group>"; };
+		EDB1F737165F3A0600FFD7F9 /* JHOHabitsListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JHOHabitsListViewController.m; path = Controllers/JHOHabitsListViewController.m; sourceTree = "<group>"; };
+		EDB1F738165F3A0600FFD7F9 /* JHOHabitsListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = JHOHabitsListViewController.xib; path = Controllers/JHOHabitsListViewController.xib; sourceTree = "<group>"; };
+		EDB1F73C165F3B8000FFD7F9 /* ButtonSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ButtonSelected.png; sourceTree = "<group>"; };
+		EDB1F73D165F3B8000FFD7F9 /* MenuBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MenuBar.png; sourceTree = "<group>"; };
+		EDB1F73E165F3B8000FFD7F9 /* MenuBar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MenuBar@2x.png"; sourceTree = "<group>"; };
+		EDB1F73F165F3B8000FFD7F9 /* MKHorizMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKHorizMenu.h; sourceTree = "<group>"; };
+		EDB1F740165F3B8000FFD7F9 /* MKHorizMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKHorizMenu.m; sourceTree = "<group>"; };
+		EDB1F783165F476100FFD7F9 /* JHONetworkHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JHONetworkHelper.h; path = Network/JHONetworkHelper.h; sourceTree = "<group>"; };
+		EDB1F784165F476100FFD7F9 /* JHONetworkHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JHONetworkHelper.m; path = Network/JHONetworkHelper.m; sourceTree = "<group>"; };
+		EDB1F788165F7F3500FFD7F9 /* JHOAppUserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JHOAppUserInfo.h; path = Model/JHOAppUserInfo.h; sourceTree = "<group>"; };
+		EDB1F789165F7F3500FFD7F9 /* JHOAppUserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JHOAppUserInfo.m; path = Model/JHOAppUserInfo.m; sourceTree = "<group>"; };
 		EDDA5EB5165E1F030002B38A /* SinaWeibo.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SinaWeibo.bundle; sourceTree = "<group>"; };
 		EDDA5EB6165E1F030002B38A /* SinaWeibo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SinaWeibo.h; sourceTree = "<group>"; };
 		EDDA5EB7165E1F030002B38A /* SinaWeibo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SinaWeibo.m; sourceTree = "<group>"; };
@@ -197,6 +224,8 @@
 		ED462ECA1658CC2000E53720 /* JustHoldOn */ = {
 			isa = PBXGroup;
 			children = (
+				EDB1F786165F7EF400FFD7F9 /* Model */,
+				EDB1F782165F473900FFD7F9 /* Network */,
 				ED462F721658EBC700E53720 /* View */,
 				ED462F711658EBB900E53720 /* Controllers */,
 				ED462ED31658CC2000E53720 /* JHOAppDelegate.h */,
@@ -220,6 +249,7 @@
 		ED462EDB1658CCE800E53720 /* ThirdParts */ = {
 			isa = PBXGroup;
 			children = (
+				EDB1F73B165F3B8000FFD7F9 /* MKHorizMenu */,
 				EDDA5EB4165E1F030002B38A /* SinaWeibo */,
 				ED91936E165CB23A00A488AF /* MBProgressHUD */,
 				ED919299165CA7BC00A488AF /* ASIHTTPRequest */,
@@ -254,6 +284,7 @@
 		ED462F041658D7F400E53720 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				EDB1F72F165F339500FFD7F9 /* IMG_0022.JPG */,
 				ED462F6B1658E93900E53720 /* homepagebackground.png */,
 				ED462F4C1658DB6000E53720 /* cell_background.png */,
 				ED462F4D1658DB6000E53720 /* cell_background@2x.png */,
@@ -286,6 +317,8 @@
 		ED462F711658EBB900E53720 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				EDB1F735165F39D400FFD7F9 /* HabitsList */,
+				EDB1F728165F24EA00FFD7F9 /* AlternativeTargets */,
 				ED919374165CC09800A488AF /* ModifyUserInfo */,
 				48A47A1F165A1CBB00DD878D /* LoginController */,
 				ED462F421658D8B200E53720 /* MyHomePage */,
@@ -380,6 +413,65 @@
 			path = ThirdParts/JSONKit;
 			sourceTree = "<group>";
 		};
+		EDB1F728165F24EA00FFD7F9 /* AlternativeTargets */ = {
+			isa = PBXGroup;
+			children = (
+				EDB1F72A165F251700FFD7F9 /* JHOAlternativeTargetsViewController.h */,
+				EDB1F72B165F251700FFD7F9 /* JHOAlternativeTargetsViewController.m */,
+				EDB1F72C165F251700FFD7F9 /* JHOAlternativeTargetsViewController.xib */,
+			);
+			name = AlternativeTargets;
+			sourceTree = "<group>";
+		};
+		EDB1F735165F39D400FFD7F9 /* HabitsList */ = {
+			isa = PBXGroup;
+			children = (
+				EDB1F736165F3A0600FFD7F9 /* JHOHabitsListViewController.h */,
+				EDB1F737165F3A0600FFD7F9 /* JHOHabitsListViewController.m */,
+				EDB1F738165F3A0600FFD7F9 /* JHOHabitsListViewController.xib */,
+			);
+			name = HabitsList;
+			sourceTree = "<group>";
+		};
+		EDB1F73B165F3B8000FFD7F9 /* MKHorizMenu */ = {
+			isa = PBXGroup;
+			children = (
+				EDB1F73C165F3B8000FFD7F9 /* ButtonSelected.png */,
+				EDB1F73D165F3B8000FFD7F9 /* MenuBar.png */,
+				EDB1F73E165F3B8000FFD7F9 /* MenuBar@2x.png */,
+				EDB1F73F165F3B8000FFD7F9 /* MKHorizMenu.h */,
+				EDB1F740165F3B8000FFD7F9 /* MKHorizMenu.m */,
+			);
+			name = MKHorizMenu;
+			path = ThirdParts/MKHorizMenu;
+			sourceTree = "<group>";
+		};
+		EDB1F782165F473900FFD7F9 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				EDB1F783165F476100FFD7F9 /* JHONetworkHelper.h */,
+				EDB1F784165F476100FFD7F9 /* JHONetworkHelper.m */,
+			);
+			name = Network;
+			sourceTree = "<group>";
+		};
+		EDB1F786165F7EF400FFD7F9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				EDB1F787165F7F1200FFD7F9 /* UserInfo */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		EDB1F787165F7F1200FFD7F9 /* UserInfo */ = {
+			isa = PBXGroup;
+			children = (
+				EDB1F788165F7F3500FFD7F9 /* JHOAppUserInfo.h */,
+				EDB1F789165F7F3500FFD7F9 /* JHOAppUserInfo.m */,
+			);
+			name = UserInfo;
+			sourceTree = "<group>";
+		};
 		EDDA5EB4165E1F030002B38A /* SinaWeibo */ = {
 			isa = PBXGroup;
 			children = (
@@ -460,6 +552,12 @@
 				48A47A25165A1CDC00DD878D /* JHOLoginViewController.xib in Resources */,
 				ED919379165CC0B400A488AF /* JHOModifyUserInfoViewController.xib in Resources */,
 				EDDA5EBD165E1F030002B38A /* SinaWeibo.bundle in Resources */,
+				EDB1F72E165F251700FFD7F9 /* JHOAlternativeTargetsViewController.xib in Resources */,
+				EDB1F730165F339500FFD7F9 /* IMG_0022.JPG in Resources */,
+				EDB1F73A165F3A0600FFD7F9 /* JHOHabitsListViewController.xib in Resources */,
+				EDB1F741165F3B8000FFD7F9 /* ButtonSelected.png in Resources */,
+				EDB1F742165F3B8000FFD7F9 /* MenuBar.png in Resources */,
+				EDB1F743165F3B8000FFD7F9 /* MenuBar@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -494,6 +592,11 @@
 				EDDA5EBE165E1F030002B38A /* SinaWeibo.m in Sources */,
 				EDDA5EBF165E1F030002B38A /* SinaWeiboAuthorizeView.m in Sources */,
 				EDDA5EC0165E1F030002B38A /* SinaWeiboRequest.m in Sources */,
+				EDB1F72D165F251700FFD7F9 /* JHOAlternativeTargetsViewController.m in Sources */,
+				EDB1F739165F3A0600FFD7F9 /* JHOHabitsListViewController.m in Sources */,
+				EDB1F744165F3B8000FFD7F9 /* MKHorizMenu.m in Sources */,
+				EDB1F785165F476100FFD7F9 /* JHONetworkHelper.m in Sources */,
+				EDB1F78A165F7F3500FFD7F9 /* JHOAppUserInfo.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

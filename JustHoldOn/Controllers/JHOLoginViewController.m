@@ -9,19 +9,20 @@
 #import "JHOLoginViewController.h"
 #import "JHOMainFrameViewController.h"
 #import "JHOAppDelegate.h"
+#import "JHOModifyUserInfoViewController.h"
 
 @interface JHOLoginViewController ()
-
+{
+}
 @end
 
 @implementation JHOLoginViewController
-
+@synthesize sinaWeibo = _sinaWeibo;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        self.navigationController.navigationBarHidden = YES;
     }
     return self;
 }
@@ -38,10 +39,13 @@
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
 }
-
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBarHidden = YES;
+}
 - (void)dealloc
 {
-
     [super dealloc];
 }
 
@@ -65,10 +69,11 @@
 - (void)storeAuthData
 {   
     NSDictionary *authData = [NSDictionary dictionaryWithObjectsAndKeys:
-                              sinaWeibo.accessToken, @"AccessTokenKey",
-                              sinaWeibo.expirationDate, @"ExpirationDateKey",
-                              sinaWeibo.userID, @"UserIDKey",
-                              sinaWeibo.refreshToken, @"refresh_token", nil];
+                              _sinaWeibo.accessToken, @"AccessTokenKey",
+                              _sinaWeibo.expirationDate, @"ExpirationDateKey",
+                              _sinaWeibo.userID, @"UserIDKey",
+                              _sinaWeibo.refreshToken, @"refresh_token", nil];
+    NSLog(@"%@ store %@",_sinaWeibo.accessToken, [authData objectForKey:@"AccessTokenKey"]);
     [[NSUserDefaults standardUserDefaults] setObject:authData forKey:@"SinaWeiboAuthData"];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
@@ -77,8 +82,12 @@
 
 - (void)sinaweiboDidLogIn:(SinaWeibo *)sinaweibo
 {
-    NSLog(@"sinaweiboDidLogIn userID = %@ accesstoken = %@ expirationDate = %@ refresh_token = %@", sinaweibo.userID, sinaweibo.accessToken, sinaweibo.expirationDate,sinaweibo.refreshToken);
+    NSLog(@"sinaweiboDidLogIn userID = %@ accesstoken = %@ expirationDate = %@ refresh_token = %@", _sinaWeibo.userID, _sinaWeibo.accessToken, _sinaWeibo.expirationDate, _sinaWeibo.refreshToken);
     [self storeAuthData];
+    JHOModifyUserInfoViewController *modifyHelper = [[JHOModifyUserInfoViewController alloc] initWithNibName:@"JHOModifyUserInfoViewController" bundle:nil];
+    [self.navigationController pushViewController:modifyHelper animated:YES];
+    [modifyHelper release];
+    //[self presentModalViewController:modifyHelper animated:YES];
 }
 
 - (void)sinaweiboDidLogOut:(SinaWeibo *)sinaweibo

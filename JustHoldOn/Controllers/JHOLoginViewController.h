@@ -13,7 +13,6 @@
 @interface JHOLoginViewController : UIViewController
 {
     NSDictionary *userInfo;
-    SinaWeibo *sinaWeibo;
 }
 @property (nonatomic, strong) SinaWeibo *sinaWeibo;
 @end

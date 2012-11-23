@@ -15,4 +15,6 @@
 @property (readonly, nonatomic) SinaWeibo *sinaweibo;
 - (BOOL)handleOpenURL:(NSURL *)url;
 - (void)applicationDidBecomeActive;
+- (void)initializeViewControllers;
+- (void)changeCenterControllerAtIndex:(NSInteger) index;
 @end

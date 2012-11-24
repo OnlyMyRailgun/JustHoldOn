@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MBProgressHUD.h"
+#import "JHOBaseWebViewController.h"
 
-@interface JHOModifyUserInfoViewController : UIViewController<MBProgressHUDDelegate>
+@interface JHOModifyUserInfoViewController : JHOBaseWebViewController<UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, NetworkTaskDelegate>
 @property (retain, nonatomic) IBOutlet UITextField *userName;
 @property (retain, nonatomic) IBOutlet UIImageView *avatar;
 @property (retain, nonatomic) IBOutlet UITextView *descriptionTextView;
+@property (retain, nonatomic) IBOutlet UILabel *gender;
 @end

@@ -24,8 +24,14 @@
         UIBarButtonItem *rightBarBtn = [[UIBarButtonItem alloc] initWithTitle:@"完成" style:UIBarButtonSystemItemDone target:self action:@selector(showMainFrameHabits)];
         self.navigationItem.rightBarButtonItem = rightBarBtn;
         [rightBarBtn release];
+        networkDelegate = self;
     }
     return self;
+}
+
+- (void)initializeDelegateAndSoOn
+{
+    
 }
 
 - (void)viewDidLoad
@@ -51,5 +57,18 @@
     JHOMainFrameViewController *viewDeck = (JHOMainFrameViewController *)self.viewDeckController;
     [viewDeck initializeViewControllers];
     [viewDeck changeCenterControllerAtIndex:1];
+}
+
+#pragma mark -
+#pragma mark - NetworkTaskDelegate
+
+- (NSDictionary *)networkJob:(JHONetworkHelper *)helper
+{
+    return [helper getGoalLib];
+}
+
+- (void)taskDidSuccess:(NSDictionary *)result
+{
+    NSLog(@"%@", result);
 }
 @end

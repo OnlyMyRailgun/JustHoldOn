@@ -7,15 +7,13 @@
 //
 
 #import "JHONetworkHelper.h"
-#import "ASIHTTPRequest.h"
-#import "ASIFormDataRequest.h"
 #import "JSONKit.h"
 #import "JHOAppUserInfo.h"
+#import "JHOAppDelegate.h"
+#import "JHOTinyTools.h"
 
 @implementation JHONetworkHelper
 {
-    ASIHTTPRequest *httpRequest;
-    ASIFormDataRequest *formDataRequest;
     NSURL *url;
 }
 
@@ -36,6 +34,9 @@
             break;
         case NEGetGoalLib:
             [str appendString:@"getGoalLib"];
+            break;
+        case NEChooseGoal:
+            [str appendString:@"chooseGoal"];
             break;
         default:
             break;
@@ -65,26 +66,27 @@
  content.avatarurl	头像	字符串
  content.sex	性别	字符串
  content.description	描述	字符串
- 
  */
-- (NSDictionary *)registerWithWeiboWithRemoteToken:(NSString *)remoteToken andAccessToken:(NSString *)accessToken
+
+- (NSDictionary *)registerWithWeiboAccessToken:(NSString *)accessToken
 {
-    formDataRequest = [ASIFormDataRequest requestWithURL:[self getCompleteURL:NEUserSocialLogin]];
-    [formDataRequest setPostValue:@"1" forKey:@"type"];
-    [formDataRequest setPostValue:remoteToken forKey:@"deviceid"];
-    [formDataRequest setPostValue:accessToken forKey:@"key"];
+    JHOAppDelegate *appDelegate = (JHOAppDelegate *)[[UIApplication sharedApplication] delegate];
+    NSString *remoteToken = appDelegate.globalDeviceToken;
+    _formDataRequest = [ASIFormDataRequest requestWithURL:[self getCompleteURL:NEUserSocialLogin]];
+    [_formDataRequest setPostValue:@"1" forKey:@"type"];
+    [_formDataRequest setPostValue:remoteToken forKey:@"deviceid"];
+    [_formDataRequest setPostValue:accessToken forKey:@"key"];
     
-    [formDataRequest startSynchronous];
-    NSError *error = [formDataRequest error];
+    [_formDataRequest startSynchronous];
+    NSError *error = [_formDataRequest error];
     NSDictionary *parsedDic = nil;
     if (!error) {
-        NSString *response = [formDataRequest responseString];
+        NSString *response = [_formDataRequest responseString];
         NSLog(@"registerWithWeibo res:%@", response);
         parsedDic = [response objectFromJSONStringWithParseOptions:JKParseOptionLooseUnicode];
-        NSLog(@"content:%@", [parsedDic objectForKey:@"content"]);
     }
     else
-        NSLog(@"%@",error);
+        [JHONetworkHelper showAlertView:error];
 //#warning Incomplete error handler.
     return parsedDic;
 }
@@ -106,57 +108,163 @@
  */
 - (void)uploadAvatarToServer
 {
-    formDataRequest = [ASIFormDataRequest requestWithURL:[self getCompleteURL:NEModifyAvatar]];
+    _formDataRequest = [ASIFormDataRequest requestWithURL:[self getCompleteURL:NEModifyAvatar]];
     JHOAppUserInfo *infoHelper = [JHOAppUserInfo shared];
-    [formDataRequest setPostValue:infoHelper.userID forKey:@"uid"];
-    [formDataRequest setPostValue:infoHelper.userPsw forKey:@"password"];
-    [formDataRequest setFile:@"/Users/Heartunderblade/Desktop/ben.jpg"  forKey:@"file"];
+    [_formDataRequest setPostValue:infoHelper.userID forKey:@"uid"];
+    [_formDataRequest setPostValue:infoHelper.userPsw forKey:@"password"];
+    [_formDataRequest setFile:[JHOTinyTools getFilePathInDocument:@"userAvatar.png"]  forKey:@"file"];
     
-    [formDataRequest setDelegate:self];
-    [formDataRequest startAsynchronous];
-    formDataRequest.tag = NEModifyAvatar;
+    [_formDataRequest setDelegate:self];
+    _formDataRequest.tag = NEModifyAvatar;
+    [_formDataRequest startAsynchronous];
 }
 
 /*
  *1.4	修改用户信息
  *method: modifyUserInfo
  *调用参数
- *参数	描 述	格 式
- *uid=value	用户唯一ID	字符串
- *password=value	密码	字符串
- **=value	要修改的内容	字符串
+ *uid	用户唯一ID   必选	字符串
+ *password	密码   必选	字符串
+ *username	用户名
+ *description	描述
  *返回项说明：
  *返回项	描 述	格 式
  *status	是否成功	0表示成功，其他为失败原因代码
  *msg	消息	“成功”，或失败原因
- *content	返回内容	“”
  *说明：调用参数部分uid 和password 是必选项，用于完成鉴权；
  *其余参数用于表示要修改的内容。
  */
-- (void)updateUserInfo
+- (NSDictionary *)updateUserInfo
 {
-    formDataRequest = [ASIFormDataRequest requestWithURL:[self getCompleteURL:NEModifyUserInfo]];
+    _formDataRequest = [ASIFormDataRequest requestWithURL:[self getCompleteURL:NEModifyUserInfo]];
     JHOAppUserInfo *infoHelper = [JHOAppUserInfo shared];
-    [formDataRequest setPostValue:infoHelper.userID forKey:@"uid"];
-    [formDataRequest setPostValue:infoHelper.userID forKey:@"password"];
-    [formDataRequest setPostValue:infoHelper.description forKey:@"description"];
-    
-    [formDataRequest setDelegate:self];
-    [formDataRequest startAsynchronous];
-    formDataRequest.tag = NEModifyUserInfo;
+    [_formDataRequest setPostValue:infoHelper.userID forKey:@"uid"];
+    [_formDataRequest setPostValue:infoHelper.userPsw forKey:@"password"];
+    [_formDataRequest setPostValue:infoHelper.userName forKey:@"username"];
+    [_formDataRequest setPostValue:infoHelper.userDescription forKey:@"description"];
+    [_formDataRequest setPostValue:infoHelper.gender forKey:@"sex"];
+    _formDataRequest.tag = NEModifyUserInfo;
+
+    [_formDataRequest startSynchronous];
+    NSError *error = [_formDataRequest error];
+    NSDictionary *parsedDic = nil;
+    if (!error) {
+        NSString *response = [_formDataRequest responseString];
+        NSLog(@"updateUserInfo res:%@", response);
+        parsedDic = [response objectFromJSONStringWithParseOptions:JKParseOptionLooseUnicode];
+    }
+    else
+        [JHONetworkHelper showAlertView:error];
+    return parsedDic;
 }
 
+/*2.3	获得目标库
+ *Method：getGoalLib
+
+ *调用参数
+ *参数	描 述	格 式
+ *maxnum	获取目标最大数量	默认20
+ *gettype	获取类型	“1”按分类 “2”全部
+ *typevalue	获取类型值	字符串 全部此处为空 若按分类来，此处为分类名（”f”-女,”m”-男）
+ *startpos	查找起始位	第一次请求，起始位为”0” 之后的请求，为上一次请求的最后一个位置
+ *sorttype	排序方式	“0”不排序 “1”按参加人数 …可扩展
+
+ *返回项说明：
+ *返回项	描 述	格 式
+ *status	是否成功	“0”成功
+ *msg	消息	字符串
+ *content	返回内容	JSONObject
+ *content.resultnum	返回结果数	数字
+ *content.list	目标数组	数组
+ *list.id		字符串
+ *list.content
+ *list.type
+ */
+- (NSDictionary *)getGoalLib
+{
+    _formDataRequest = [ASIFormDataRequest requestWithURL:[self getCompleteURL:NEGetGoalLib]];
+    [_formDataRequest setPostValue:@"50" forKey:@"maxum"];
+    [_formDataRequest setPostValue:@"1" forKey:@"gettype"];
+    [_formDataRequest setPostValue:@"all" forKey:@"typevalue"];
+    [_formDataRequest setPostValue:@"0" forKey:@"startpos"];
+    [_formDataRequest setPostValue:@"1" forKey:@"sorttype"];
+
+    [_formDataRequest startSynchronous];
+    NSError *error = [_formDataRequest error];
+    NSDictionary *parsedDic = nil;
+    if (!error) {
+        NSString *response = [_formDataRequest responseString];
+        parsedDic = [response objectFromJSONStringWithParseOptions:JKParseOptionLooseUnicode];
+    }
+    else
+        [JHONetworkHelper showAlertView:error];
+    //#warning Incomplete error handler.
+    return parsedDic;
+}
+
+/*
+2.4	选择目标
+Method：chooseGoal
+
+调用参数
+参数	描 述	格 式
+uid	用户唯一ID	字符串
+password	密码	字符串
+goalid	目标id	逗号分割
+habitmaxnum	返回推荐的习惯数目	字符串 默认20
+startpos	获取推荐习惯起始位	第一次请求，起始位为”0” 之后的请求，为上一次请求的最后一个位置
+
+返回项说明：
+返回项	描 述	格 式
+status	是否成功	成功”0”
+msg	消息	“成功”，或失败原因
+content	返回内容	JSONObject
+content.resultnum	返回结果数	数字
+content.list	习惯数组	数组
+list.id	习惯id	字符串
+list.name	习惯名称
+list.creater	习惯创建者
+list.tag	习惯标签
+list.type	类型类别	数字 0-系统 1 自定义
+list.stages	阶段	字符串以逗号分割 “11,22,33”三个阶段 一阶段11天 二阶段22天 ；三阶段33天
+list.groupname	习惯分组名	字符串 减肥等等
+list.joinnum	全部参加人数	数字
+list.friendjoinnum	好友参加人数	数字
+list.description	描述
+ */
+- (NSDictionary *)chooseGoal:(NSString *)goalStr
+{
+    _formDataRequest = [ASIFormDataRequest requestWithURL:[self getCompleteURL:NEGetGoalLib]];
+    [_formDataRequest setPostValue:[JHOAppUserInfo shared].userID forKey:@"uid"];
+    [_formDataRequest setPostValue:[JHOAppUserInfo shared].userPsw forKey:@"password"];
+    [_formDataRequest setPostValue:goalStr forKey:@"goalid"];
+    [_formDataRequest setPostValue:@"20" forKey:@"habimaxnum"];
+    [_formDataRequest setPostValue:@"0" forKey:@"startpos"];
+    
+    [_formDataRequest startSynchronous];
+    NSError *error = [_formDataRequest error];
+    NSDictionary *parsedDic = nil;
+    if (!error) {
+        NSString *response = [_formDataRequest responseString];
+        parsedDic = [response objectFromJSONStringWithParseOptions:JKParseOptionLooseUnicode];
+    }
+    else
+        [JHONetworkHelper showAlertView:error];
+    //#warning Incomplete error handler.
+    return parsedDic;
+}
 - (void)requestFinished:(ASIHTTPRequest *)request
 {
     // Use when fetching text data
     NSString *responseString;
+    NSDictionary *parsedDic;
 //    // Use when fetching binary data
 //    NSData *responseData = [request responseData];
     
     switch (request.tag) {
         case NEModifyAvatar:
             responseString = [request responseString];
-            NSDictionary *parsedDic = [responseString objectFromJSONStringWithParseOptions:JKParseOptionLooseUnicode];
+            parsedDic = [responseString objectFromJSONStringWithParseOptions:JKParseOptionLooseUnicode];
             if([[parsedDic objectForKey:@"status"] isEqualToString:@"0"])
             {
                 //upload avatar success
@@ -164,10 +272,21 @@
             else
             {
                 //upload avatar fail
-                NSLog(@"%@", [parsedDic objectForKey:@"msg"]);
+                NSLog(@"upload avatar fail %@", [parsedDic objectForKey:@"msg"]);
             }
             break;
         case NEModifyUserInfo:
+            responseString = [request responseString];
+            parsedDic = [responseString objectFromJSONStringWithParseOptions:JKParseOptionLooseUnicode];
+            if([[parsedDic objectForKey:@"status"] isEqualToString:@"0"])
+            {
+                //modify userInfo success
+            }
+            else
+            {
+                //modify userInfo fail
+                NSLog(@"modify userInfo fail %@", [parsedDic objectForKey:@"msg"]);
+            }
             break;
         default:
             break;

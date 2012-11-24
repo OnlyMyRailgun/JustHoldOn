@@ -30,21 +30,32 @@ static JHOAppUserInfo *sharedAppUserInfo = nil;
     self.userID = [appUserInfo objectForKey:@"uid"];
     self.userName = [appUserInfo objectForKey:@"username"];
     self.userPsw = [appUserInfo objectForKey:@"password"];
-    self.avataURL = [appUserInfo objectForKey:@"avataurl"];
+    self.avatarURL = [appUserInfo objectForKey:@"avataurl"];
     self.gender = [appUserInfo objectForKey:@"sex"];
-    self.description = [appUserInfo objectForKey:@"description"];
+    self.userDescription = [appUserInfo objectForKey:@"description"];
+    self.alreadyregist = [appUserInfo objectForKey:@"alreadyregist"];
 }
 
-- (void)saveUserInfo:(NSDictionary *)dic
+- (void)modifyUserInfo:(NSDictionary *)appUserInfo
 {
-    [[NSUserDefaults standardUserDefaults] setObject:dic forKey:@"AppUserData"];
-    [[NSUserDefaults standardUserDefaults] synchronize];
+    self.userID = [appUserInfo objectForKey:@"uid"];
+    self.userName = [appUserInfo objectForKey:@"username"];
+    self.userPsw = [appUserInfo objectForKey:@"password"];
+    self.avatarURL = [appUserInfo objectForKey:@"avataurl"];
+    self.gender = [appUserInfo objectForKey:@"sex"];
+    self.userDescription = [appUserInfo objectForKey:@"description"];
+    self.alreadyregist = [appUserInfo objectForKey:@"alreadyregist"];
 }
 
 - (void)saveToNSDefault
 {
-    NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:self.userID,@"uid",self.userName,@"username",self.userPsw,@"password",self.avataURL,@"avataurl",self.gender,@"sex",self.description,@"description", nil];
-    [self saveUserInfo:dic];
+    NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:self.userID,@"uid",self.userName,@"username",self.userPsw,@"password",self.avatarURL,@"avataurl",self.gender,@"sex",self.description,@"description",self.alreadyregist,@"alreadyregist", nil];
+    [[NSUserDefaults standardUserDefaults] setObject:dic forKey:@"AppUserData"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
+- (void)removeUserInfo
+{
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"AppUserData"];
+}
 @end

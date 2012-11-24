@@ -12,6 +12,7 @@
 #import "JHOLoginViewController.h"
 #import "JHOHabitsListViewController.h"
 #import "SinaWeibo.h"
+#import "JHOAppUserInfo.h"
 
 
 #define kAppKey             @"1481623116"
@@ -83,6 +84,21 @@
             self.centerController = habitsListViewController;
             break;
         }
+        case 3:
+            [self closeLeftView];
+            [[JHOAppUserInfo shared] removeUserInfo];
+            JHOLoginViewController *loginViewController = [[JHOLoginViewController alloc] init];
+            [self initializeSinaWeiboWithDelegate:loginViewController];
+            loginViewController.sinaWeibo = _sinaweibo;
+            UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:loginViewController];
+            [loginViewController.sinaWeibo logOut];
+            [loginViewController release];
+            self.centerController = nav;
+            [nav release];
+            self.leftController = nil;
+            self.rightController = nil;
+
+            break;
         default:
             break;
     }

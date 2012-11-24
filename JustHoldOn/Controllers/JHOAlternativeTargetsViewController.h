@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "JHOBaseWebViewController.h"
 
-@interface JHOAlternativeTargetsViewController : UIViewController
+@interface JHOAlternativeTargetsViewController : JHOBaseWebViewController<NetworkTaskDelegate>
 
 @end

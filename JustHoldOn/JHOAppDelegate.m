@@ -24,6 +24,7 @@
 - (void)dealloc
 {
     [_downloadCache release];
+    [_globalDeviceToken release];
     [_viewDeck release];
     [_window release];
     [super dealloc];
@@ -39,6 +40,10 @@
 
     //设置缓存策略
     [self setupDownloadCacheStrategy];
+    
+    // Let the device know we want to recieve push notifications
+	[[UIApplication sharedApplication] registerForRemoteNotificationTypes:
+     (UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
     
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
@@ -114,6 +119,7 @@
 - (void)application:(UIApplication*)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData*)deviceToken
 {
 	NSLog(@"My token is: %@", deviceToken);
+    self.globalDeviceToken = [[NSString stringWithFormat:@"%@",deviceToken] stringByReplacingOccurrencesOfString:@" " withString:@""];;
 }
 
 - (void)application:(UIApplication*)application didFailToRegisterForRemoteNotificationsWithError:(NSError*)error

@@ -11,6 +11,7 @@
 #import "ASIFormDataRequest.h"
 #import "JHONetworkHelper.h"
 #import "JHOAppUserInfo.h"
+#import "JHOTinyTools.h"
 
 @interface JHOModifyUserInfoViewController ()
 {
@@ -21,27 +22,26 @@
 @implementation JHOModifyUserInfoViewController
 @synthesize avatar = _avatar;
 @synthesize descriptionTextView = _descriptionTextView;
+@synthesize gender = _gender;
 @synthesize userName = _userName;
 - (void)viewDidLoad
 {
+    networkDelegate = self;
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.navigationController.navigationBarHidden = NO;
-    self.title = @"Loading";
-    UIBarButtonItem *rightBarBtn = [[UIBarButtonItem alloc] initWithTitle:@"下一步" style:UIBarButtonItemStyleBordered target:self action:@selector(showAlternativeTargets)];
-    self.navigationItem.rightBarButtonItem = rightBarBtn;
-    [rightBarBtn release];
 }
 
-- (void)viewDidAppear:(BOOL)animated
+- (void)initializeDelegateAndSoOn
 {
-    HUD = [[MBProgressHUD alloc] initWithView:self.view];
-	[self.navigationController.view addSubview:HUD];
-	
-	HUD.delegate = self;
-	HUD.labelText = @"Loading";
-	
-	[HUD showWhileExecuting:@selector(myTask) onTarget:self withObject:nil animated:YES];
+    self.navigationController.navigationBarHidden = NO;
+    self.title = @"Loading";
+    UIBarButtonItem *rightBarBtn = [[UIBarButtonItem alloc] initWithTitle:@"下一步" style:UIBarButtonItemStyleBordered target:self action:@selector(nextStepPressed)];
+    self.navigationItem.rightBarButtonItem = rightBarBtn;
+    [rightBarBtn release];
+    
+    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(changeAvataPressed)];
+    [_avatar addGestureRecognizer:singleTap];
+    [singleTap release];
 }
 
 - (void)viewDidUnload
@@ -49,6 +49,7 @@
     [self setUserName:nil];
     [self setAvatar:nil];
     [self setDescriptionTextView:nil];
+    [self setGender:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -63,30 +64,69 @@
     [_userName release];
     [_avatar release];
     [_descriptionTextView release];
+    [_gender release];
     [super dealloc];
 }
 
-- (void)myTask {
-	// Do something usefull in here instead of sleeping ...
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSDictionary *sinaWeiboAuthInfo = [defaults objectForKey:@"SinaWeiboAuthData"];
-    JHONetworkHelper *helper = [[JHONetworkHelper alloc] init];
-    NSLog(@"%@", [sinaWeiboAuthInfo objectForKey:@"AccessTokenKey"]);
-    NSDictionary *userInfo = [helper registerWithWeiboWithRemoteToken:@"" andAccessToken:[sinaWeiboAuthInfo objectForKey:@"AccessTokenKey"]];
-    [helper release];
-    if(userInfo != nil)
+
+- (void)changeAvataPressed
+{
+    UIActionSheet *changePhotoSheet = [[UIActionSheet alloc] initWithTitle:@"更改头像" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"拍照", @"从相册选取", nil];
+    [changePhotoSheet setActionSheetStyle:UIActionSheetStyleBlackTranslucent];
+    [changePhotoSheet showInView:self.view.window];
+
+    [changePhotoSheet release];
+}
+
+- (void)refreshMainThreadUI
+{
+    self.title = [JHOAppUserInfo shared].userName;
+    _userName.text = [JHOAppUserInfo shared].userName;
+    [_avatar setImage:[UIImage imageNamed:@"IMG_0022.JPG"]];
+    _descriptionTextView.text = [JHOAppUserInfo shared].description;
+    if([[JHOAppUserInfo shared].gender isEqualToString:@"m"])
+        _gender.text = @"男";
+    else if ([[JHOAppUserInfo shared].gender isEqualToString:@"f"])
+        _gender.text = @"女";
+}
+
+- (void)nextStepPressed
+{
+    [_userName resignFirstResponder];
+    [_descriptionTextView resignFirstResponder];
+    [JHOAppUserInfo shared].userName = self.userName.text;
+    [JHOAppUserInfo shared].userDescription = self.descriptionTextView.text;
+    if(!HUD)
     {
-        if([[userInfo objectForKey:@"status"] isEqualToString:@"成功"])
+        HUD = [[MBProgressHUD alloc] initWithView:self.view];
+        [self.navigationController.view addSubview:HUD];
+        
+        HUD.delegate = self;
+        HUD.labelText = @"Loading";
+    }
+    [HUD showWhileExecuting:@selector(uploadMyInfo) onTarget:self withObject:nil animated:YES];
+    [self showAlternativeTargets];
+}
+
+- (void)uploadMyInfo
+{
+    NSDictionary *resultDic = [networkHelper updateUserInfo];
+    if(resultDic != nil)
+    {
+        if([[resultDic objectForKey:@"status"] isEqualToString:@"0"])
         {
-            [[JHOAppUserInfo shared] saveUserInfo:[userInfo objectForKey:@"content"]];
-            if (![NSThread isMainThread]) {
-                [self performSelectorOnMainThread:@selector(refreshMainThreadUI) withObject:nil waitUntilDone:NO];
-            }
+            HUD.customView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"37x-Checkmark.png"]] autorelease];
+            
+            // Set custom view mode
+            HUD.mode = MBProgressHUDModeCustomView;
+            HUD.labelText = @"Completed";
+            sleep(1);
+            [[JHOAppUserInfo shared] saveToNSDefault];
         }
         else
         {
             HUD.mode = MBProgressHUDModeText;
-            HUD.labelText = [userInfo objectForKey:@"msg"];
+            HUD.labelText = [resultDic objectForKey:@"msg"];
             HUD.margin = 10.f;
             HUD.yOffset = 150.f;
             
@@ -94,7 +134,7 @@
         }
     }
     else
-    {       
+    {
         // Configure for text only and offset down
         HUD.mode = MBProgressHUDModeText;
         HUD.labelText = @"服务器连接异常";
@@ -105,32 +145,80 @@
     }
 }
 
-- (void)refreshMainThreadUI
-{
-    self.title = [JHOAppUserInfo shared].userName;
-    self.userName.text = [JHOAppUserInfo shared].userName;
-    [self.avatar setImage:[UIImage imageNamed:@"IMG_0022.JPG"]];
-    self.descriptionTextView.text = [JHOAppUserInfo shared].description;
-}
-
 - (void)showAlternativeTargets
 {
-    [JHOAppUserInfo shared].userName = self.userName.text;
-    [JHOAppUserInfo shared].description = self.descriptionTextView.text;
-    [[JHOAppUserInfo shared] saveToNSDefault];
-    
     JHOAlternativeTargetsViewController *alternativeTargetsHelper = [[JHOAlternativeTargetsViewController alloc] initWithNibName:@"JHOAlternativeTargetsViewController" bundle:nil];
     [self.navigationController pushViewController:alternativeTargetsHelper animated:YES];
     [alternativeTargetsHelper release];
 }
 
 #pragma mark -
-#pragma mark MBProgressHUDDelegate methods
+#pragma mark - NetworkTaskDelegate
+- (NSDictionary *)networkJob:(JHONetworkHelper *)helper
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSDictionary *sinaWeiboAuthInfo = [defaults objectForKey:@"SinaWeiboAuthData"];
+    NSLog(@"%@", [sinaWeiboAuthInfo objectForKey:@"AccessTokenKey"]);
+    return [networkHelper registerWithWeiboAccessToken:[sinaWeiboAuthInfo objectForKey:@"AccessTokenKey"]];
+    
+}
 
-- (void)hudWasHidden:(MBProgressHUD *)hud {
-	// Remove HUD from screen when the HUD was hidded
-	[HUD removeFromSuperview];
-	[HUD release];
-	HUD = nil;
+- (void)taskDidSuccess:(NSDictionary *)result
+{
+    [[JHOAppUserInfo shared] modifyUserInfo:result];
+    [self performSelectorOnMainThread:@selector(refreshMainThreadUI) withObject:nil waitUntilDone:NO];
+}
+
+#pragma mark -
+#pragma mark - UIActionSheetDelegate
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    picker.delegate = self;
+    [picker setAllowsEditing:YES];
+    
+    if(buttonIndex == 0)
+    {
+        if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+            picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+            picker.cameraCaptureMode = UIImagePickerControllerCameraCaptureModePhoto;
+            [self presentModalViewController:picker animated:YES];
+        }
+    }
+    else if (buttonIndex == 1) {
+        if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]) {
+            picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+            [self presentModalViewController:picker animated:YES];
+            
+        }
+    }
+    [picker release];
+}
+
+#pragma mark -
+#pragma mark - ImagePickerControllerDelegate
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    NSString *mediaType = [info objectForKey:UIImagePickerControllerMediaType];
+    if ([mediaType isEqualToString:@"public.image"]){
+        UIImage *image = [info objectForKey:@"UIImagePickerControllerEditedImage"];
+        NSLog(@"found an image");
+        UIImage *updateImage = [JHOTinyTools scaleFromImage:image toSize:CGSizeMake(200.0f, 200.0f)];
+        [self.avatar setImage:updateImage];
+        [JHOTinyTools saveAvatarPhoto:updateImage];
+        [self uploadPhotoAfterPick];
+    }
+    [picker dismissModalViewControllerAnimated:YES];
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+    [picker dismissModalViewControllerAnimated:YES];
+}
+
+//In thread
+- (void) uploadPhotoAfterPick
+{
+    [networkHelper uploadAvatarToServer];
 }
 @end

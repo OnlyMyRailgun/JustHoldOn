@@ -73,7 +73,6 @@
                               _sinaWeibo.expirationDate, @"ExpirationDateKey",
                               _sinaWeibo.userID, @"UserIDKey",
                               _sinaWeibo.refreshToken, @"refresh_token", nil];
-    NSLog(@"%@ store %@",_sinaWeibo.accessToken, [authData objectForKey:@"AccessTokenKey"]);
     [[NSUserDefaults standardUserDefaults] setObject:authData forKey:@"SinaWeiboAuthData"];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }

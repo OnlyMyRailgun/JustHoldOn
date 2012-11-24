@@ -9,6 +9,7 @@
 #import "JHOSlideMenuViewController.h"
 #import "JHOSlideViewTableCell.h"
 #import "JHOMainFrameViewController.h"
+#import "JHOAppUserInfo.h"
 
 @interface JHOSlideMenuViewController ()
 {
@@ -36,7 +37,7 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    menuTitles = [[NSArray alloc] initWithObjects:@"一方通行", @"习惯列表", @"好友界面", @"设置", nil];
+    menuTitles = [[NSArray alloc] initWithObjects:[JHOAppUserInfo shared].userName, @"习惯列表", @"好友界面", @"设置", nil];
 }
 
 - (void)viewDidUnload

@@ -15,6 +15,7 @@
 #define kAppKey             @"1481623116"
 #define kAppSecret          @"308f792a8a1f7ca244da5c81d3a8798b"
 #define kAppRedirectURI     @"https://api.weibo.com/oauth2/default.html"
+#define OperationQueue_Max 6
 
 @implementation JHOAppDelegate
 
@@ -37,6 +38,12 @@
     
     _viewDeck= [[JHOMainFrameViewController alloc] init];
     self.window.rootViewController = _viewDeck;
+
+    //设置队列
+    NSOperationQueue *_queue = [[NSOperationQueue alloc] init];
+	[_queue setMaxConcurrentOperationCount:OperationQueue_Max];
+	self.theOperationQueue = _queue;
+	[_queue release];
 
     //设置缓存策略
     [self setupDownloadCacheStrategy];

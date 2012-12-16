@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "JHOBaseWebViewController.h"
 
+#define UIImageWithBundlePNG(x) ([UIImage imageWithContentsOfFile: [[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:(x)] ofType:@"png"]])
+
 @interface JHOAlternativeTargetsViewController : JHOBaseWebViewController<NetworkTaskDelegate>
 
 @end

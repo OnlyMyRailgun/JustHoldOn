@@ -37,7 +37,10 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    menuTitles = [[NSArray alloc] initWithObjects:[JHOAppUserInfo shared].userName, @"习惯列表", @"好友界面", @"设置", nil];
+    NSString *name = @"我的页面";
+    if([JHOAppUserInfo shared].userName)
+        name = [JHOAppUserInfo shared].userName;
+    menuTitles = [[NSArray alloc] initWithObjects:name, @"我的习惯", @"习惯列表", @"好友界面", @"设置", nil];
 }
 
 - (void)viewDidUnload

@@ -7,10 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "JHOAppDelegate.h"
 
 @interface JHOTinyTools : NSObject
 + (UIImage *) scaleFromImage: (UIImage *) image toSize: (CGSize) size;
 + (NSString *)getFilePathInDocument:(NSString *)name;
 + (BOOL)isFileExistInDocument:(NSString *)name;
 + (BOOL)saveAvatarPhoto:(UIImage *)image;
++ (NSOperationQueue *)theOperationQueue;
++ (NSString *)stringFromDate:(NSDate *)date;
 @end

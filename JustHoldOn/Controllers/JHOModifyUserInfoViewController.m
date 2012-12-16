@@ -29,6 +29,7 @@
     networkDelegate = self;
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    [networkDelegate networkJob:networkHelper];
 }
 
 - (void)initializeDelegateAndSoOn
@@ -110,39 +111,39 @@
 
 - (void)uploadMyInfo
 {
-    NSDictionary *resultDic = [networkHelper updateUserInfo];
-    if(resultDic != nil)
-    {
-        if([[resultDic objectForKey:@"status"] isEqualToString:@"0"])
-        {
-            HUD.customView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"37x-Checkmark.png"]] autorelease];
-            
-            // Set custom view mode
-            HUD.mode = MBProgressHUDModeCustomView;
-            HUD.labelText = @"Completed";
-            sleep(1);
-            [[JHOAppUserInfo shared] saveToNSDefault];
-        }
-        else
-        {
-            HUD.mode = MBProgressHUDModeText;
-            HUD.labelText = [resultDic objectForKey:@"msg"];
-            HUD.margin = 10.f;
-            HUD.yOffset = 150.f;
-            
-            sleep(2);
-        }
-    }
-    else
-    {
-        // Configure for text only and offset down
-        HUD.mode = MBProgressHUDModeText;
-        HUD.labelText = @"服务器连接异常";
-        HUD.margin = 10.f;
-        HUD.yOffset = 150.f;
-        
-        sleep(2);
-    }
+    [networkHelper updateUserInfo];
+//    if(resultDic != nil)
+//    {
+//        if([[resultDic objectForKey:@"status"] isEqualToString:@"0"])
+//        {
+//            HUD.customView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"37x-Checkmark.png"]] autorelease];
+//            
+//            // Set custom view mode
+//            HUD.mode = MBProgressHUDModeCustomView;
+//            HUD.labelText = @"Completed";
+//            sleep(1);
+//            [[JHOAppUserInfo shared] saveToNSDefault];
+//        }
+//        else
+//        {
+//            HUD.mode = MBProgressHUDModeText;
+//            HUD.labelText = [resultDic objectForKey:@"msg"];
+//            HUD.margin = 10.f;
+//            HUD.yOffset = 150.f;
+//            
+//            sleep(2);
+//        }
+//    }
+//    else
+//    {
+//        // Configure for text only and offset down
+//        HUD.mode = MBProgressHUDModeText;
+//        HUD.labelText = @"服务器连接异常";
+//        HUD.margin = 10.f;
+//        HUD.yOffset = 150.f;
+//        
+//        sleep(2);
+//    }
 }
 
 - (void)showAlternativeTargets
@@ -154,21 +155,24 @@
 
 #pragma mark -
 #pragma mark - NetworkTaskDelegate
-- (NSDictionary *)networkJob:(JHONetworkHelper *)helper
+- (void)networkJob:(JHONetworkHelper *)helper
 {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSDictionary *sinaWeiboAuthInfo = [defaults objectForKey:@"SinaWeiboAuthData"];
     NSLog(@"%@", [sinaWeiboAuthInfo objectForKey:@"AccessTokenKey"]);
-    return [networkHelper registerWithWeiboAccessToken:[sinaWeiboAuthInfo objectForKey:@"AccessTokenKey"]];
-    
+    [networkHelper registerWithWeiboAccessToken:[sinaWeiboAuthInfo objectForKey:@"AccessTokenKey"]];
 }
 
-- (void)taskDidSuccess:(NSDictionary *)result
+- (void)task:(NetworkRequestOperation)tag didSuccess:(NSDictionary *)result
 {
     [[JHOAppUserInfo shared] modifyUserInfo:result];
     [self performSelectorOnMainThread:@selector(refreshMainThreadUI) withObject:nil waitUntilDone:NO];
 }
 
+- (void)taskDidFailed:(NSString *)failedReason
+{
+    
+}
 #pragma mark -
 #pragma mark - UIActionSheetDelegate
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex

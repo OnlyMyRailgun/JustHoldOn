@@ -33,20 +33,20 @@
 	
 	HUD.delegate = self;
 	HUD.labelText = @"Loading";
+    HUD.margin = 10.f;
+    HUD.yOffset = 150.f;
 	
     if(networkDelegate)
         [networkDelegate initializeDelegateAndSoOn];
     
     networkHelper = [[JHONetworkHelper alloc] init];
 
-    if(networkDelegate)
-        [HUD showWhileExecuting:@selector(myTask) onTarget:networkDelegate withObject:nil animated:YES];
+//    if(networkDelegate)
+//        [HUD showWhileExecuting:@selector(myTask) onTarget:networkDelegate withObject:nil animated:YES];
 }
 
 - (void)dealloc
 {
-    [networkHelper.formDataRequest cancel];
-    [networkHelper.httpRequest cancel];
     [networkHelper release];
     
     [super dealloc];
@@ -65,33 +65,51 @@
 
 - (void)myTask {
 	// Do something usefull in here instead of sleeping ...
-    NSDictionary *resultDic = [networkDelegate networkJob:networkHelper];
-    if(resultDic != nil)
-    {
-        if([[resultDic objectForKey:@"status"] intValue] == 0)
-        {
-            [networkDelegate taskDidSuccess:[resultDic objectForKey:@"content"]];
-        }
-        else
-        {
-            HUD.mode = MBProgressHUDModeText;
-            HUD.labelText = [resultDic objectForKey:@"msg"];
-            HUD.margin = 10.f;
-            HUD.yOffset = 150.f;
-            
-            sleep(2);
-        }
-    }
-    else
-    {
-        // Configure for text only and offset down
-        HUD.mode = MBProgressHUDModeText;
-        HUD.labelText = @"服务器连接异常";
-        HUD.margin = 10.f;
-        HUD.yOffset = 150.f;
-        
-        sleep(2);
-    }
+//    [networkDelegate networkJob:networkHelper];
+//    if(resultDic != nil)
+//    {
+//        if([[resultDic objectForKey:@"status"] intValue] == 0)
+//        {
+//            [networkDelegate taskDidSuccess:[resultDic objectForKey:@"content"]];
+//        }
+//        else
+//        {
+//            HUD.mode = MBProgressHUDModeText;
+//            HUD.labelText = [resultDic objectForKey:@"msg"];
+//            HUD.margin = 10.f;
+//            HUD.yOffset = 150.f;
+//            
+//            sleep(2);
+//        }
+//    }
+//    else
+//    {
+//        // Configure for text only and offset down
+//        HUD.mode = MBProgressHUDModeText;
+//        HUD.labelText = @"服务器连接异常";
+//        HUD.margin = 10.f;
+//        HUD.yOffset = 150.f;
+//        
+//        sleep(2);
+//    }
+}
+
+- (void)createIndicator
+{
+	if(HUD != nil)
+		return;
+	
+	HUD = [[MBProgressHUD alloc] initWithView:self.view];
+	[self.view addSubview:HUD];
+}
+
+- (void)showIndicator
+{
+	[self createIndicator];
+	
+	[self.view bringSubviewToFront:HUD];
+	HUD.labelText = @"正在载入...";
+	[HUD show:YES];
 }
 
 #pragma mark -

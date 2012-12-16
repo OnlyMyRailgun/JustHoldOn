@@ -18,6 +18,8 @@
 
 @implementation JHOLoginViewController
 @synthesize sinaWeibo = _sinaWeibo;
+@synthesize galleryScrollView;
+@synthesize galleryPageControl;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -31,10 +33,46 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    [galleryScrollView setBackgroundColor:[UIColor blackColor]];
+    galleryScrollView.indicatorStyle = UIScrollViewIndicatorStyleWhite;
+    galleryScrollView.clipsToBounds = YES;     // default is NO, we want to restrict drawing within our scrollview
+    
+    //为scrollView添加手势
+    //代码来源：http://stackoverflow.com/questions/5042194/how-to-detect-touch-on-uiimageview-inside-uiscrollview
+    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTapGestureCaptured:)];
+    singleTap.cancelsTouchesInView = NO;
+    [galleryScrollView addGestureRecognizer:singleTap];
+    
+    //向scrollView中添加imageView
+    NSUInteger i;
+    for (i = 1; i <= 4; i++)
+    {
+        NSString *imageName = [NSString stringWithFormat:@"登陆页面.jpg"];
+        UIImage *image = [UIImage imageNamed:imageName];
+        UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
+        
+        //设置frame
+        CGRect rect = imageView.frame;
+        rect.size.height = 400;
+        rect.size.width = 320;
+        imageView.frame = rect;
+        imageView.tag = i;
+        imageView.contentMode = UIViewContentModeScaleAspectFill;
+        [galleryScrollView addSubview:imageView];
+        [imageView release];
+    }
+    
+    [self layoutScrollImages1]; //设置图片格式
+    
+    //定义pageControl
+    galleryPageControl.currentPage = 0;
+    galleryPageControl.numberOfPages = 4;
 }
 
 - (void)viewDidUnload
 {
+    [self setGalleryScrollView:nil];
+    [self setGalleryPageControl:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -46,6 +84,8 @@
 }
 - (void)dealloc
 {
+    [galleryScrollView release];
+    [galleryPageControl release];
     [super dealloc];
 }
 
@@ -109,5 +149,49 @@
 {
     NSLog(@"sinaweiboAccessTokenInvalidOrExpired %@", error);
     [self removeAuthData];
+}
+
+//设置图片的格式
+//代码来源：Apple官方例子Scrolling
+- (void)layoutScrollImages1
+{
+    UIImageView *view = nil;
+    NSArray *subviews = [galleryScrollView subviews];
+    
+    // reposition all image subviews in a horizontal serial fashion
+    CGFloat curXLoc = 0;
+    for (view in subviews)
+    {
+        if ([view isKindOfClass:[UIImageView class]] && view.tag > 0)
+        {
+            CGRect frame = view.frame;
+            frame.origin = CGPointMake(curXLoc, 0);
+            view.frame = frame;
+            
+            curXLoc += (320);
+        }
+    }
+    
+    // set the content size so it can be scrollable
+    [galleryScrollView setContentSize:CGSizeMake((4 * 320), [galleryScrollView bounds].size.height)];
+}
+
+
+//UIScrollViewDelegate方法
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)sView
+{
+        NSInteger index = fabs(sView.contentOffset.x) / sView.frame.size.width;
+        NSLog(@"%d",index);
+        [galleryPageControl setCurrentPage:index];
+}
+
+
+
+//UIScrollView响应gesture的action
+- (void)singleTapGestureCaptured:(UITapGestureRecognizer *)gesture
+{
+    CGPoint touchPoint=[gesture locationInView:galleryScrollView];
+    NSInteger index = touchPoint.x/320;
+    NSLog(@"%d selected", index);
 }
 @end

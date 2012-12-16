@@ -42,4 +42,29 @@
     NSFileManager *file_manager = [NSFileManager defaultManager];
     return [file_manager fileExistsAtPath:[JHOTinyTools getFilePathInDocument:name]];
 }
+
++ (JHOAppDelegate *)theDelegate
+{
+	return (JHOAppDelegate *)[UIApplication sharedApplication].delegate;
+}
+
++ (NSOperationQueue *)theOperationQueue
+{
+	return [[JHOTinyTools theDelegate] theOperationQueue];
+}
+
++ (NSString *)stringFromDate:(NSDate *)date
+{
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    
+    //zzz表示时区，zzz可以删除，这样返回的日期字符将不包含时区信息 +0000。
+    
+    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+    
+    NSString *destDateString = [dateFormatter stringFromDate:date];
+    
+    [dateFormatter release];
+    
+    return destDateString;
+}
 @end

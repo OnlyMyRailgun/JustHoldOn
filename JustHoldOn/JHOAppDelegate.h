@@ -19,5 +19,6 @@
 @property (nonatomic, retain) ASIDownloadCache	 *downloadCache;
 @property (strong, nonatomic) JHOMainFrameViewController *viewDeck;
 @property (nonatomic, retain) NSString *globalDeviceToken;
+@property (nonatomic, retain) NSOperationQueue* theOperationQueue;
 
 @end

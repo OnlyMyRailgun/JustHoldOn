@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "MKHorizMenu.h"
+#import "UITableViewCell+UITableViewCellExt.h"
 
-@interface JHOHabitsListViewController : UIViewController <MKHorizMenuDataSource, MKHorizMenuDelegate> {
+@interface JHOHabitsListViewController : UIViewController <MKHorizMenuDataSource, MKHorizMenuDelegate, UITableViewDelegate, UITableViewDataSource> {
     
     MKHorizMenu *_horizMenu;
     NSMutableArray *_items;
@@ -20,6 +21,7 @@
 @property (nonatomic, retain) IBOutlet MKHorizMenu *horizMenu;
 @property (nonatomic, retain) NSMutableArray *items;
 @property (nonatomic, assign) IBOutlet UILabel *selectionItemLabel;
+@property (retain, nonatomic) IBOutlet UITableView *habitsListTableView;
 
 + (JHOHabitsListViewController *)shared;
 @end

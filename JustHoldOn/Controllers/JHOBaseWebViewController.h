@@ -12,8 +12,9 @@
 
 @protocol NetworkTaskDelegate
 @required
-- (NSDictionary *)networkJob:(JHONetworkHelper *)helper;
-- (void)taskDidSuccess:(NSDictionary *)result;
+- (void)networkJob:(JHONetworkHelper *)helper;
+- (void)task:(NetworkRequestOperation)tag didSuccess:(NSDictionary *)result;
+- (void)taskDidFailed:(NSString *)failedReason;
 - (void)initializeDelegateAndSoOn;
 @end
 

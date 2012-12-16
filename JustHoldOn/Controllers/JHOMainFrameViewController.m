@@ -13,6 +13,7 @@
 #import "JHOHabitsListViewController.h"
 #import "SinaWeibo.h"
 #import "JHOAppUserInfo.h"
+#import "JHOMyHabitsViewController.h"
 
 
 #define kAppKey             @"1481623116"
@@ -32,11 +33,12 @@
         // Custom initialization
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         NSDictionary *appUserInfo = [defaults objectForKey:@"AppUserData"];
-        if ([appUserInfo objectForKey:@"username"] && [appUserInfo objectForKey:@"password"])
-        {
+//        if ([appUserInfo objectForKey:@"username"] && [appUserInfo objectForKey:@"password"])
+//        {
             [self initializeViewControllers];
             [self changeCenterControllerAtIndex:0];
-        }
+//        }
+/*****test****
         else
         {
             JHOLoginViewController *loginViewController = [[JHOLoginViewController alloc] init];
@@ -48,7 +50,7 @@
             [nav release];
             self.leftController = nil;
             self.rightController = nil;
-        }
+        }*/
         //properties
         self.centerhiddenInteractivity = IIViewDeckCenterHiddenNotUserInteractiveWithTapToClose;
         self.leftLedge = 86;
@@ -80,11 +82,22 @@
         }
         case 1:
         {
+            JHOMyHabitsViewController *myHabitsViewController = [JHOMyHabitsViewController shared];
+            self.centerController = myHabitsViewController;
+            break;
+        }
+        case 2:
+        {
             JHOHabitsListViewController *habitsListViewController = [JHOHabitsListViewController shared];
             self.centerController = habitsListViewController;
             break;
         }
         case 3:
+        {
+            
+            break;
+        }
+        case 4:
             [self closeLeftView];
             [[JHOAppUserInfo shared] removeUserInfo];
             JHOLoginViewController *loginViewController = [[JHOLoginViewController alloc] init];

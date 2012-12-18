@@ -25,7 +25,7 @@
 @end
 
 @implementation JHOMainFrameViewController
-
+@synthesize sinaweibo = _sinaweibo;
 - (id)init
 {
     if(self = [super init])
@@ -53,7 +53,7 @@
         }*/
         //properties
         self.centerhiddenInteractivity = IIViewDeckCenterHiddenNotUserInteractiveWithTapToClose;
-        self.leftLedge = 86;
+        self.leftLedge = 52;
     }
     return self;
 }

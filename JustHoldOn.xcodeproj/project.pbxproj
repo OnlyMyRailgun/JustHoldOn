@@ -35,6 +35,11 @@
 		ED462F761658EBF000E53720 /* JHOSlideViewTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED462F751658EBF000E53720 /* JHOSlideViewTableCell.m */; };
 		ED65755C1671EA9C004D2A6D /* JHOCheckIn.m in Sources */ = {isa = PBXBuildFile; fileRef = ED65755B1671EA9C004D2A6D /* JHOCheckIn.m */; };
 		ED6575601671EAF7004D2A6D /* JHOHabitModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ED65755F1671EAF7004D2A6D /* JHOHabitModel.m */; };
+		ED682A5F1680667700789555 /* JHODetailHabitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED682A5D1680667700789555 /* JHODetailHabitViewController.m */; };
+		ED682A601680667700789555 /* JHODetailHabitViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED682A5E1680667700789555 /* JHODetailHabitViewController.xib */; };
+		ED682A6816806A1400789555 /* detailhabit_btnViewBg.png in Resources */ = {isa = PBXBuildFile; fileRef = ED682A6716806A1400789555 /* detailhabit_btnViewBg.png */; };
+		ED682A6A16806ACF00789555 /* detailhabitBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = ED682A6916806ACF00789555 /* detailhabitBtn.png */; };
+		ED682A6C16806D8300789555 /* detailhabit_testLabel.png in Resources */ = {isa = PBXBuildFile; fileRef = ED682A6B16806D8300789555 /* detailhabit_testLabel.png */; };
 		ED9192EF165CA7BC00A488AF /* ASIAuthenticationDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = ED91929B165CA7BC00A488AF /* ASIAuthenticationDialog.m */; };
 		ED9192F0165CA7BC00A488AF /* ASIDataCompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = ED91929E165CA7BC00A488AF /* ASIDataCompressor.m */; };
 		ED9192F1165CA7BC00A488AF /* ASIDataDecompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = ED9192A0165CA7BC00A488AF /* ASIDataDecompressor.m */; };
@@ -54,7 +59,6 @@
 		ED919379165CC0B400A488AF /* JHOModifyUserInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED919377165CC0B400A488AF /* JHOModifyUserInfoViewController.xib */; };
 		EDA88A14165B62C800805500 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = EDA88A13165B62C800805500 /* JSONKit.m */; };
 		EDAE3951167ACED500E41292 /* JHOHabitListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EDAE3950167ACED500E41292 /* JHOHabitListTableViewCell.m */; };
-		EDAE3953167AD44700E41292 /* JHOHabitListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDAE3952167AD44700E41292 /* JHOHabitListTableViewCell.xib */; };
 		EDAE3991167AE33800E41292 /* JHOMyHabitsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDAE398F167AE33800E41292 /* JHOMyHabitsViewController.m */; };
 		EDAE3992167AE33800E41292 /* JHOMyHabitsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDAE3990167AE33800E41292 /* JHOMyHabitsViewController.xib */; };
 		EDB1E536167C253800B9BF1A /* JHOGoalModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB1E535167C253800B9BF1A /* JHOGoalModel.m */; };
@@ -69,11 +73,27 @@
 		EDB1F744165F3B8000FFD7F9 /* MKHorizMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB1F740165F3B8000FFD7F9 /* MKHorizMenu.m */; };
 		EDB1F785165F476100FFD7F9 /* JHONetworkHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB1F784165F476100FFD7F9 /* JHONetworkHelper.m */; };
 		EDB1F78A165F7F3500FFD7F9 /* JHOAppUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB1F789165F7F3500FFD7F9 /* JHOAppUserInfo.m */; };
+		EDB57C231680403900BF323D /* hascheckin.png in Resources */ = {isa = PBXBuildFile; fileRef = EDB57C211680403900BF323D /* hascheckin.png */; };
+		EDB57C241680403900BF323D /* tocheckin.png in Resources */ = {isa = PBXBuildFile; fileRef = EDB57C221680403900BF323D /* tocheckin.png */; };
+		EDB57C26168040FE00BF323D /* showsidebar.png in Resources */ = {isa = PBXBuildFile; fileRef = EDB57C25168040FE00BF323D /* showsidebar.png */; };
+		EDB57C29168043E000BF323D /* addnewhabit.png in Resources */ = {isa = PBXBuildFile; fileRef = EDB57C27168043E000BF323D /* addnewhabit.png */; };
+		EDB57C2A168043E000BF323D /* myhabit_section.png in Resources */ = {isa = PBXBuildFile; fileRef = EDB57C28168043E000BF323D /* myhabit_section.png */; };
+		EDB57C2C168047E000BF323D /* myhabit_separator.png in Resources */ = {isa = PBXBuildFile; fileRef = EDB57C2B168047E000BF323D /* myhabit_separator.png */; };
+		EDB57C351680517100BF323D /* habittype1.png in Resources */ = {isa = PBXBuildFile; fileRef = EDB57C311680517100BF323D /* habittype1.png */; };
+		EDB57C361680517100BF323D /* habittype2.png in Resources */ = {isa = PBXBuildFile; fileRef = EDB57C321680517100BF323D /* habittype2.png */; };
+		EDB57C371680517100BF323D /* habittype3.png in Resources */ = {isa = PBXBuildFile; fileRef = EDB57C331680517100BF323D /* habittype3.png */; };
+		EDB57C381680517100BF323D /* habittype0.png in Resources */ = {isa = PBXBuildFile; fileRef = EDB57C341680517100BF323D /* habittype0.png */; };
 		EDBE1FE1166098A6001F787D /* JHOTinyTools.m in Sources */ = {isa = PBXBuildFile; fileRef = EDBE1FE0166098A6001F787D /* JHOTinyTools.m */; };
 		EDBE20571660B884001F787D /* JHOBaseWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDBE20561660B884001F787D /* JHOBaseWebViewController.m */; };
 		EDBE2064166108FD001F787D /* 37x-Checkmark.png in Resources */ = {isa = PBXBuildFile; fileRef = EDBE2062166108FD001F787D /* 37x-Checkmark.png */; };
 		EDBE2065166108FD001F787D /* 37x-Checkmark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EDBE2063166108FD001F787D /* 37x-Checkmark@2x.png */; };
-		EDBE3C37167DBEFB00DF475B /* JHOMsgFlowTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EDBE3C36167DBEFB00DF475B /* JHOMsgFlowTableCell.m */; };
+		EDBE732516801786004AACEA /* slide_new.png in Resources */ = {isa = PBXBuildFile; fileRef = EDBE731E16801786004AACEA /* slide_new.png */; };
+		EDBE732616801786004AACEA /* slide_habits.png in Resources */ = {isa = PBXBuildFile; fileRef = EDBE731F16801786004AACEA /* slide_habits.png */; };
+		EDBE732716801786004AACEA /* slide_friends.png in Resources */ = {isa = PBXBuildFile; fileRef = EDBE732016801786004AACEA /* slide_friends.png */; };
+		EDBE732816801786004AACEA /* slide_timeline.png in Resources */ = {isa = PBXBuildFile; fileRef = EDBE732116801786004AACEA /* slide_timeline.png */; };
+		EDBE732916801786004AACEA /* slide_config.png in Resources */ = {isa = PBXBuildFile; fileRef = EDBE732216801786004AACEA /* slide_config.png */; };
+		EDBE732A16801786004AACEA /* slide_myhabits.png in Resources */ = {isa = PBXBuildFile; fileRef = EDBE732316801786004AACEA /* slide_myhabits.png */; };
+		EDBE732B16801786004AACEA /* slide_detail.png in Resources */ = {isa = PBXBuildFile; fileRef = EDBE732416801786004AACEA /* slide_detail.png */; };
 		EDC82F2B16674DD000746914 /* SEDraggable.m in Sources */ = {isa = PBXBuildFile; fileRef = EDC82F2816674DD000746914 /* SEDraggable.m */; };
 		EDC82F2C16674DD000746914 /* SEDraggableLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = EDC82F2A16674DD000746914 /* SEDraggableLocation.m */; };
 		EDC82F4116674ED400746914 /* blue-applo.png in Resources */ = {isa = PBXBuildFile; fileRef = EDC82F2F16674ED400746914 /* blue-applo.png */; };
@@ -145,6 +165,12 @@
 		ED65755B1671EA9C004D2A6D /* JHOCheckIn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JHOCheckIn.m; path = Model/JHOCheckIn.m; sourceTree = "<group>"; };
 		ED65755E1671EAF7004D2A6D /* JHOHabitModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JHOHabitModel.h; path = Model/JHOHabitModel.h; sourceTree = "<group>"; };
 		ED65755F1671EAF7004D2A6D /* JHOHabitModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JHOHabitModel.m; path = Model/JHOHabitModel.m; sourceTree = "<group>"; };
+		ED682A5C1680667700789555 /* JHODetailHabitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JHODetailHabitViewController.h; path = Controllers/JHODetailHabitViewController.h; sourceTree = "<group>"; };
+		ED682A5D1680667700789555 /* JHODetailHabitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JHODetailHabitViewController.m; path = Controllers/JHODetailHabitViewController.m; sourceTree = "<group>"; };
+		ED682A5E1680667700789555 /* JHODetailHabitViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = JHODetailHabitViewController.xib; path = Controllers/JHODetailHabitViewController.xib; sourceTree = "<group>"; };
+		ED682A6716806A1400789555 /* detailhabit_btnViewBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = detailhabit_btnViewBg.png; path = Resources/detailhabit_btnViewBg.png; sourceTree = "<group>"; };
+		ED682A6916806ACF00789555 /* detailhabitBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = detailhabitBtn.png; path = Resources/detailhabitBtn.png; sourceTree = "<group>"; };
+		ED682A6B16806D8300789555 /* detailhabit_testLabel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = detailhabit_testLabel.png; path = Resources/detailhabit_testLabel.png; sourceTree = "<group>"; };
 		ED91929A165CA7BC00A488AF /* ASIAuthenticationDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIAuthenticationDialog.h; sourceTree = "<group>"; };
 		ED91929B165CA7BC00A488AF /* ASIAuthenticationDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIAuthenticationDialog.m; sourceTree = "<group>"; };
 		ED91929C165CA7BC00A488AF /* ASICacheDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASICacheDelegate.h; sourceTree = "<group>"; };
@@ -181,7 +207,6 @@
 		EDA88A13165B62C800805500 /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
 		EDAE394F167ACED500E41292 /* JHOHabitListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JHOHabitListTableViewCell.h; path = Views/JHOHabitListTableViewCell.h; sourceTree = "<group>"; };
 		EDAE3950167ACED500E41292 /* JHOHabitListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JHOHabitListTableViewCell.m; path = Views/JHOHabitListTableViewCell.m; sourceTree = "<group>"; };
-		EDAE3952167AD44700E41292 /* JHOHabitListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = JHOHabitListTableViewCell.xib; path = Views/JHOHabitListTableViewCell.xib; sourceTree = "<group>"; };
 		EDAE398E167AE33800E41292 /* JHOMyHabitsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JHOMyHabitsViewController.h; path = Controllers/JHOMyHabitsViewController.h; sourceTree = "<group>"; };
 		EDAE398F167AE33800E41292 /* JHOMyHabitsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JHOMyHabitsViewController.m; path = Controllers/JHOMyHabitsViewController.m; sourceTree = "<group>"; };
 		EDAE3990167AE33800E41292 /* JHOMyHabitsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = JHOMyHabitsViewController.xib; path = Controllers/JHOMyHabitsViewController.xib; sourceTree = "<group>"; };
@@ -203,14 +228,29 @@
 		EDB1F784165F476100FFD7F9 /* JHONetworkHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JHONetworkHelper.m; path = Network/JHONetworkHelper.m; sourceTree = "<group>"; };
 		EDB1F788165F7F3500FFD7F9 /* JHOAppUserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JHOAppUserInfo.h; path = Model/JHOAppUserInfo.h; sourceTree = "<group>"; };
 		EDB1F789165F7F3500FFD7F9 /* JHOAppUserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JHOAppUserInfo.m; path = Model/JHOAppUserInfo.m; sourceTree = "<group>"; };
+		EDB57C211680403900BF323D /* hascheckin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = hascheckin.png; path = Resources/hascheckin.png; sourceTree = "<group>"; };
+		EDB57C221680403900BF323D /* tocheckin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tocheckin.png; path = Resources/tocheckin.png; sourceTree = "<group>"; };
+		EDB57C25168040FE00BF323D /* showsidebar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = showsidebar.png; path = Resources/showsidebar.png; sourceTree = "<group>"; };
+		EDB57C27168043E000BF323D /* addnewhabit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = addnewhabit.png; path = Resources/addnewhabit.png; sourceTree = "<group>"; };
+		EDB57C28168043E000BF323D /* myhabit_section.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = myhabit_section.png; path = Resources/myhabit_section.png; sourceTree = "<group>"; };
+		EDB57C2B168047E000BF323D /* myhabit_separator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = myhabit_separator.png; path = Resources/myhabit_separator.png; sourceTree = "<group>"; };
+		EDB57C311680517100BF323D /* habittype1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = habittype1.png; path = Resources/habittype1.png; sourceTree = "<group>"; };
+		EDB57C321680517100BF323D /* habittype2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = habittype2.png; path = Resources/habittype2.png; sourceTree = "<group>"; };
+		EDB57C331680517100BF323D /* habittype3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = habittype3.png; path = Resources/habittype3.png; sourceTree = "<group>"; };
+		EDB57C341680517100BF323D /* habittype0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = habittype0.png; path = Resources/habittype0.png; sourceTree = "<group>"; };
 		EDBE1FDF166098A6001F787D /* JHOTinyTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JHOTinyTools.h; path = Tools/JHOTinyTools.h; sourceTree = "<group>"; };
 		EDBE1FE0166098A6001F787D /* JHOTinyTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JHOTinyTools.m; path = Tools/JHOTinyTools.m; sourceTree = "<group>"; };
 		EDBE20551660B884001F787D /* JHOBaseWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JHOBaseWebViewController.h; path = Controllers/JHOBaseWebViewController.h; sourceTree = "<group>"; };
 		EDBE20561660B884001F787D /* JHOBaseWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JHOBaseWebViewController.m; path = Controllers/JHOBaseWebViewController.m; sourceTree = "<group>"; };
 		EDBE2062166108FD001F787D /* 37x-Checkmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "37x-Checkmark.png"; path = "../MBProgressHUD/Demo/Images/37x-Checkmark.png"; sourceTree = "<group>"; };
 		EDBE2063166108FD001F787D /* 37x-Checkmark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "37x-Checkmark@2x.png"; path = "../MBProgressHUD/Demo/Images/37x-Checkmark@2x.png"; sourceTree = "<group>"; };
-		EDBE3C35167DBEFB00DF475B /* JHOMsgFlowTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JHOMsgFlowTableCell.h; path = Views/JHOMsgFlowTableCell.h; sourceTree = "<group>"; };
-		EDBE3C36167DBEFB00DF475B /* JHOMsgFlowTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JHOMsgFlowTableCell.m; path = Views/JHOMsgFlowTableCell.m; sourceTree = "<group>"; };
+		EDBE731E16801786004AACEA /* slide_new.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = slide_new.png; path = Resources/slide_new.png; sourceTree = "<group>"; };
+		EDBE731F16801786004AACEA /* slide_habits.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = slide_habits.png; path = Resources/slide_habits.png; sourceTree = "<group>"; };
+		EDBE732016801786004AACEA /* slide_friends.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = slide_friends.png; path = Resources/slide_friends.png; sourceTree = "<group>"; };
+		EDBE732116801786004AACEA /* slide_timeline.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = slide_timeline.png; path = Resources/slide_timeline.png; sourceTree = "<group>"; };
+		EDBE732216801786004AACEA /* slide_config.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = slide_config.png; path = Resources/slide_config.png; sourceTree = "<group>"; };
+		EDBE732316801786004AACEA /* slide_myhabits.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = slide_myhabits.png; path = Resources/slide_myhabits.png; sourceTree = "<group>"; };
+		EDBE732416801786004AACEA /* slide_detail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = slide_detail.png; path = Resources/slide_detail.png; sourceTree = "<group>"; };
 		EDC82F2716674DD000746914 /* SEDraggable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEDraggable.h; sourceTree = "<group>"; };
 		EDC82F2816674DD000746914 /* SEDraggable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEDraggable.m; sourceTree = "<group>"; };
 		EDC82F2916674DD000746914 /* SEDraggableLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEDraggableLocation.h; sourceTree = "<group>"; };
@@ -391,6 +431,10 @@
 		ED462F041658D7F400E53720 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				ED682A65168069EE00789555 /* DetailHabit */,
+				EDB57C25168040FE00BF323D /* showsidebar.png */,
+				EDB57C201680401D00BF323D /* MyHabit */,
+				EDBE731D16801731004AACEA /* SlideMenu */,
 				EDC82F2E16674ED400746914 /* tmp */,
 				EDBE2062166108FD001F787D /* 37x-Checkmark.png */,
 				EDBE2063166108FD001F787D /* 37x-Checkmark@2x.png */,
@@ -426,6 +470,7 @@
 		ED462F711658EBB900E53720 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				ED682A5B1680663C00789555 /* DetailHabitViewController */,
 				ED1E49A9167C378600AAAD83 /* Friends */,
 				EDAE398D167AE31400E41292 /* MyHabits */,
 				EDBE20541660B857001F787D /* BaseWebViewController */,
@@ -443,7 +488,7 @@
 		ED462F721658EBC700E53720 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				EDBE3C33167DBE9A00DF475B /* MsgFlowTableCell */,
+				EDBE7316168015A4004AACEA /* TimelineTableCell */,
 				EDAE394D167ACE7300E41292 /* MyHabitListTableCell */,
 				ED3D692216686F3A00205E9D /* UITableViewCellExt */,
 				ED462F731658EBD200E53720 /* SlideViewTableCell */,
@@ -476,6 +521,26 @@
 				ED65755F1671EAF7004D2A6D /* JHOHabitModel.m */,
 			);
 			name = Habit;
+			sourceTree = "<group>";
+		};
+		ED682A5B1680663C00789555 /* DetailHabitViewController */ = {
+			isa = PBXGroup;
+			children = (
+				ED682A5C1680667700789555 /* JHODetailHabitViewController.h */,
+				ED682A5D1680667700789555 /* JHODetailHabitViewController.m */,
+				ED682A5E1680667700789555 /* JHODetailHabitViewController.xib */,
+			);
+			name = DetailHabitViewController;
+			sourceTree = "<group>";
+		};
+		ED682A65168069EE00789555 /* DetailHabit */ = {
+			isa = PBXGroup;
+			children = (
+				ED682A6B16806D8300789555 /* detailhabit_testLabel.png */,
+				ED682A6916806ACF00789555 /* detailhabitBtn.png */,
+				ED682A6716806A1400789555 /* detailhabit_btnViewBg.png */,
+			);
+			name = DetailHabit;
 			sourceTree = "<group>";
 		};
 		ED919299165CA7BC00A488AF /* ASIHTTPRequest */ = {
@@ -551,7 +616,6 @@
 			children = (
 				EDAE394F167ACED500E41292 /* JHOHabitListTableViewCell.h */,
 				EDAE3950167ACED500E41292 /* JHOHabitListTableViewCell.m */,
-				EDAE3952167AD44700E41292 /* JHOHabitListTableViewCell.xib */,
 			);
 			name = MyHabitListTableCell;
 			sourceTree = "<group>";
@@ -637,6 +701,22 @@
 			name = UserInfo;
 			sourceTree = "<group>";
 		};
+		EDB57C201680401D00BF323D /* MyHabit */ = {
+			isa = PBXGroup;
+			children = (
+				EDB57C311680517100BF323D /* habittype1.png */,
+				EDB57C321680517100BF323D /* habittype2.png */,
+				EDB57C331680517100BF323D /* habittype3.png */,
+				EDB57C341680517100BF323D /* habittype0.png */,
+				EDB57C2B168047E000BF323D /* myhabit_separator.png */,
+				EDB57C27168043E000BF323D /* addnewhabit.png */,
+				EDB57C28168043E000BF323D /* myhabit_section.png */,
+				EDB57C211680403900BF323D /* hascheckin.png */,
+				EDB57C221680403900BF323D /* tocheckin.png */,
+			);
+			name = MyHabit;
+			sourceTree = "<group>";
+		};
 		EDBE1FDE16609878001F787D /* Tools */ = {
 			isa = PBXGroup;
 			children = (
@@ -655,13 +735,25 @@
 			name = BaseWebViewController;
 			sourceTree = "<group>";
 		};
-		EDBE3C33167DBE9A00DF475B /* MsgFlowTableCell */ = {
+		EDBE7316168015A4004AACEA /* TimelineTableCell */ = {
 			isa = PBXGroup;
 			children = (
-				EDBE3C35167DBEFB00DF475B /* JHOMsgFlowTableCell.h */,
-				EDBE3C36167DBEFB00DF475B /* JHOMsgFlowTableCell.m */,
 			);
-			name = MsgFlowTableCell;
+			name = TimelineTableCell;
+			sourceTree = "<group>";
+		};
+		EDBE731D16801731004AACEA /* SlideMenu */ = {
+			isa = PBXGroup;
+			children = (
+				EDBE731E16801786004AACEA /* slide_new.png */,
+				EDBE731F16801786004AACEA /* slide_habits.png */,
+				EDBE732016801786004AACEA /* slide_friends.png */,
+				EDBE732116801786004AACEA /* slide_timeline.png */,
+				EDBE732216801786004AACEA /* slide_config.png */,
+				EDBE732316801786004AACEA /* slide_myhabits.png */,
+				EDBE732416801786004AACEA /* slide_detail.png */,
+			);
+			name = SlideMenu;
 			sourceTree = "<group>";
 		};
 		EDC82F2616674DD000746914 /* SEDraggable */ = {
@@ -813,9 +905,29 @@
 				EDC82F5116674ED400746914 /* sheep.png in Resources */,
 				EDC82F5216674ED400746914 /* sheep@2x.png in Resources */,
 				ED3D6924166881A600205E9D /* testbackground.png in Resources */,
-				EDAE3953167AD44700E41292 /* JHOHabitListTableViewCell.xib in Resources */,
 				EDAE3992167AE33800E41292 /* JHOMyHabitsViewController.xib in Resources */,
 				ED1E49AF167C37B400AAAD83 /* JHOMyFriendsViewController.xib in Resources */,
+				EDBE732516801786004AACEA /* slide_new.png in Resources */,
+				EDBE732616801786004AACEA /* slide_habits.png in Resources */,
+				EDBE732716801786004AACEA /* slide_friends.png in Resources */,
+				EDBE732816801786004AACEA /* slide_timeline.png in Resources */,
+				EDBE732916801786004AACEA /* slide_config.png in Resources */,
+				EDBE732A16801786004AACEA /* slide_myhabits.png in Resources */,
+				EDBE732B16801786004AACEA /* slide_detail.png in Resources */,
+				EDB57C231680403900BF323D /* hascheckin.png in Resources */,
+				EDB57C241680403900BF323D /* tocheckin.png in Resources */,
+				EDB57C26168040FE00BF323D /* showsidebar.png in Resources */,
+				EDB57C29168043E000BF323D /* addnewhabit.png in Resources */,
+				EDB57C2A168043E000BF323D /* myhabit_section.png in Resources */,
+				EDB57C2C168047E000BF323D /* myhabit_separator.png in Resources */,
+				EDB57C351680517100BF323D /* habittype1.png in Resources */,
+				EDB57C361680517100BF323D /* habittype2.png in Resources */,
+				EDB57C371680517100BF323D /* habittype3.png in Resources */,
+				EDB57C381680517100BF323D /* habittype0.png in Resources */,
+				ED682A601680667700789555 /* JHODetailHabitViewController.xib in Resources */,
+				ED682A6816806A1400789555 /* detailhabit_btnViewBg.png in Resources */,
+				ED682A6A16806ACF00789555 /* detailhabitBtn.png in Resources */,
+				ED682A6C16806D8300789555 /* detailhabit_testLabel.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -866,7 +978,7 @@
 				EDAE3991167AE33800E41292 /* JHOMyHabitsViewController.m in Sources */,
 				EDB1E536167C253800B9BF1A /* JHOGoalModel.m in Sources */,
 				ED1E49AE167C37B400AAAD83 /* JHOMyFriendsViewController.m in Sources */,
-				EDBE3C37167DBEFB00DF475B /* JHOMsgFlowTableCell.m in Sources */,
+				ED682A5F1680667700789555 /* JHODetailHabitViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -934,15 +1046,15 @@
 		ED462ED91658CC2000E53720 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: 扬 杨 (E6D7QURJRA)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: 扬 杨 (E6D7QURJRA)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Kissshot Heartunderblade (42GYPQJ8F2)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Kissshot Heartunderblade (42GYPQJ8F2)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "JustHoldOn/JustHoldOn-Prefix.pch";
 				INFOPLIST_FILE = "JustHoldOn/JustHoldOn-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "6B21E268-66CB-4EC5-81D3-FB48BEAA4279";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "6B21E268-66CB-4EC5-81D3-FB48BEAA4279";
+				PROVISIONING_PROFILE = "ED2CBBAD-508F-4287-B20D-B8442330E70D";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "ED2CBBAD-508F-4287-B20D-B8442330E70D";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -950,15 +1062,15 @@
 		ED462EDA1658CC2000E53720 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: 扬 杨 (E6D7QURJRA)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: 扬 杨 (E6D7QURJRA)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Kissshot Heartunderblade (42GYPQJ8F2)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Kissshot Heartunderblade (42GYPQJ8F2)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "JustHoldOn/JustHoldOn-Prefix.pch";
 				INFOPLIST_FILE = "JustHoldOn/JustHoldOn-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "6B21E268-66CB-4EC5-81D3-FB48BEAA4279";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "6B21E268-66CB-4EC5-81D3-FB48BEAA4279";
+				PROVISIONING_PROFILE = "ED2CBBAD-508F-4287-B20D-B8442330E70D";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "ED2CBBAD-508F-4287-B20D-B8442330E70D";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

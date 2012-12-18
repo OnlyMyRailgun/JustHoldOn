@@ -28,6 +28,9 @@
 
 @implementation JHOAlternativeTargetsViewController
 
+@synthesize draggableLocationBottom = _draggableLocationBottom;
+@synthesize draggableLocationTop = _draggableLocationTop;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];

@@ -10,8 +10,6 @@
 #import "JHOBaseWebViewController.h"
 
 @interface JHOMyHabitsViewController : JHOBaseWebViewController<UITableViewDataSource, UITableViewDelegate, NetworkTaskDelegate>
-
-@property (retain, nonatomic) IBOutlet UILabel *dateLabel;
 @property (retain, nonatomic) IBOutlet UITableView *myHabitsTableView;
 
 + (JHOMyHabitsViewController *)shared;

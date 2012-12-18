@@ -21,7 +21,9 @@
 
 @synthesize window = _window;
 @synthesize downloadCache = _downloadCache;
-
+@synthesize globalDeviceToken = _globalDeviceToken;
+@synthesize viewDeck = _viewDeck;
+@synthesize theOperationQueue = _theOperationQueue;
 - (void)dealloc
 {
     [_downloadCache release];

@@ -14,6 +14,7 @@
 @interface JHOSlideMenuViewController ()
 {
     NSArray *menuTitles;
+    NSArray *menuImages;
 }
 @end
 
@@ -40,7 +41,8 @@
     NSString *name = @"我的页面";
     if([JHOAppUserInfo shared].userName)
         name = [JHOAppUserInfo shared].userName;
-    menuTitles = [[NSArray alloc] initWithObjects:name, @"我的习惯", @"习惯列表", @"好友界面", @"设置", nil];
+    menuTitles = [[NSArray alloc] initWithObjects:name, @"我的习惯", @"习惯列表", @"好友界面", @"签到流", @"设置", nil];
+    menuImages = [[NSArray alloc] initWithObjects:@"IMG_0022.JPG", @"slide_myhabits", @"slide_habits", @"slide_friends", @"slide_timeline", @"slide_config", nil];
 }
 
 - (void)viewDidUnload
@@ -53,9 +55,10 @@
 - (void)dealloc
 {
     [menuTitles release];
-    
+    [menuImages release];
     [super dealloc];
 }
+
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
@@ -86,7 +89,10 @@
         cell = [[[JHOSlideViewTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"SlideMenuCell"] autorelease];
     // Configure the cell...
     if(indexPath.section == 0)
+    {
         cell.textLabel.text = [menuTitles objectAtIndex:indexPath.row];
+        cell.imageView.image = [UIImage imageNamed:[menuImages objectAtIndex:indexPath.row]];
+    }
     else
         cell.textLabel.text = [NSString stringWithFormat:@"通知%d", indexPath.row];
     return cell;
@@ -186,6 +192,14 @@
     
     return [imageView autorelease];
     
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section == 0) {
+        return 50.0f;
+    }
+    else
+        return 44.0f;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {

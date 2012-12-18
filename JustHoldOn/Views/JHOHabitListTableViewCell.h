@@ -9,8 +9,4 @@
 #import <UIKit/UIKit.h>
 
 @interface JHOHabitListTableViewCell : UITableViewCell
-
-@property (retain, nonatomic) IBOutlet UIImageView *thumbImageView;
-@property (retain, nonatomic) IBOutlet UILabel *habitTitleLabel;
-@property (retain, nonatomic) IBOutlet UIButton *checkInBtn;
 @end

@@ -17,6 +17,10 @@
         
         UIImageView *background = [[UIImageView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 320.0f, 44.0f)];
         [background setImage:[[UIImage imageNamed:@"cell_background"] stretchableImageWithLeftCapWidth:0.0f topCapHeight:0.0f]];
+        UIImageView *detailMark = [[UIImageView alloc] initWithFrame:CGRectMake(246.0f, 18.0f, 11.0f, 15.0f)];
+        [detailMark setImage:[UIImage imageNamed:@"slide_detail"]];
+        [background addSubview:detailMark];
+        [detailMark release];
         self.backgroundView = background;
         [background release];
         
@@ -33,7 +37,7 @@
         self.textLabel.font = [UIFont fontWithName:@"Helvetica" size:16.0f];
         
         self.imageView.clipsToBounds = YES;
-        self.imageView.contentMode = UIViewContentModeScaleAspectFit;
+        self.imageView.contentMode = UIViewContentModeScaleAspectFill;
         
     }
     
@@ -44,7 +48,7 @@
     
     [super layoutSubviews];
     
-    self.imageView.frame = CGRectMake(5.0f, 5.0f, 34.0f, 34.0f);
+    self.imageView.frame = CGRectMake(10.0f, 8.0f, 33.0f, 33.0f);
     
 }
 

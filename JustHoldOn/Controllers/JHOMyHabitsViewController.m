@@ -11,12 +11,9 @@
 #import "JHOHabitListTableViewCell.h"
 
 @interface JHOMyHabitsViewController ()
-@property (retain, nonatomic) NSDate *date;
 @end
 
 @implementation JHOMyHabitsViewController
-@synthesize dateLabel;
-@synthesize myHabitsTableView;
 
 #pragma mark - singleton default
 static JHOMyHabitsViewController *sharedMyhabitsViewController = nil;
@@ -43,13 +40,10 @@ static JHOMyHabitsViewController *sharedMyhabitsViewController = nil;
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    _date = [[NSDate alloc] init];
-    [self refreshDateLabel:_date];
 }
 
 - (void)viewDidUnload
 {
-    [self setDateLabel:nil];
     [self setMyHabitsTableView:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
@@ -62,64 +56,131 @@ static JHOMyHabitsViewController *sharedMyhabitsViewController = nil;
 }
 
 - (void)dealloc {
-    [dateLabel release];
-    [myHabitsTableView release];
+    [_myHabitsTableView release];
     [super dealloc];
 }
 
-- (void)refreshDateLabel:(NSDate *)toConvertDate
-{
-    NSMutableString *dateLabelStr = [NSMutableString string];
-    NSString *toConvertDateStr = [JHOTinyTools stringFromDate:toConvertDate];
-    NSString *currentDateStr = [JHOTinyTools stringFromDate:[NSDate date]];
-    if([toConvertDateStr isEqualToString:currentDateStr])
-        [dateLabelStr appendString:@"TODAY  "];
-    [dateLabelStr appendString:toConvertDateStr];
-    dateLabel.text = dateLabelStr;
-}
-
-- (IBAction)backwardDateBtnPressed:(UIButton *)sender {
-    NSDate *currentDate = [[NSDate alloc] initWithTimeInterval:(-60*60*24) sinceDate:_date];
-    [_date release];
-    _date = currentDate;
-    [self refreshDateLabel:currentDate];
-}
-
-- (IBAction)forwardDateBtnPressed:(UIButton *)sender {
-    NSDate *currentDate = [[NSDate alloc] initWithTimeInterval:(60*60*24) sinceDate:_date];
-    [_date release];
-    _date = currentDate;
-    [self refreshDateLabel:currentDate];
-}
-
+#pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if(section == 0)
         return 1;
     else
-        return 0;
+        return 4;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 2;
+    return 4;
 }
 // Row display. Implementers should *always* try to reuse cells by setting each cell's reuseIdentifier and querying for available reusable cells with dequeueReusableCellWithIdentifier:
 // Cell gets various attributes set automatically based on table (separators) and data source (accessory views, editing controls)
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    static NSString *addNewHabitIdentifier = @"addNewHabitCell";
     static NSString *CustomCellIdentifier = @"myHabitsCustomCell";
     
-    JHOHabitListTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CustomCellIdentifier];
+//    JHOHabitListTableViewCell *cell;
+    JHOHabitListTableViewCell *cell;
+    if(indexPath == 0)
+    {
+        cell = [tableView dequeueReusableCellWithIdentifier:addNewHabitIdentifier];
+    }
+    else
+        cell = [tableView dequeueReusableCellWithIdentifier:CustomCellIdentifier];
     
     if(cell == nil)
     {
-        cell = [[[NSBundle mainBundle] loadNibNamed:@"JHOHabitListTableViewCell" owner:self options:nil] lastObject];
+//        cell = [[[NSBundle mainBundle] loadNibNamed:@"JHOHabitListTableViewCell" owner:self options:nil] lastObject];
+        //cell.thumbImageView.image = nil;
+        if(indexPath.section == 0)
+        {
+            cell = [[JHOHabitListTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:addNewHabitIdentifier];
+            [cell.imageView setImage:[UIImage imageNamed:@"addnewhabit"]];
+            cell.textLabel.text = @"添加新习惯";
+            //cell.checkInBtn.hidden = YES;
+            cell.accessoryView = nil;
+        }
+        else
+        {
+            cell = [[JHOHabitListTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:addNewHabitIdentifier];
+            [cell.imageView setImage:[UIImage imageNamed:@"addnewhabit"]];
+            cell.textLabel.text = @"每天八杯水";
+            cell.detailTextLabel.text = @"参与人数";
+            [cell.imageView setImage:[UIImage imageNamed:[NSString stringWithFormat:@"habittype%d", indexPath.row]]];
+        }
     }
     return cell;
 }
 
+#pragma mark - UITableViewDelegate
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    NSString *titleForSection;
+    switch (section) {
+        case 0:
+            titleForSection = nil;
+            break;
+        case 1:
+            titleForSection = @"正在培养的习惯";
+            break;
+        case 2:
+            titleForSection = @"正在坚持的习惯";
+            break;
+        case 3:
+            titleForSection = @"已完成的习惯";
+            break;
+        default:
+            titleForSection = nil;
+            break;
+    }
+    return titleForSection;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    NSString *titleString = [self tableView:tableView titleForHeaderInSection:section];
+    
+    if (!titleString)
+        return nil;
+    
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 320.0f, 28.0f)];
+    imageView.image = [[UIImage imageNamed:@"myhabit_section"] stretchableImageWithLeftCapWidth:0.0f topCapHeight:0.0f];
+    
+    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectInset(imageView.frame, 10.0f, 0.0f)];
+//    titleLabel.font = [UIFont fontWithName:@"Helvetica-Bold" size:12.0f];
+    titleLabel.textAlignment = UITextAlignmentLeft;
+    titleLabel.textColor = [UIColor colorWithRed:88.0f/255.0f green:88.0f/255.0f blue:88.0f/255.0f alpha:1.0f];
+//    titleLabel.shadowColor = [UIColor colorWithRed:40.0f/255.0f green:45.0f/255.0f blue:57.0f/255.0f alpha:1.0f];
+//    titleLabel.shadowOffset = CGSizeMake(0.0f, 1.0f);
+    titleLabel.backgroundColor = [UIColor clearColor];
+    titleLabel.text = titleString;
+    [imageView addSubview:titleLabel];
+    [titleLabel release];
+    
+    return [imageView autorelease];
+    
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    if ([self tableView:tableView titleForHeaderInSection:section]) {
+        return 28.0f;
+    } else {
+        return 0.0f;
+    }
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if(indexPath.section == 0)
+        return 60;
+    else
+        return 62;
+}
 #pragma mark - NetworkTaskDelegate
 - (void)networkJob:(JHONetworkHelper *)helper
 {

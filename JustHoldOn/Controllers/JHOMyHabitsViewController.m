@@ -9,6 +9,7 @@
 #import "JHOMyHabitsViewController.h"
 #import "JHOTinyTools.h"
 #import "JHOHabitListTableViewCell.h"
+#import "JHODetailHabitViewController.h"
 
 @interface JHOMyHabitsViewController ()
 @end
@@ -96,7 +97,7 @@ static JHOMyHabitsViewController *sharedMyhabitsViewController = nil;
         //cell.thumbImageView.image = nil;
         if(indexPath.section == 0)
         {
-            cell = [[JHOHabitListTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:addNewHabitIdentifier];
+            cell = [[[JHOHabitListTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:addNewHabitIdentifier] autorelease];
             [cell.imageView setImage:[UIImage imageNamed:@"addnewhabit"]];
             cell.textLabel.text = @"添加新习惯";
             //cell.checkInBtn.hidden = YES;
@@ -118,6 +119,9 @@ static JHOMyHabitsViewController *sharedMyhabitsViewController = nil;
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    JHODetailHabitViewController *viewController = [[JHODetailHabitViewController alloc] initWithNibName:@"JHODetailHabitViewController" bundle:nil];
+    [self presentModalViewController:viewController animated:YES];
+    [viewController release];
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {

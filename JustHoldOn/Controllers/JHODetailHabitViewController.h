@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface JHODetailHabitViewController : UIViewController
+@interface JHODetailHabitViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
+@property (retain, nonatomic) IBOutlet UITableView *detailTableView;
+
+@property (retain, nonatomic) IBOutlet UIButton *btnShowDetailInstruction;
+@property (retain, nonatomic) IBOutlet UIButton *btnShowMyProgress;
+@property (retain, nonatomic) IBOutlet UIButton *btnShowFriendIn;
 
 @end

@@ -33,6 +33,17 @@
 		ED462F6A1658E8DC00E53720 /* JHOMyHomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED462F691658E8DC00E53720 /* JHOMyHomePageViewController.m */; };
 		ED462F6C1658E93900E53720 /* homepagebackground.png in Resources */ = {isa = PBXBuildFile; fileRef = ED462F6B1658E93900E53720 /* homepagebackground.png */; };
 		ED462F761658EBF000E53720 /* JHOSlideViewTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED462F751658EBF000E53720 /* JHOSlideViewTableCell.m */; };
+		ED50B1AA1681B53600240321 /* JHOTimelineTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED50B1A91681B53600240321 /* JHOTimelineTableCell.m */; };
+		ED50B1AD1681B72700240321 /* JHOTimelineTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED50B1AC1681B72700240321 /* JHOTimelineTableCell.xib */; };
+		ED50B1B01681B99300240321 /* timeline_spot.png in Resources */ = {isa = PBXBuildFile; fileRef = ED50B1AF1681B99300240321 /* timeline_spot.png */; };
+		ED50B1B41681CB4A00240321 /* btncomment.png in Resources */ = {isa = PBXBuildFile; fileRef = ED50B1B11681CB4A00240321 /* btncomment.png */; };
+		ED50B1B51681CB4A00240321 /* timelinebtnbackground.png in Resources */ = {isa = PBXBuildFile; fileRef = ED50B1B21681CB4A00240321 /* timelinebtnbackground.png */; };
+		ED50B1B61681CB4A00240321 /* btnlike.png in Resources */ = {isa = PBXBuildFile; fileRef = ED50B1B31681CB4A00240321 /* btnlike.png */; };
+		ED50B1B81681D44000240321 /* 签到流bg.png in Resources */ = {isa = PBXBuildFile; fileRef = ED50B1B71681D44000240321 /* 签到流bg.png */; };
+		ED50B1BB1681D6C200240321 /* 地址bg.png in Resources */ = {isa = PBXBuildFile; fileRef = ED50B1B91681D6C200240321 /* 地址bg.png */; };
+		ED50B1BC1681D6C200240321 /* 签到流分割线.png in Resources */ = {isa = PBXBuildFile; fileRef = ED50B1BA1681D6C200240321 /* 签到流分割线.png */; };
+		ED50B1BE1681D87D00240321 /* 地址1.png in Resources */ = {isa = PBXBuildFile; fileRef = ED50B1BD1681D87D00240321 /* 地址1.png */; };
+		ED50B1C01681D8E300240321 /* 地址3.png in Resources */ = {isa = PBXBuildFile; fileRef = ED50B1BF1681D8E300240321 /* 地址3.png */; };
 		ED65755C1671EA9C004D2A6D /* JHOCheckIn.m in Sources */ = {isa = PBXBuildFile; fileRef = ED65755B1671EA9C004D2A6D /* JHOCheckIn.m */; };
 		ED6575601671EAF7004D2A6D /* JHOHabitModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ED65755F1671EAF7004D2A6D /* JHOHabitModel.m */; };
 		ED682A5F1680667700789555 /* JHODetailHabitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED682A5D1680667700789555 /* JHODetailHabitViewController.m */; };
@@ -161,6 +172,18 @@
 		ED462F6B1658E93900E53720 /* homepagebackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = homepagebackground.png; path = ../homepagebackground.png; sourceTree = "<group>"; };
 		ED462F741658EBF000E53720 /* JHOSlideViewTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JHOSlideViewTableCell.h; path = Views/JHOSlideViewTableCell.h; sourceTree = "<group>"; };
 		ED462F751658EBF000E53720 /* JHOSlideViewTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JHOSlideViewTableCell.m; path = Views/JHOSlideViewTableCell.m; sourceTree = "<group>"; };
+		ED50B1A81681B53600240321 /* JHOTimelineTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JHOTimelineTableCell.h; path = Views/JHOTimelineTableCell.h; sourceTree = "<group>"; };
+		ED50B1A91681B53600240321 /* JHOTimelineTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JHOTimelineTableCell.m; path = Views/JHOTimelineTableCell.m; sourceTree = "<group>"; };
+		ED50B1AC1681B72700240321 /* JHOTimelineTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = JHOTimelineTableCell.xib; path = Views/JHOTimelineTableCell.xib; sourceTree = "<group>"; };
+		ED50B1AF1681B99300240321 /* timeline_spot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = timeline_spot.png; path = Resources/timeline_spot.png; sourceTree = "<group>"; };
+		ED50B1B11681CB4A00240321 /* btncomment.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = btncomment.png; path = Resources/btncomment.png; sourceTree = "<group>"; };
+		ED50B1B21681CB4A00240321 /* timelinebtnbackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = timelinebtnbackground.png; path = Resources/timelinebtnbackground.png; sourceTree = "<group>"; };
+		ED50B1B31681CB4A00240321 /* btnlike.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = btnlike.png; path = Resources/btnlike.png; sourceTree = "<group>"; };
+		ED50B1B71681D44000240321 /* 签到流bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "签到流bg.png"; path = "Resources/签到流bg.png"; sourceTree = "<group>"; };
+		ED50B1B91681D6C200240321 /* 地址bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "地址bg.png"; path = "Resources/地址bg.png"; sourceTree = "<group>"; };
+		ED50B1BA1681D6C200240321 /* 签到流分割线.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "签到流分割线.png"; path = "Resources/签到流分割线.png"; sourceTree = "<group>"; };
+		ED50B1BD1681D87D00240321 /* 地址1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "地址1.png"; path = "Resources/地址1.png"; sourceTree = "<group>"; };
+		ED50B1BF1681D8E300240321 /* 地址3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "地址3.png"; path = "Resources/地址3.png"; sourceTree = "<group>"; };
 		ED65755A1671EA9C004D2A6D /* JHOCheckIn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JHOCheckIn.h; path = Model/JHOCheckIn.h; sourceTree = "<group>"; };
 		ED65755B1671EA9C004D2A6D /* JHOCheckIn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JHOCheckIn.m; path = Model/JHOCheckIn.m; sourceTree = "<group>"; };
 		ED65755E1671EAF7004D2A6D /* JHOHabitModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JHOHabitModel.h; path = Model/JHOHabitModel.h; sourceTree = "<group>"; };
@@ -431,6 +454,7 @@
 		ED462F041658D7F400E53720 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				ED50B1AE1681B97D00240321 /* Timeline */,
 				ED682A65168069EE00789555 /* DetailHabit */,
 				EDB57C25168040FE00BF323D /* showsidebar.png */,
 				EDB57C201680401D00BF323D /* MyHabit */,
@@ -503,6 +527,22 @@
 				ED462F751658EBF000E53720 /* JHOSlideViewTableCell.m */,
 			);
 			name = SlideViewTableCell;
+			sourceTree = "<group>";
+		};
+		ED50B1AE1681B97D00240321 /* Timeline */ = {
+			isa = PBXGroup;
+			children = (
+				ED50B1BF1681D8E300240321 /* 地址3.png */,
+				ED50B1BD1681D87D00240321 /* 地址1.png */,
+				ED50B1B91681D6C200240321 /* 地址bg.png */,
+				ED50B1BA1681D6C200240321 /* 签到流分割线.png */,
+				ED50B1B71681D44000240321 /* 签到流bg.png */,
+				ED50B1B11681CB4A00240321 /* btncomment.png */,
+				ED50B1B21681CB4A00240321 /* timelinebtnbackground.png */,
+				ED50B1B31681CB4A00240321 /* btnlike.png */,
+				ED50B1AF1681B99300240321 /* timeline_spot.png */,
+			);
+			name = Timeline;
 			sourceTree = "<group>";
 		};
 		ED6575581671EA74004D2A6D /* CheckIn */ = {
@@ -738,6 +778,9 @@
 		EDBE7316168015A4004AACEA /* TimelineTableCell */ = {
 			isa = PBXGroup;
 			children = (
+				ED50B1A81681B53600240321 /* JHOTimelineTableCell.h */,
+				ED50B1A91681B53600240321 /* JHOTimelineTableCell.m */,
+				ED50B1AC1681B72700240321 /* JHOTimelineTableCell.xib */,
 			);
 			name = TimelineTableCell;
 			sourceTree = "<group>";
@@ -928,6 +971,16 @@
 				ED682A6816806A1400789555 /* detailhabit_btnViewBg.png in Resources */,
 				ED682A6A16806ACF00789555 /* detailhabitBtn.png in Resources */,
 				ED682A6C16806D8300789555 /* detailhabit_testLabel.png in Resources */,
+				ED50B1AD1681B72700240321 /* JHOTimelineTableCell.xib in Resources */,
+				ED50B1B01681B99300240321 /* timeline_spot.png in Resources */,
+				ED50B1B41681CB4A00240321 /* btncomment.png in Resources */,
+				ED50B1B51681CB4A00240321 /* timelinebtnbackground.png in Resources */,
+				ED50B1B61681CB4A00240321 /* btnlike.png in Resources */,
+				ED50B1B81681D44000240321 /* 签到流bg.png in Resources */,
+				ED50B1BB1681D6C200240321 /* 地址bg.png in Resources */,
+				ED50B1BC1681D6C200240321 /* 签到流分割线.png in Resources */,
+				ED50B1BE1681D87D00240321 /* 地址1.png in Resources */,
+				ED50B1C01681D8E300240321 /* 地址3.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -979,6 +1032,7 @@
 				EDB1E536167C253800B9BF1A /* JHOGoalModel.m in Sources */,
 				ED1E49AE167C37B400AAAD83 /* JHOMyFriendsViewController.m in Sources */,
 				ED682A5F1680667700789555 /* JHODetailHabitViewController.m in Sources */,
+				ED50B1AA1681B53600240321 /* JHOTimelineTableCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

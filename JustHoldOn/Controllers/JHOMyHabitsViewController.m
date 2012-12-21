@@ -24,6 +24,7 @@ static JHOMyHabitsViewController *sharedMyhabitsViewController = nil;
     if(sharedMyhabitsViewController == nil)
     {
         sharedMyhabitsViewController = [[JHOMyHabitsViewController alloc] init];
+        sharedMyhabitsViewController.title = @"我的习惯";
     }
     return sharedMyhabitsViewController;
 }
@@ -32,7 +33,13 @@ static JHOMyHabitsViewController *sharedMyhabitsViewController = nil;
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        // Custom initialization        
+        UIButton* menuButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 39, 26)];
+        [menuButton setBackgroundImage:[UIImage imageNamed:@"showsidemenu"] forState:UIControlStateNormal];
+        UIBarButtonItem *menuItem = [[UIBarButtonItem alloc] initWithCustomView:menuButton];
+        self.navigationItem.leftBarButtonItem = menuItem;
+        [menuButton release];
+        [menuItem release];
     }
     return self;
 }
@@ -108,7 +115,7 @@ static JHOMyHabitsViewController *sharedMyhabitsViewController = nil;
             cell = [[JHOHabitListTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:addNewHabitIdentifier];
             [cell.imageView setImage:[UIImage imageNamed:@"addnewhabit"]];
             cell.textLabel.text = @"每天八杯水";
-            cell.detailTextLabel.text = @"参与人数";
+            cell.detailTextLabel.text = @"本周已签到:";
             [cell.imageView setImage:[UIImage imageNamed:[NSString stringWithFormat:@"habittype%d", indexPath.row]]];
         }
     }
@@ -120,8 +127,10 @@ static JHOMyHabitsViewController *sharedMyhabitsViewController = nil;
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     JHODetailHabitViewController *viewController = [[JHODetailHabitViewController alloc] initWithNibName:@"JHODetailHabitViewController" bundle:nil];
-    [self presentModalViewController:viewController animated:YES];
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:viewController];
+    [self presentModalViewController:navController animated:YES];
     [viewController release];
+    [navController release];
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
@@ -134,7 +143,7 @@ static JHOMyHabitsViewController *sharedMyhabitsViewController = nil;
             titleForSection = @"正在培养的习惯";
             break;
         case 2:
-            titleForSection = @"正在坚持的习惯";
+            titleForSection = @"正在巩固的习惯";
             break;
         case 3:
             titleForSection = @"已完成的习惯";
@@ -156,7 +165,7 @@ static JHOMyHabitsViewController *sharedMyhabitsViewController = nil;
     imageView.image = [[UIImage imageNamed:@"myhabit_section"] stretchableImageWithLeftCapWidth:0.0f topCapHeight:0.0f];
     
     UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectInset(imageView.frame, 10.0f, 0.0f)];
-//    titleLabel.font = [UIFont fontWithName:@"Helvetica-Bold" size:12.0f];
+    titleLabel.font = [UIFont fontWithName:@"Helvetica" size:14.0f];
     titleLabel.textAlignment = UITextAlignmentLeft;
     titleLabel.textColor = [UIColor colorWithRed:88.0f/255.0f green:88.0f/255.0f blue:88.0f/255.0f alpha:1.0f];
 //    titleLabel.shadowColor = [UIColor colorWithRed:40.0f/255.0f green:45.0f/255.0f blue:57.0f/255.0f alpha:1.0f];

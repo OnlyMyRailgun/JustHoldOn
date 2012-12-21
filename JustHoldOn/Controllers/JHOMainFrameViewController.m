@@ -83,7 +83,9 @@
         case 1:
         {
             JHOMyHabitsViewController *myHabitsViewController = [JHOMyHabitsViewController shared];
-            self.centerController = myHabitsViewController;
+            UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:myHabitsViewController];
+            self.centerController = nav;
+            [nav release];
             break;
         }
         case 2:

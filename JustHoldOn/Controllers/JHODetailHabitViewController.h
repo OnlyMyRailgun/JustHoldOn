@@ -15,4 +15,5 @@
 @property (retain, nonatomic) IBOutlet UIButton *btnShowMyProgress;
 @property (retain, nonatomic) IBOutlet UIButton *btnShowFriendIn;
 
+@property (retain, nonatomic) NSArray *dataArray;
 @end

@@ -33,7 +33,7 @@
         
         UIView *backgroundUIView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 62)];
         [backgroundUIView setBackgroundColor:[UIColor colorWithRed:246 green:246 blue:246 alpha:1.0f]];
-        [backgroundUIView setBackgroundColor:[UIColor clearColor]];
+        [backgroundUIView setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"签到流bg"]]];
         UIImageView *separatorImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 60, 320, 2)];
         [separatorImageView setImage:[UIImage imageNamed:@"myhabit_separator"]];
         [backgroundUIView addSubview:separatorImageView];

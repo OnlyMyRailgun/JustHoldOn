@@ -7,6 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+typedef enum {
+    TMCheckIn = 0,//签到信息流
+    TMJOIN,//加入信息流
+    TMComplete,//养成信息流
+}TimelineMsgType;
 
 @interface JHOCheckIn : NSObject
 @property (nonatomic, retain) NSString *ownerUid;
@@ -17,8 +22,9 @@
 @property (nonatomic, retain) NSString *longitude;
 @property (nonatomic, retain) NSString *checkInDescription;
 @property (nonatomic, retain) NSString *picURL;
-@property (nonatomic, retain) NSString *commentNum;
+@property int commentNum;
 @property (nonatomic, retain) NSArray *preComments;
 @property (nonatomic, retain) NSString *dateLine;
 @property (nonatomic, retain) NSString *isEncouraged;
+@property (nonatomic, retain) NSString *msgType;
 @end

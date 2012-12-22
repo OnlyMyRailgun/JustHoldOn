@@ -9,15 +9,14 @@
 #import <UIKit/UIKit.h>
 #import "JHOCheckIn.h"
 
-@interface JHOTimelineTableCell : UITableViewCell
-//<UITableViewDataSource, UITableViewDelegate>
+@interface JHOTimelineTableCell : UITableViewCell<UITableViewDataSource, UITableViewDelegate>
 @property (retain, nonatomic) IBOutlet UITableView *commentTableView;
-
-@property (retain, nonatomic) IBOutlet UILabel *habitInstructionLabel;
-@property (retain, nonatomic) IBOutlet UIView *locationUIView;
 
 @property (retain, nonatomic) IBOutlet UIButton *btnLike;
 @property (retain, nonatomic) IBOutlet UIButton *btnComment;
+
+@property (retain, nonatomic) IBOutlet UIImageView *checkInSeparator;
+@property (retain, nonatomic) IBOutlet UIView *verticalUIView;
 
 @property (retain, nonatomic) NSArray *allViewsArray;
 

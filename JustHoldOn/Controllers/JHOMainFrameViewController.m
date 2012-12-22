@@ -14,7 +14,8 @@
 #import "SinaWeibo.h"
 #import "JHOAppUserInfo.h"
 #import "JHOMyHabitsViewController.h"
-
+#import "JHOTimelineMsgViewController.h"
+#import "JHOCustomizeHabitViewController.h"
 
 #define kAppKey             @"1481623116"
 #define kAppSecret          @"308f792a8a1f7ca244da5c81d3a8798b"
@@ -96,10 +97,20 @@
         }
         case 3:
         {
-            
+            JHOCustomizeHabitViewController *cusHabit = [[JHOCustomizeHabitViewController alloc] initWithNibName:@"JHOCustomizeHabitViewController" bundle:nil];
+            self.centerController = cusHabit;
+            [cusHabit release];
             break;
         }
         case 4:
+        {
+            JHOTimelineMsgViewController *timelineMsgViewController = [[JHOTimelineMsgViewController alloc] initWithNibName:@"JHOTimelineMsgViewController" bundle:nil];
+            self.centerController = timelineMsgViewController;
+            [timelineMsgViewController release];
+            break;
+        }
+            break;
+        case 5:
             [self closeLeftView];
             [[JHOAppUserInfo shared] removeUserInfo];
             JHOLoginViewController *loginViewController = [[JHOLoginViewController alloc] init];

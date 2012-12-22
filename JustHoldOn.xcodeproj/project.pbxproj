@@ -8,6 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		48A47A25165A1CDC00DD878D /* JHOLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48A47A23165A1CDC00DD878D /* JHOLoginViewController.xib */; };
+		ED0440AD1685736C0098BC9A /* JHOFilterControl.m in Sources */ = {isa = PBXBuildFile; fileRef = ED0440AC1685736C0098BC9A /* JHOFilterControl.m */; };
+		ED0440B216857F050098BC9A /* 时间条.png in Resources */ = {isa = PBXBuildFile; fileRef = ED0440AE16857F050098BC9A /* 时间条.png */; };
+		ED0440B316857F050098BC9A /* 时间条a@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ED0440AF16857F050098BC9A /* 时间条a@2x.png */; };
+		ED0440B416857F050098BC9A /* 习惯定制_13.png in Resources */ = {isa = PBXBuildFile; fileRef = ED0440B016857F050098BC9A /* 习惯定制_13.png */; };
+		ED0440B516857F050098BC9A /* 习惯定制.png in Resources */ = {isa = PBXBuildFile; fileRef = ED0440B116857F050098BC9A /* 习惯定制.png */; };
+		ED0440B71685892A0098BC9A /* 时间条a.png in Resources */ = {isa = PBXBuildFile; fileRef = ED0440B61685892A0098BC9A /* 时间条a.png */; };
+		ED0440BE1685A6530098BC9A /* JHOPrivacySegmentedView.m in Sources */ = {isa = PBXBuildFile; fileRef = ED0440BD1685A6530098BC9A /* JHOPrivacySegmentedView.m */; };
+		ED0440C01685AF7A0098BC9A /* customCompleteBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = ED0440BF1685AF7A0098BC9A /* customCompleteBtn.png */; };
 		ED1E49AE167C37B400AAAD83 /* JHOMyFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED1E49AC167C37B400AAAD83 /* JHOMyFriendsViewController.m */; };
 		ED1E49AF167C37B400AAAD83 /* JHOMyFriendsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED1E49AD167C37B400AAAD83 /* JHOMyFriendsViewController.xib */; };
 		ED3D692016686EF800205E9D /* UITableViewCell+UITableViewCellExt.m in Sources */ = {isa = PBXBuildFile; fileRef = ED3D691F16686EF800205E9D /* UITableViewCell+UITableViewCellExt.m */; };
@@ -33,6 +41,21 @@
 		ED462F6A1658E8DC00E53720 /* JHOMyHomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED462F691658E8DC00E53720 /* JHOMyHomePageViewController.m */; };
 		ED462F6C1658E93900E53720 /* homepagebackground.png in Resources */ = {isa = PBXBuildFile; fileRef = ED462F6B1658E93900E53720 /* homepagebackground.png */; };
 		ED462F761658EBF000E53720 /* JHOSlideViewTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED462F751658EBF000E53720 /* JHOSlideViewTableCell.m */; };
+		ED4E8B0F1684355E00BCBE62 /* JHOLocationLabelView.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED4E8B0E1684355E00BCBE62 /* JHOLocationLabelView.xib */; };
+		ED4E8B141684420A00BCBE62 /* JHOTimelineMsgViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED4E8B121684420A00BCBE62 /* JHOTimelineMsgViewController.m */; };
+		ED4E8B151684420A00BCBE62 /* JHOTimelineMsgViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED4E8B131684420A00BCBE62 /* JHOTimelineMsgViewController.xib */; };
+		ED4E8B191684490B00BCBE62 /* sectionheader3_3.png in Resources */ = {isa = PBXBuildFile; fileRef = ED4E8B161684490A00BCBE62 /* sectionheader3_3.png */; };
+		ED4E8B1A1684490B00BCBE62 /* sectionheader3-1.png in Resources */ = {isa = PBXBuildFile; fileRef = ED4E8B171684490A00BCBE62 /* sectionheader3-1.png */; };
+		ED4E8B1B1684490B00BCBE62 /* sectionheader3-2.png in Resources */ = {isa = PBXBuildFile; fileRef = ED4E8B181684490B00BCBE62 /* sectionheader3-2.png */; };
+		ED4E8B2016845C1600BCBE62 /* JHOCustomizeHabitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED4E8B1E16845C1600BCBE62 /* JHOCustomizeHabitViewController.m */; };
+		ED4E8B2116845C1600BCBE62 /* JHOCustomizeHabitViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED4E8B1F16845C1600BCBE62 /* JHOCustomizeHabitViewController.xib */; };
+		ED4E8B2916845E6700BCBE62 /* 习惯定制-1-点击后.png in Resources */ = {isa = PBXBuildFile; fileRef = ED4E8B2316845E6700BCBE62 /* 习惯定制-1-点击后.png */; };
+		ED4E8B2A16845E6700BCBE62 /* 习惯定制-1-点击前@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ED4E8B2416845E6700BCBE62 /* 习惯定制-1-点击前@2x.png */; };
+		ED4E8B2B16845E6700BCBE62 /* 习惯定制-2-点击后.png in Resources */ = {isa = PBXBuildFile; fileRef = ED4E8B2516845E6700BCBE62 /* 习惯定制-2-点击后.png */; };
+		ED4E8B2C16845E6700BCBE62 /* 习惯定制-2-点击前.png in Resources */ = {isa = PBXBuildFile; fileRef = ED4E8B2616845E6700BCBE62 /* 习惯定制-2-点击前.png */; };
+		ED4E8B2D16845E6700BCBE62 /* 习惯定制-3-点击后.png in Resources */ = {isa = PBXBuildFile; fileRef = ED4E8B2716845E6700BCBE62 /* 习惯定制-3-点击后.png */; };
+		ED4E8B2E16845E6700BCBE62 /* 习惯定制-3-点击前.png in Resources */ = {isa = PBXBuildFile; fileRef = ED4E8B2816845E6700BCBE62 /* 习惯定制-3-点击前.png */; };
+		ED4E8B3016845FC300BCBE62 /* 习惯定制-1-点击前.png in Resources */ = {isa = PBXBuildFile; fileRef = ED4E8B2F16845FC300BCBE62 /* 习惯定制-1-点击前.png */; };
 		ED50B1AA1681B53600240321 /* JHOTimelineTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED50B1A91681B53600240321 /* JHOTimelineTableCell.m */; };
 		ED50B1AD1681B72700240321 /* JHOTimelineTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED50B1AC1681B72700240321 /* JHOTimelineTableCell.xib */; };
 		ED50B1B01681B99300240321 /* timeline_spot.png in Resources */ = {isa = PBXBuildFile; fileRef = ED50B1AF1681B99300240321 /* timeline_spot.png */; };
@@ -124,6 +147,7 @@
 		EDC82F5016674ED400746914 /* robo-fox@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EDC82F3E16674ED400746914 /* robo-fox@2x.png */; };
 		EDC82F5116674ED400746914 /* sheep.png in Resources */ = {isa = PBXBuildFile; fileRef = EDC82F3F16674ED400746914 /* sheep.png */; };
 		EDC82F5216674ED400746914 /* sheep@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EDC82F4016674ED400746914 /* sheep@2x.png */; };
+		EDCE1EAD1684345200ED7A0D /* JHOLocationLabelView.m in Sources */ = {isa = PBXBuildFile; fileRef = EDCE1EAC1684345200ED7A0D /* JHOLocationLabelView.m */; };
 		EDCE406B1682B30A004FDA99 /* UINavigationBar+CustomBackground.m in Sources */ = {isa = PBXBuildFile; fileRef = EDCE406A1682B30A004FDA99 /* UINavigationBar+CustomBackground.m */; };
 		EDCE406D1682B5B9004FDA99 /* titlebar_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EDCE406C1682B5B9004FDA99 /* titlebar_bg@2x.png */; };
 		EDCE406F1682B694004FDA99 /* titlebar_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = EDCE406E1682B694004FDA99 /* titlebar_bg.png */; };
@@ -139,6 +163,16 @@
 /* Begin PBXFileReference section */
 		48A47A21165A1CDC00DD878D /* JHOLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JHOLoginViewController.h; path = Controllers/JHOLoginViewController.h; sourceTree = "<group>"; };
 		48A47A23165A1CDC00DD878D /* JHOLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = JHOLoginViewController.xib; path = Controllers/JHOLoginViewController.xib; sourceTree = "<group>"; };
+		ED0440AB1685736C0098BC9A /* JHOFilterControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JHOFilterControl.h; path = Views/JHOFilterControl.h; sourceTree = "<group>"; };
+		ED0440AC1685736C0098BC9A /* JHOFilterControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JHOFilterControl.m; path = Views/JHOFilterControl.m; sourceTree = "<group>"; };
+		ED0440AE16857F050098BC9A /* 时间条.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "时间条.png"; path = "Resources/时间条.png"; sourceTree = "<group>"; };
+		ED0440AF16857F050098BC9A /* 时间条a@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "时间条a@2x.png"; path = "Resources/时间条a@2x.png"; sourceTree = "<group>"; };
+		ED0440B016857F050098BC9A /* 习惯定制_13.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "习惯定制_13.png"; path = "Resources/习惯定制_13.png"; sourceTree = "<group>"; };
+		ED0440B116857F050098BC9A /* 习惯定制.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "习惯定制.png"; path = "Resources/习惯定制.png"; sourceTree = "<group>"; };
+		ED0440B61685892A0098BC9A /* 时间条a.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "时间条a.png"; path = "Resources/时间条a.png"; sourceTree = "<group>"; };
+		ED0440BC1685A6530098BC9A /* JHOPrivacySegmentedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JHOPrivacySegmentedView.h; path = Views/JHOPrivacySegmentedView.h; sourceTree = "<group>"; };
+		ED0440BD1685A6530098BC9A /* JHOPrivacySegmentedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JHOPrivacySegmentedView.m; path = Views/JHOPrivacySegmentedView.m; sourceTree = "<group>"; };
+		ED0440BF1685AF7A0098BC9A /* customCompleteBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = customCompleteBtn.png; path = Resources/customCompleteBtn.png; sourceTree = "<group>"; };
 		ED1E49AB167C37B400AAAD83 /* JHOMyFriendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JHOMyFriendsViewController.h; path = Controllers/JHOMyFriendsViewController.h; sourceTree = "<group>"; };
 		ED1E49AC167C37B400AAAD83 /* JHOMyFriendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JHOMyFriendsViewController.m; path = Controllers/JHOMyFriendsViewController.m; sourceTree = "<group>"; };
 		ED1E49AD167C37B400AAAD83 /* JHOMyFriendsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = JHOMyFriendsViewController.xib; path = Controllers/JHOMyFriendsViewController.xib; sourceTree = "<group>"; };
@@ -176,6 +210,23 @@
 		ED462F6B1658E93900E53720 /* homepagebackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = homepagebackground.png; path = ../homepagebackground.png; sourceTree = "<group>"; };
 		ED462F741658EBF000E53720 /* JHOSlideViewTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JHOSlideViewTableCell.h; path = Views/JHOSlideViewTableCell.h; sourceTree = "<group>"; };
 		ED462F751658EBF000E53720 /* JHOSlideViewTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JHOSlideViewTableCell.m; path = Views/JHOSlideViewTableCell.m; sourceTree = "<group>"; };
+		ED4E8B0E1684355E00BCBE62 /* JHOLocationLabelView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = JHOLocationLabelView.xib; path = Views/JHOLocationLabelView.xib; sourceTree = "<group>"; };
+		ED4E8B111684420A00BCBE62 /* JHOTimelineMsgViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JHOTimelineMsgViewController.h; path = Controllers/JHOTimelineMsgViewController.h; sourceTree = "<group>"; };
+		ED4E8B121684420A00BCBE62 /* JHOTimelineMsgViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JHOTimelineMsgViewController.m; path = Controllers/JHOTimelineMsgViewController.m; sourceTree = "<group>"; };
+		ED4E8B131684420A00BCBE62 /* JHOTimelineMsgViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = JHOTimelineMsgViewController.xib; path = Controllers/JHOTimelineMsgViewController.xib; sourceTree = "<group>"; };
+		ED4E8B161684490A00BCBE62 /* sectionheader3_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sectionheader3_3.png; path = Resources/sectionheader3_3.png; sourceTree = "<group>"; };
+		ED4E8B171684490A00BCBE62 /* sectionheader3-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "sectionheader3-1.png"; path = "Resources/sectionheader3-1.png"; sourceTree = "<group>"; };
+		ED4E8B181684490B00BCBE62 /* sectionheader3-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "sectionheader3-2.png"; path = "Resources/sectionheader3-2.png"; sourceTree = "<group>"; };
+		ED4E8B1D16845C1600BCBE62 /* JHOCustomizeHabitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JHOCustomizeHabitViewController.h; path = Controllers/JHOCustomizeHabitViewController.h; sourceTree = "<group>"; };
+		ED4E8B1E16845C1600BCBE62 /* JHOCustomizeHabitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JHOCustomizeHabitViewController.m; path = Controllers/JHOCustomizeHabitViewController.m; sourceTree = "<group>"; };
+		ED4E8B1F16845C1600BCBE62 /* JHOCustomizeHabitViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = JHOCustomizeHabitViewController.xib; path = Controllers/JHOCustomizeHabitViewController.xib; sourceTree = "<group>"; };
+		ED4E8B2316845E6700BCBE62 /* 习惯定制-1-点击后.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "习惯定制-1-点击后.png"; path = "Resources/习惯定制-1-点击后.png"; sourceTree = "<group>"; };
+		ED4E8B2416845E6700BCBE62 /* 习惯定制-1-点击前@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "习惯定制-1-点击前@2x.png"; path = "Resources/习惯定制-1-点击前@2x.png"; sourceTree = "<group>"; };
+		ED4E8B2516845E6700BCBE62 /* 习惯定制-2-点击后.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "习惯定制-2-点击后.png"; path = "Resources/习惯定制-2-点击后.png"; sourceTree = "<group>"; };
+		ED4E8B2616845E6700BCBE62 /* 习惯定制-2-点击前.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "习惯定制-2-点击前.png"; path = "Resources/习惯定制-2-点击前.png"; sourceTree = "<group>"; };
+		ED4E8B2716845E6700BCBE62 /* 习惯定制-3-点击后.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "习惯定制-3-点击后.png"; path = "Resources/习惯定制-3-点击后.png"; sourceTree = "<group>"; };
+		ED4E8B2816845E6700BCBE62 /* 习惯定制-3-点击前.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "习惯定制-3-点击前.png"; path = "Resources/习惯定制-3-点击前.png"; sourceTree = "<group>"; };
+		ED4E8B2F16845FC300BCBE62 /* 习惯定制-1-点击前.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "习惯定制-1-点击前.png"; path = "Resources/习惯定制-1-点击前.png"; sourceTree = "<group>"; };
 		ED50B1A81681B53600240321 /* JHOTimelineTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JHOTimelineTableCell.h; path = Views/JHOTimelineTableCell.h; sourceTree = "<group>"; };
 		ED50B1A91681B53600240321 /* JHOTimelineTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JHOTimelineTableCell.m; path = Views/JHOTimelineTableCell.m; sourceTree = "<group>"; };
 		ED50B1AC1681B72700240321 /* JHOTimelineTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = JHOTimelineTableCell.xib; path = Views/JHOTimelineTableCell.xib; sourceTree = "<group>"; };
@@ -299,6 +350,8 @@
 		EDC82F3E16674ED400746914 /* robo-fox@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "robo-fox@2x.png"; sourceTree = "<group>"; };
 		EDC82F3F16674ED400746914 /* sheep.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sheep.png; sourceTree = "<group>"; };
 		EDC82F4016674ED400746914 /* sheep@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sheep@2x.png"; sourceTree = "<group>"; };
+		EDCE1EAB1684345200ED7A0D /* JHOLocationLabelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JHOLocationLabelView.h; path = Views/JHOLocationLabelView.h; sourceTree = "<group>"; };
+		EDCE1EAC1684345200ED7A0D /* JHOLocationLabelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JHOLocationLabelView.m; path = Views/JHOLocationLabelView.m; sourceTree = "<group>"; };
 		EDCE40691682B309004FDA99 /* UINavigationBar+CustomBackground.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UINavigationBar+CustomBackground.h"; path = "Views/UINavigationBar+CustomBackground.h"; sourceTree = "<group>"; };
 		EDCE406A1682B30A004FDA99 /* UINavigationBar+CustomBackground.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UINavigationBar+CustomBackground.m"; path = "Views/UINavigationBar+CustomBackground.m"; sourceTree = "<group>"; };
 		EDCE406C1682B5B9004FDA99 /* titlebar_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "titlebar_bg@2x.png"; path = "Resources/titlebar_bg@2x.png"; sourceTree = "<group>"; };
@@ -343,6 +396,24 @@
 				48A47A23165A1CDC00DD878D /* JHOLoginViewController.xib */,
 			);
 			name = LoginController;
+			sourceTree = "<group>";
+		};
+		ED0440A91685733E0098BC9A /* FilterControl */ = {
+			isa = PBXGroup;
+			children = (
+				ED0440AB1685736C0098BC9A /* JHOFilterControl.h */,
+				ED0440AC1685736C0098BC9A /* JHOFilterControl.m */,
+			);
+			name = FilterControl;
+			sourceTree = "<group>";
+		};
+		ED0440B81685A3DC0098BC9A /* PrivacySegmentedView */ = {
+			isa = PBXGroup;
+			children = (
+				ED0440BC1685A6530098BC9A /* JHOPrivacySegmentedView.h */,
+				ED0440BD1685A6530098BC9A /* JHOPrivacySegmentedView.m */,
+			);
+			name = PrivacySegmentedView;
 			sourceTree = "<group>";
 		};
 		ED1E49A9167C378600AAAD83 /* Friends */ = {
@@ -470,6 +541,7 @@
 		ED462F041658D7F400E53720 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				ED4E8B2216845E5800BCBE62 /* CustomizeHabit */,
 				ED50B1AE1681B97D00240321 /* Timeline */,
 				ED682A65168069EE00789555 /* DetailHabit */,
 				EDCE40701682BC40004FDA99 /* 返回.png */,
@@ -513,6 +585,8 @@
 		ED462F711658EBB900E53720 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				ED4E8B1C16845BA000BCBE62 /* CustomizeHabitViewController */,
+				ED4E8B10168441E000BCBE62 /* TimelineMsgViewController */,
 				ED682A5B1680663C00789555 /* DetailHabitViewController */,
 				ED1E49A9167C378600AAAD83 /* Friends */,
 				EDAE398D167AE31400E41292 /* MyHabits */,
@@ -531,6 +605,9 @@
 		ED462F721658EBC700E53720 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				ED0440B81685A3DC0098BC9A /* PrivacySegmentedView */,
+				ED0440A91685733E0098BC9A /* FilterControl */,
+				EDCE1EA91684342400ED7A0D /* LocationLabel */,
 				EDCE40671682B2EC004FDA99 /* UINavigationController+CustomBackground */,
 				EDBE7316168015A4004AACEA /* TimelineTableCell */,
 				EDAE394D167ACE7300E41292 /* MyHabitListTableCell */,
@@ -549,9 +626,52 @@
 			name = SlideViewTableCell;
 			sourceTree = "<group>";
 		};
+		ED4E8B10168441E000BCBE62 /* TimelineMsgViewController */ = {
+			isa = PBXGroup;
+			children = (
+				ED4E8B111684420A00BCBE62 /* JHOTimelineMsgViewController.h */,
+				ED4E8B121684420A00BCBE62 /* JHOTimelineMsgViewController.m */,
+				ED4E8B131684420A00BCBE62 /* JHOTimelineMsgViewController.xib */,
+			);
+			name = TimelineMsgViewController;
+			sourceTree = "<group>";
+		};
+		ED4E8B1C16845BA000BCBE62 /* CustomizeHabitViewController */ = {
+			isa = PBXGroup;
+			children = (
+				ED4E8B1D16845C1600BCBE62 /* JHOCustomizeHabitViewController.h */,
+				ED4E8B1E16845C1600BCBE62 /* JHOCustomizeHabitViewController.m */,
+				ED4E8B1F16845C1600BCBE62 /* JHOCustomizeHabitViewController.xib */,
+			);
+			name = CustomizeHabitViewController;
+			sourceTree = "<group>";
+		};
+		ED4E8B2216845E5800BCBE62 /* CustomizeHabit */ = {
+			isa = PBXGroup;
+			children = (
+				ED0440BF1685AF7A0098BC9A /* customCompleteBtn.png */,
+				ED0440AE16857F050098BC9A /* 时间条.png */,
+				ED0440B61685892A0098BC9A /* 时间条a.png */,
+				ED0440AF16857F050098BC9A /* 时间条a@2x.png */,
+				ED0440B016857F050098BC9A /* 习惯定制_13.png */,
+				ED0440B116857F050098BC9A /* 习惯定制.png */,
+				ED4E8B2F16845FC300BCBE62 /* 习惯定制-1-点击前.png */,
+				ED4E8B2316845E6700BCBE62 /* 习惯定制-1-点击后.png */,
+				ED4E8B2416845E6700BCBE62 /* 习惯定制-1-点击前@2x.png */,
+				ED4E8B2516845E6700BCBE62 /* 习惯定制-2-点击后.png */,
+				ED4E8B2616845E6700BCBE62 /* 习惯定制-2-点击前.png */,
+				ED4E8B2716845E6700BCBE62 /* 习惯定制-3-点击后.png */,
+				ED4E8B2816845E6700BCBE62 /* 习惯定制-3-点击前.png */,
+			);
+			name = CustomizeHabit;
+			sourceTree = "<group>";
+		};
 		ED50B1AE1681B97D00240321 /* Timeline */ = {
 			isa = PBXGroup;
 			children = (
+				ED4E8B161684490A00BCBE62 /* sectionheader3_3.png */,
+				ED4E8B171684490A00BCBE62 /* sectionheader3-1.png */,
+				ED4E8B181684490B00BCBE62 /* sectionheader3-2.png */,
 				ED50B1BF1681D8E300240321 /* 地址3.png */,
 				ED50B1BD1681D87D00240321 /* 地址1.png */,
 				ED50B1B91681D6C200240321 /* 地址bg.png */,
@@ -861,6 +981,16 @@
 			path = Resources/tmp;
 			sourceTree = "<group>";
 		};
+		EDCE1EA91684342400ED7A0D /* LocationLabel */ = {
+			isa = PBXGroup;
+			children = (
+				EDCE1EAB1684345200ED7A0D /* JHOLocationLabelView.h */,
+				EDCE1EAC1684345200ED7A0D /* JHOLocationLabelView.m */,
+				ED4E8B0E1684355E00BCBE62 /* JHOLocationLabelView.xib */,
+			);
+			name = LocationLabel;
+			sourceTree = "<group>";
+		};
 		EDCE40671682B2EC004FDA99 /* UINavigationController+CustomBackground */ = {
 			isa = PBXGroup;
 			children = (
@@ -1014,6 +1144,25 @@
 				EDCE406F1682B694004FDA99 /* titlebar_bg.png in Resources */,
 				EDCE40711682BC40004FDA99 /* 返回.png in Resources */,
 				EDCE40751682E5FE004FDA99 /* showsidemenu.png in Resources */,
+				ED4E8B0F1684355E00BCBE62 /* JHOLocationLabelView.xib in Resources */,
+				ED4E8B151684420A00BCBE62 /* JHOTimelineMsgViewController.xib in Resources */,
+				ED4E8B191684490B00BCBE62 /* sectionheader3_3.png in Resources */,
+				ED4E8B1A1684490B00BCBE62 /* sectionheader3-1.png in Resources */,
+				ED4E8B1B1684490B00BCBE62 /* sectionheader3-2.png in Resources */,
+				ED4E8B2116845C1600BCBE62 /* JHOCustomizeHabitViewController.xib in Resources */,
+				ED4E8B2916845E6700BCBE62 /* 习惯定制-1-点击后.png in Resources */,
+				ED4E8B2A16845E6700BCBE62 /* 习惯定制-1-点击前@2x.png in Resources */,
+				ED4E8B2B16845E6700BCBE62 /* 习惯定制-2-点击后.png in Resources */,
+				ED4E8B2C16845E6700BCBE62 /* 习惯定制-2-点击前.png in Resources */,
+				ED4E8B2D16845E6700BCBE62 /* 习惯定制-3-点击后.png in Resources */,
+				ED4E8B2E16845E6700BCBE62 /* 习惯定制-3-点击前.png in Resources */,
+				ED4E8B3016845FC300BCBE62 /* 习惯定制-1-点击前.png in Resources */,
+				ED0440B216857F050098BC9A /* 时间条.png in Resources */,
+				ED0440B316857F050098BC9A /* 时间条a@2x.png in Resources */,
+				ED0440B416857F050098BC9A /* 习惯定制_13.png in Resources */,
+				ED0440B516857F050098BC9A /* 习惯定制.png in Resources */,
+				ED0440B71685892A0098BC9A /* 时间条a.png in Resources */,
+				ED0440C01685AF7A0098BC9A /* customCompleteBtn.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1067,6 +1216,11 @@
 				ED682A5F1680667700789555 /* JHODetailHabitViewController.m in Sources */,
 				ED50B1AA1681B53600240321 /* JHOTimelineTableCell.m in Sources */,
 				EDCE406B1682B30A004FDA99 /* UINavigationBar+CustomBackground.m in Sources */,
+				EDCE1EAD1684345200ED7A0D /* JHOLocationLabelView.m in Sources */,
+				ED4E8B141684420A00BCBE62 /* JHOTimelineMsgViewController.m in Sources */,
+				ED4E8B2016845C1600BCBE62 /* JHOCustomizeHabitViewController.m in Sources */,
+				ED0440AD1685736C0098BC9A /* JHOFilterControl.m in Sources */,
+				ED0440BE1685A6530098BC9A /* JHOPrivacySegmentedView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1141,8 +1295,8 @@
 				INFOPLIST_FILE = "JustHoldOn/JustHoldOn-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "FB01987D-5889-4D6A-ADBD-AAB96E20E5FB";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "FB01987D-5889-4D6A-ADBD-AAB96E20E5FB";
+				PROVISIONING_PROFILE = "6B21E268-66CB-4EC5-81D3-FB48BEAA4279";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "6B21E268-66CB-4EC5-81D3-FB48BEAA4279";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1151,14 +1305,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer: 扬 杨 (E6D7QURJRA)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Kissshot Heartunderblade (42GYPQJ8F2)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: 扬 杨 (E6D7QURJRA)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "JustHoldOn/JustHoldOn-Prefix.pch";
 				INFOPLIST_FILE = "JustHoldOn/JustHoldOn-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "FB01987D-5889-4D6A-ADBD-AAB96E20E5FB";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "ED2CBBAD-508F-4287-B20D-B8442330E70D";
+				PROVISIONING_PROFILE = "6B21E268-66CB-4EC5-81D3-FB48BEAA4279";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "6B21E268-66CB-4EC5-81D3-FB48BEAA4279";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

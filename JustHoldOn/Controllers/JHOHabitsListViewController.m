@@ -7,6 +7,8 @@
 //
 
 #import "JHOHabitsListViewController.h"
+#import "JHOHabitListTableViewCell.h"
+#import "JHOCustomizeHabitViewController.h"
 
 @interface JHOHabitsListViewController ()
 
@@ -40,7 +42,7 @@ static JHOHabitsListViewController *sharedHabitsListViewController = nil;
 {
     self.items = [NSArray arrayWithObjects:@"Headlines", @"UK", @"International", @"Politics", @"Weather", @"Travel", @"Radio", @"Hollywood", @"Sports", @"Others", nil];
     [self.horizMenu reloadData];
-    [self.horizMenu setSelectedIndex:5 animated:YES];
+    [self.horizMenu setSelectedIndex:0 animated:NO];
     [super viewDidLoad];
 }
 
@@ -90,59 +92,52 @@ static JHOHabitsListViewController *sharedHabitsListViewController = nil;
     self.selectionItemLabel.text = [self.items objectAtIndex:index];
     [_habitsListTableView reloadData];
 }
-- (void)dealloc {
-    [_habitsListTableView release];
-    [super dealloc];
-}
 
 #pragma mark -
 #pragma mark - UITableViewDelegate
-- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    JHOCustomizeHabitViewController *cusHabit = [[JHOCustomizeHabitViewController alloc] initWithNibName:@"JHOCustomizeHabitViewController" bundle:nil];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:cusHabit];
+    [cusHabit release];
+    [self presentModalViewController:nav animated:YES];
+    [nav release];
 }
 
-#pragma mark - 
+#pragma mark -
 #pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 1;
-}
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return 5;
+    return 10;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    static NSString *CellIdentifier = @"Cell";
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    
-    if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+    static NSString *CellIdentifier = @"SystemHabitsCell";
         
-        [cell setBackgroundImageByName:@"testbackground.png"];
-    }
+    //    JHOHabitListTableViewCell *cell;
+    JHOHabitListTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
-    cell.textLabel.text = self.selectionItemLabel.text;
-    cell.textLabel.backgroundColor = [UIColor clearColor];
+    if(cell == nil)
+    {
+        cell = [[JHOHabitListTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+        cell.accessoryView = nil;
+    }
+    cell.textLabel.text = [NSString stringWithFormat:@"%@:每天八杯水", self.selectionItemLabel.text];
+    cell.detailTextLabel.text = @"标签1;标签2;";
+    [cell.imageView setImage:[UIImage imageNamed:[NSString stringWithFormat:@"habittype%d", indexPath.row%4]]];
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 60;
+    return 62;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
-    return 1;
-}
 
-- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
-    UIView *view=[[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 1)];
-    //view.backgroundColor = [UIColor redColor];
-    return [view autorelease];
+- (void)dealloc {
+    [_habitsListTableView release];
+    [super dealloc];
 }
 @end

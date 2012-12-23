@@ -150,7 +150,7 @@
 }
 */
 
--(void)dealloc{
+- (void)dealloc{
     [handler release];
     [titlesArr release];
     [super dealloc];

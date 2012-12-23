@@ -9,12 +9,13 @@
 #import "JHOTimelineMsgViewController.h"
 #import "JHOCheckIn.h"
 #import "JHOTimelineTableCell.h"
-
+#import "JHOTimelineCategoryControl.h"
 @interface JHOTimelineMsgViewController ()
 
 @end
 
 @implementation JHOTimelineMsgViewController
+@synthesize timelineTableView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -42,6 +43,7 @@
         test3.location = @"heyanokatasumide";
         
         _dataArray = [[NSArray alloc] initWithObjects:test1, test2, test3, nil];
+        
     }
     return self;
 }
@@ -50,11 +52,12 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    
+    [timelineTableView setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"签到流bg"]]];
 }
 
 - (void)viewDidUnload
 {
+    [self setTimelineTableView:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -101,14 +104,9 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 37)];
-    [headerView setBackgroundColor:[UIColor clearColor]];
-    UIImageView *backgroundImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 37)];
-    [backgroundImageView setImage:[UIImage imageNamed:@"sectionheader3-1"]];
-    [headerView addSubview:backgroundImageView];
-    [backgroundImageView release];
-
-    return [headerView autorelease];
+    JHOTimelineCategoryControl *sectionHeader = [[JHOTimelineCategoryControl alloc] initWithFrame:CGRectMake(0, 0, 320, 37) titles:[NSArray arrayWithObjects:@"我的 (12)", @"好友 (28)", @"全部 （1325）", nil]];
+    
+    return [sectionHeader autorelease];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -116,4 +114,8 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
+- (void)dealloc {
+    [timelineTableView release];
+    [super dealloc];
+}
 @end

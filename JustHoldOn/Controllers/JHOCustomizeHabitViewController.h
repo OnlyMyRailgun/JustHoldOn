@@ -10,6 +10,4 @@
 
 @interface JHOCustomizeHabitViewController : UIViewController
 @property (retain, nonatomic) IBOutlet UIScrollView *baseScrollView;
-
-@property (retain, nonatomic) IBOutlet UISegmentedControl *privacySegmentedControl;
 @end

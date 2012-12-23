@@ -41,7 +41,7 @@
     NSString *name = @"我的页面";
     if([JHOAppUserInfo shared].userName)
         name = [JHOAppUserInfo shared].userName;
-    menuTitles = [[NSArray alloc] initWithObjects:name, @"我的习惯", @"习惯列表", @"好友界面", @"信息流", @"设置", nil];
+    menuTitles = [[NSArray alloc] initWithObjects:name, @"我的习惯", @"习惯列表", @"我的好友", @"信息流", @"设置", nil];
     menuImages = [[NSArray alloc] initWithObjects:@"IMG_0022.JPG", @"slide_myhabits", @"slide_habits", @"slide_friends", @"slide_timeline", @"slide_config", nil];
 }
 

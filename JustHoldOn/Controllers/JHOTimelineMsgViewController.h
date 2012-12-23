@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface JHOTimelineMsgViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
+@property (retain, nonatomic) IBOutlet UITableView *timelineTableView;
 
 @property (retain, nonatomic) NSArray *dataArray;
 

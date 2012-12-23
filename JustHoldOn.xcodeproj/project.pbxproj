@@ -44,9 +44,6 @@
 		ED4E8B0F1684355E00BCBE62 /* JHOLocationLabelView.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED4E8B0E1684355E00BCBE62 /* JHOLocationLabelView.xib */; };
 		ED4E8B141684420A00BCBE62 /* JHOTimelineMsgViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED4E8B121684420A00BCBE62 /* JHOTimelineMsgViewController.m */; };
 		ED4E8B151684420A00BCBE62 /* JHOTimelineMsgViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED4E8B131684420A00BCBE62 /* JHOTimelineMsgViewController.xib */; };
-		ED4E8B191684490B00BCBE62 /* sectionheader3_3.png in Resources */ = {isa = PBXBuildFile; fileRef = ED4E8B161684490A00BCBE62 /* sectionheader3_3.png */; };
-		ED4E8B1A1684490B00BCBE62 /* sectionheader3-1.png in Resources */ = {isa = PBXBuildFile; fileRef = ED4E8B171684490A00BCBE62 /* sectionheader3-1.png */; };
-		ED4E8B1B1684490B00BCBE62 /* sectionheader3-2.png in Resources */ = {isa = PBXBuildFile; fileRef = ED4E8B181684490B00BCBE62 /* sectionheader3-2.png */; };
 		ED4E8B2016845C1600BCBE62 /* JHOCustomizeHabitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED4E8B1E16845C1600BCBE62 /* JHOCustomizeHabitViewController.m */; };
 		ED4E8B2116845C1600BCBE62 /* JHOCustomizeHabitViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED4E8B1F16845C1600BCBE62 /* JHOCustomizeHabitViewController.xib */; };
 		ED4E8B2916845E6700BCBE62 /* 习惯定制-1-点击后.png in Resources */ = {isa = PBXBuildFile; fileRef = ED4E8B2316845E6700BCBE62 /* 习惯定制-1-点击后.png */; };
@@ -73,7 +70,6 @@
 		ED682A601680667700789555 /* JHODetailHabitViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED682A5E1680667700789555 /* JHODetailHabitViewController.xib */; };
 		ED682A6816806A1400789555 /* detailhabit_btnViewBg.png in Resources */ = {isa = PBXBuildFile; fileRef = ED682A6716806A1400789555 /* detailhabit_btnViewBg.png */; };
 		ED682A6A16806ACF00789555 /* detailhabitBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = ED682A6916806ACF00789555 /* detailhabitBtn.png */; };
-		ED682A6C16806D8300789555 /* detailhabit_testLabel.png in Resources */ = {isa = PBXBuildFile; fileRef = ED682A6B16806D8300789555 /* detailhabit_testLabel.png */; };
 		ED9192EF165CA7BC00A488AF /* ASIAuthenticationDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = ED91929B165CA7BC00A488AF /* ASIAuthenticationDialog.m */; };
 		ED9192F0165CA7BC00A488AF /* ASIDataCompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = ED91929E165CA7BC00A488AF /* ASIDataCompressor.m */; };
 		ED9192F1165CA7BC00A488AF /* ASIDataDecompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = ED9192A0165CA7BC00A488AF /* ASIDataDecompressor.m */; };
@@ -116,6 +112,12 @@
 		EDB57C361680517100BF323D /* habittype2.png in Resources */ = {isa = PBXBuildFile; fileRef = EDB57C321680517100BF323D /* habittype2.png */; };
 		EDB57C371680517100BF323D /* habittype3.png in Resources */ = {isa = PBXBuildFile; fileRef = EDB57C331680517100BF323D /* habittype3.png */; };
 		EDB57C381680517100BF323D /* habittype0.png in Resources */ = {isa = PBXBuildFile; fileRef = EDB57C341680517100BF323D /* habittype0.png */; };
+		EDB7F5291686B51300CF54BF /* JHOTimelineCategoryControl.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB7F5281686B51300CF54BF /* JHOTimelineCategoryControl.m */; };
+		EDB7F52F1686B77800CF54BF /* timelineCategory2-0.png in Resources */ = {isa = PBXBuildFile; fileRef = EDB7F52A1686B77800CF54BF /* timelineCategory2-0.png */; };
+		EDB7F5301686B77800CF54BF /* timelineCategory2-1.png in Resources */ = {isa = PBXBuildFile; fileRef = EDB7F52B1686B77800CF54BF /* timelineCategory2-1.png */; };
+		EDB7F5311686B77800CF54BF /* timelineCategory3-0.png in Resources */ = {isa = PBXBuildFile; fileRef = EDB7F52C1686B77800CF54BF /* timelineCategory3-0.png */; };
+		EDB7F5321686B77800CF54BF /* timelineCategory3-1.png in Resources */ = {isa = PBXBuildFile; fileRef = EDB7F52D1686B77800CF54BF /* timelineCategory3-1.png */; };
+		EDB7F5331686B77800CF54BF /* timelineCategory3-2.png in Resources */ = {isa = PBXBuildFile; fileRef = EDB7F52E1686B77800CF54BF /* timelineCategory3-2.png */; };
 		EDBE1FE1166098A6001F787D /* JHOTinyTools.m in Sources */ = {isa = PBXBuildFile; fileRef = EDBE1FE0166098A6001F787D /* JHOTinyTools.m */; };
 		EDBE20571660B884001F787D /* JHOBaseWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDBE20561660B884001F787D /* JHOBaseWebViewController.m */; };
 		EDBE2064166108FD001F787D /* 37x-Checkmark.png in Resources */ = {isa = PBXBuildFile; fileRef = EDBE2062166108FD001F787D /* 37x-Checkmark.png */; };
@@ -214,9 +216,6 @@
 		ED4E8B111684420A00BCBE62 /* JHOTimelineMsgViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JHOTimelineMsgViewController.h; path = Controllers/JHOTimelineMsgViewController.h; sourceTree = "<group>"; };
 		ED4E8B121684420A00BCBE62 /* JHOTimelineMsgViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JHOTimelineMsgViewController.m; path = Controllers/JHOTimelineMsgViewController.m; sourceTree = "<group>"; };
 		ED4E8B131684420A00BCBE62 /* JHOTimelineMsgViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = JHOTimelineMsgViewController.xib; path = Controllers/JHOTimelineMsgViewController.xib; sourceTree = "<group>"; };
-		ED4E8B161684490A00BCBE62 /* sectionheader3_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sectionheader3_3.png; path = Resources/sectionheader3_3.png; sourceTree = "<group>"; };
-		ED4E8B171684490A00BCBE62 /* sectionheader3-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "sectionheader3-1.png"; path = "Resources/sectionheader3-1.png"; sourceTree = "<group>"; };
-		ED4E8B181684490B00BCBE62 /* sectionheader3-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "sectionheader3-2.png"; path = "Resources/sectionheader3-2.png"; sourceTree = "<group>"; };
 		ED4E8B1D16845C1600BCBE62 /* JHOCustomizeHabitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JHOCustomizeHabitViewController.h; path = Controllers/JHOCustomizeHabitViewController.h; sourceTree = "<group>"; };
 		ED4E8B1E16845C1600BCBE62 /* JHOCustomizeHabitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JHOCustomizeHabitViewController.m; path = Controllers/JHOCustomizeHabitViewController.m; sourceTree = "<group>"; };
 		ED4E8B1F16845C1600BCBE62 /* JHOCustomizeHabitViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = JHOCustomizeHabitViewController.xib; path = Controllers/JHOCustomizeHabitViewController.xib; sourceTree = "<group>"; };
@@ -248,7 +247,6 @@
 		ED682A5E1680667700789555 /* JHODetailHabitViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = JHODetailHabitViewController.xib; path = Controllers/JHODetailHabitViewController.xib; sourceTree = "<group>"; };
 		ED682A6716806A1400789555 /* detailhabit_btnViewBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = detailhabit_btnViewBg.png; path = Resources/detailhabit_btnViewBg.png; sourceTree = "<group>"; };
 		ED682A6916806ACF00789555 /* detailhabitBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = detailhabitBtn.png; path = Resources/detailhabitBtn.png; sourceTree = "<group>"; };
-		ED682A6B16806D8300789555 /* detailhabit_testLabel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = detailhabit_testLabel.png; path = Resources/detailhabit_testLabel.png; sourceTree = "<group>"; };
 		ED91929A165CA7BC00A488AF /* ASIAuthenticationDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIAuthenticationDialog.h; sourceTree = "<group>"; };
 		ED91929B165CA7BC00A488AF /* ASIAuthenticationDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIAuthenticationDialog.m; sourceTree = "<group>"; };
 		ED91929C165CA7BC00A488AF /* ASICacheDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASICacheDelegate.h; sourceTree = "<group>"; };
@@ -315,6 +313,13 @@
 		EDB57C321680517100BF323D /* habittype2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = habittype2.png; path = Resources/habittype2.png; sourceTree = "<group>"; };
 		EDB57C331680517100BF323D /* habittype3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = habittype3.png; path = Resources/habittype3.png; sourceTree = "<group>"; };
 		EDB57C341680517100BF323D /* habittype0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = habittype0.png; path = Resources/habittype0.png; sourceTree = "<group>"; };
+		EDB7F5271686B51300CF54BF /* JHOTimelineCategoryControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JHOTimelineCategoryControl.h; path = Views/JHOTimelineCategoryControl.h; sourceTree = "<group>"; };
+		EDB7F5281686B51300CF54BF /* JHOTimelineCategoryControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JHOTimelineCategoryControl.m; path = Views/JHOTimelineCategoryControl.m; sourceTree = "<group>"; };
+		EDB7F52A1686B77800CF54BF /* timelineCategory2-0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "timelineCategory2-0.png"; path = "Resources/timelineCategory2-0.png"; sourceTree = "<group>"; };
+		EDB7F52B1686B77800CF54BF /* timelineCategory2-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "timelineCategory2-1.png"; path = "Resources/timelineCategory2-1.png"; sourceTree = "<group>"; };
+		EDB7F52C1686B77800CF54BF /* timelineCategory3-0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "timelineCategory3-0.png"; path = "Resources/timelineCategory3-0.png"; sourceTree = "<group>"; };
+		EDB7F52D1686B77800CF54BF /* timelineCategory3-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "timelineCategory3-1.png"; path = "Resources/timelineCategory3-1.png"; sourceTree = "<group>"; };
+		EDB7F52E1686B77800CF54BF /* timelineCategory3-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "timelineCategory3-2.png"; path = "Resources/timelineCategory3-2.png"; sourceTree = "<group>"; };
 		EDBE1FDF166098A6001F787D /* JHOTinyTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JHOTinyTools.h; path = Tools/JHOTinyTools.h; sourceTree = "<group>"; };
 		EDBE1FE0166098A6001F787D /* JHOTinyTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JHOTinyTools.m; path = Tools/JHOTinyTools.m; sourceTree = "<group>"; };
 		EDBE20551660B884001F787D /* JHOBaseWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JHOBaseWebViewController.h; path = Controllers/JHOBaseWebViewController.h; sourceTree = "<group>"; };
@@ -605,6 +610,7 @@
 		ED462F721658EBC700E53720 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				EDB7F5251686B4CE00CF54BF /* TimelineCategory */,
 				ED0440B81685A3DC0098BC9A /* PrivacySegmentedView */,
 				ED0440A91685733E0098BC9A /* FilterControl */,
 				EDCE1EA91684342400ED7A0D /* LocationLabel */,
@@ -669,9 +675,11 @@
 		ED50B1AE1681B97D00240321 /* Timeline */ = {
 			isa = PBXGroup;
 			children = (
-				ED4E8B161684490A00BCBE62 /* sectionheader3_3.png */,
-				ED4E8B171684490A00BCBE62 /* sectionheader3-1.png */,
-				ED4E8B181684490B00BCBE62 /* sectionheader3-2.png */,
+				EDB7F52A1686B77800CF54BF /* timelineCategory2-0.png */,
+				EDB7F52B1686B77800CF54BF /* timelineCategory2-1.png */,
+				EDB7F52C1686B77800CF54BF /* timelineCategory3-0.png */,
+				EDB7F52D1686B77800CF54BF /* timelineCategory3-1.png */,
+				EDB7F52E1686B77800CF54BF /* timelineCategory3-2.png */,
 				ED50B1BF1681D8E300240321 /* 地址3.png */,
 				ED50B1BD1681D87D00240321 /* 地址1.png */,
 				ED50B1B91681D6C200240321 /* 地址bg.png */,
@@ -716,7 +724,6 @@
 		ED682A65168069EE00789555 /* DetailHabit */ = {
 			isa = PBXGroup;
 			children = (
-				ED682A6B16806D8300789555 /* detailhabit_testLabel.png */,
 				ED682A6916806ACF00789555 /* detailhabitBtn.png */,
 				ED682A6716806A1400789555 /* detailhabit_btnViewBg.png */,
 			);
@@ -896,6 +903,15 @@
 				EDB57C221680403900BF323D /* tocheckin.png */,
 			);
 			name = MyHabit;
+			sourceTree = "<group>";
+		};
+		EDB7F5251686B4CE00CF54BF /* TimelineCategory */ = {
+			isa = PBXGroup;
+			children = (
+				EDB7F5271686B51300CF54BF /* JHOTimelineCategoryControl.h */,
+				EDB7F5281686B51300CF54BF /* JHOTimelineCategoryControl.m */,
+			);
+			name = TimelineCategory;
 			sourceTree = "<group>";
 		};
 		EDBE1FDE16609878001F787D /* Tools */ = {
@@ -1129,7 +1145,6 @@
 				ED682A601680667700789555 /* JHODetailHabitViewController.xib in Resources */,
 				ED682A6816806A1400789555 /* detailhabit_btnViewBg.png in Resources */,
 				ED682A6A16806ACF00789555 /* detailhabitBtn.png in Resources */,
-				ED682A6C16806D8300789555 /* detailhabit_testLabel.png in Resources */,
 				ED50B1AD1681B72700240321 /* JHOTimelineTableCell.xib in Resources */,
 				ED50B1B01681B99300240321 /* timeline_spot.png in Resources */,
 				ED50B1B41681CB4A00240321 /* btncomment.png in Resources */,
@@ -1146,9 +1161,6 @@
 				EDCE40751682E5FE004FDA99 /* showsidemenu.png in Resources */,
 				ED4E8B0F1684355E00BCBE62 /* JHOLocationLabelView.xib in Resources */,
 				ED4E8B151684420A00BCBE62 /* JHOTimelineMsgViewController.xib in Resources */,
-				ED4E8B191684490B00BCBE62 /* sectionheader3_3.png in Resources */,
-				ED4E8B1A1684490B00BCBE62 /* sectionheader3-1.png in Resources */,
-				ED4E8B1B1684490B00BCBE62 /* sectionheader3-2.png in Resources */,
 				ED4E8B2116845C1600BCBE62 /* JHOCustomizeHabitViewController.xib in Resources */,
 				ED4E8B2916845E6700BCBE62 /* 习惯定制-1-点击后.png in Resources */,
 				ED4E8B2A16845E6700BCBE62 /* 习惯定制-1-点击前@2x.png in Resources */,
@@ -1163,6 +1175,11 @@
 				ED0440B516857F050098BC9A /* 习惯定制.png in Resources */,
 				ED0440B71685892A0098BC9A /* 时间条a.png in Resources */,
 				ED0440C01685AF7A0098BC9A /* customCompleteBtn.png in Resources */,
+				EDB7F52F1686B77800CF54BF /* timelineCategory2-0.png in Resources */,
+				EDB7F5301686B77800CF54BF /* timelineCategory2-1.png in Resources */,
+				EDB7F5311686B77800CF54BF /* timelineCategory3-0.png in Resources */,
+				EDB7F5321686B77800CF54BF /* timelineCategory3-1.png in Resources */,
+				EDB7F5331686B77800CF54BF /* timelineCategory3-2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1221,6 +1238,7 @@
 				ED4E8B2016845C1600BCBE62 /* JHOCustomizeHabitViewController.m in Sources */,
 				ED0440AD1685736C0098BC9A /* JHOFilterControl.m in Sources */,
 				ED0440BE1685A6530098BC9A /* JHOPrivacySegmentedView.m in Sources */,
+				EDB7F5291686B51300CF54BF /* JHOTimelineCategoryControl.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

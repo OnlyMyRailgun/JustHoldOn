@@ -9,6 +9,7 @@
 #import "JHODetailHabitViewController.h"
 #import "JHOTimelineTableCell.h"
 #import "JHOCheckIn.h"
+#import "JHOTimelineCategoryControl.h"
 @interface JHODetailHabitViewController ()
 
 @end
@@ -67,6 +68,8 @@
     _btnShowMyProgress.titleLabel.numberOfLines = 2;
     _btnShowFriendIn.titleLabel.lineBreakMode = UILineBreakModeCharacterWrap;
     _btnShowFriendIn.titleLabel.numberOfLines = 2;
+    
+    [detailTableView setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"签到流bg"]]];
 }
 
 - (void)viewDidUnload
@@ -119,14 +122,9 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 37)];
-    [headerView setBackgroundColor:[UIColor clearColor]];
-    UIImageView *backgroundImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 37)];
-    [backgroundImageView setImage:[UIImage imageNamed:@"detailhabit_testLabel"]];
-    [headerView addSubview:backgroundImageView];
-    [backgroundImageView release];
+    JHOTimelineCategoryControl *sectionHeader = [[JHOTimelineCategoryControl alloc] initWithFrame:CGRectMake(0, 0, 320, 37) titles:[NSArray arrayWithObjects:@"好友 (28)", @"全部 （1325）", nil]];
     
-    return [headerView autorelease];
+    return [sectionHeader autorelease];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

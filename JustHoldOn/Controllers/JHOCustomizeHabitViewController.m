@@ -16,13 +16,25 @@
 
 @implementation JHOCustomizeHabitViewController
 @synthesize baseScrollView;
-@synthesize privacySegmentedControl;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        self.title = @"习惯定制";
+        
+        UIButton* backButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 53, 26)];
+        [backButton setBackgroundImage:[UIImage imageNamed:@"返回"] forState:UIControlStateNormal];
+        [backButton.titleLabel setFont:[UIFont fontWithName:@"Helvetica" size:13.0f]];
+        [backButton setTitle:@"返回" forState:UIControlStateNormal];
+        [backButton setTitleEdgeInsets:UIEdgeInsetsMake(1.0, 4, 0, 0.0)];
+        [backButton addTarget:self action:@selector(backAction) forControlEvents:UIControlEventTouchUpInside];
+        //    [backButton setTitle:@"返回" forState:UIControlStateNormal];
+        UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithCustomView:backButton];
+        self.navigationItem.leftBarButtonItem = backItem;
+        [backButton release];
+        [backItem release];
     }
     return self;
 }
@@ -40,11 +52,11 @@
     [segmentedView release];
     
     self.baseScrollView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"签到流bg"]];
+    self.baseScrollView.contentSize = CGSizeMake(320, 610);
 }
 
 - (void)viewDidUnload
 {
-    [self setPrivacySegmentedControl:nil];
     [self setBaseScrollView:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
@@ -57,8 +69,12 @@
 }
 
 - (void)dealloc {
-    [privacySegmentedControl release];
     [baseScrollView release];
     [super dealloc];
+}
+
+- (void)backAction
+{
+    [self dismissModalViewControllerAnimated:YES];
 }
 @end

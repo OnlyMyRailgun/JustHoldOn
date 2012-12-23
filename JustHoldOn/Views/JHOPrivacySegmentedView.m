@@ -63,18 +63,22 @@
             
             [btn addTarget:self action:@selector(btnPressed:) forControlEvents:UIControlEventTouchUpInside];
             
+            if(i == PSV_INITIAL_SELECTED)
+                [btn setSelected:YES];
             [self addSubview:btn];
         }
-        [self setBtnSelected:PSV_INITIAL_SELECTED + 60];
     }
     return self;
 }
 
 - (void)setBtnSelected:(int) tag
 {
-    [((UIButton *)[self viewWithTag:_selectedIndex + 60]) setSelected:NO];
-    [((UIButton *)[self viewWithTag:tag]) setSelected:YES];
-    _selectedIndex = tag - 60;
+    if(_selectedIndex != (tag - 60))
+    {
+        [((UIButton *)[self viewWithTag:_selectedIndex + 60]) setSelected:NO];
+        [((UIButton *)[self viewWithTag:tag]) setSelected:YES];
+        _selectedIndex = tag - 60;
+    }
 }
 
 - (void)btnPressed:(UIButton *)btn

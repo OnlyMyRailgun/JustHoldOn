@@ -29,12 +29,15 @@
         test1.picURL = @"11";
         test1.checkInDescription = @"When I was darkness at that time, 震えてる唇 ,furueteru kuchibiru, 颤动的双唇 ,部屋の片隅で I cry, heyanokatasumide   I cry, 我在房间的角落里哭泣";
         test1.location = @"heyanokatasumide";
+        test1.encourageNum = 4;
+        test1.commentNum = 1;
         
         JHOCheckIn *test2 = [[JHOCheckIn alloc] init];
         test2.msgType = [NSString stringWithFormat:@"%d", TMCheckIn];
         test2.picURL = @"";
         test2.checkInDescription = @"When I was darkness at that time, 震えてる唇 ,furueteru kuchibiru, 颤动的双唇 ,部屋の片隅で I cry";
-        test2.isEncouraged = @"1";
+        test2.encourageNum = 10;
+        test2.commentNum = 3;
         test2.location = @"heyanokatasumide";
         
         JHOCheckIn *test3 = [[JHOCheckIn alloc] init];
@@ -44,6 +47,9 @@
         
         _dataArray = [[NSArray alloc] initWithObjects:test1, test2, test3, nil];
         
+        [test1 release];
+        [test2 release];
+        [test3 release];
     }
     return self;
 }
@@ -104,7 +110,7 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    JHOTimelineCategoryControl *sectionHeader = [[JHOTimelineCategoryControl alloc] initWithFrame:CGRectMake(0, 0, 320, 37) titles:[NSArray arrayWithObjects:@"我的 (12)", @"好友 (28)", @"全部 （1325）", nil]];
+    JHOTimelineCategoryControl *sectionHeader = [[JHOTimelineCategoryControl alloc] initWithFrame:CGRectMake(0, 0, 320, 37) titles:[NSArray arrayWithObjects:@"我的 (12)", @"好友 (28)", @"全部(1325)", nil]];
     
     return [sectionHeader autorelease];
 }
@@ -116,6 +122,7 @@
 
 - (void)dealloc {
     [timelineTableView release];
+    [_dataArray release];
     [super dealloc];
 }
 @end

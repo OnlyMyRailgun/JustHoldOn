@@ -122,6 +122,7 @@
     [topWrapper release];
     [bottomWrapper release];
     [draggableLocationBottom release];
+    [draggableLocationTop release];
 }
 
 - (void)taskDidFailed:(NSString *)failedReason

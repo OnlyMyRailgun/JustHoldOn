@@ -10,7 +10,7 @@
 #define CC_HEIGHT 37
 #define CC_TITLE_FADE_ALPHA .5f
 #define CC_TITLE_FONT [UIFont fontWithName:@"Optima-Bold" size:16]
-#define CC_TITLE_COLOR [UIColor colorWithRed:73.0/255 green:45.0/255 blue:18.0/255 alpha:1.0]
+#define CC_TITLE_COLOR [UIColor colorWithRed:76.0/255 green:60.0/255 blue:45.0/255 alpha:1.0]
 #define CC_INITIAL_INDEX 0
 
 @interface JHOTimelineCategoryControl ()

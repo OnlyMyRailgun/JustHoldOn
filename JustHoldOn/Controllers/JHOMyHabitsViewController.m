@@ -112,7 +112,7 @@ static JHOMyHabitsViewController *sharedMyhabitsViewController = nil;
         }
         else
         {
-            cell = [[JHOHabitListTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:addNewHabitIdentifier];
+            cell = [[[JHOHabitListTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:addNewHabitIdentifier] autorelease];
             [cell.imageView setImage:[UIImage imageNamed:@"addnewhabit"]];
             cell.textLabel.text = @"每天八杯水";
             cell.detailTextLabel.text = @"本周已签到:";

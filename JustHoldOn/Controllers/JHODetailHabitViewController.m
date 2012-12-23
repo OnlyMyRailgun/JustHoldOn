@@ -54,6 +54,9 @@
         test3.location = @"heyanokatasumide";
         
         _dataArray = [[NSArray alloc] initWithObjects:test1, test2, test3, nil];
+        [test1 release];
+        [test2 release];
+        [test3 release];
     }
     return self;
 }
@@ -137,6 +140,7 @@
     [_btnShowMyProgress release];
     [_btnShowFriendIn release];
     [detailTableView release];
+    [_dataArray release];
     [super dealloc];
 }
 

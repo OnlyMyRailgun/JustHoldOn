@@ -118,6 +118,10 @@
 		EDB7F5311686B77800CF54BF /* timelineCategory3-0.png in Resources */ = {isa = PBXBuildFile; fileRef = EDB7F52C1686B77800CF54BF /* timelineCategory3-0.png */; };
 		EDB7F5321686B77800CF54BF /* timelineCategory3-1.png in Resources */ = {isa = PBXBuildFile; fileRef = EDB7F52D1686B77800CF54BF /* timelineCategory3-1.png */; };
 		EDB7F5331686B77800CF54BF /* timelineCategory3-2.png in Resources */ = {isa = PBXBuildFile; fileRef = EDB7F52E1686B77800CF54BF /* timelineCategory3-2.png */; };
+		EDB7F53A1686C44000CF54BF /* JHOCommentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB7F5391686C44000CF54BF /* JHOCommentModel.m */; };
+		EDB7F53D1686C94800CF54BF /* 地址2.png in Resources */ = {isa = PBXBuildFile; fileRef = EDB7F53C1686C94800CF54BF /* 地址2.png */; };
+		EDB7F53F1686CEB500CF54BF /* 赞more.png in Resources */ = {isa = PBXBuildFile; fileRef = EDB7F53E1686CEB500CF54BF /* 赞more.png */; };
+		EDB7F5411686D2CC00CF54BF /* 评论，赞分隔线.png in Resources */ = {isa = PBXBuildFile; fileRef = EDB7F5401686D2CC00CF54BF /* 评论，赞分隔线.png */; };
 		EDBE1FE1166098A6001F787D /* JHOTinyTools.m in Sources */ = {isa = PBXBuildFile; fileRef = EDBE1FE0166098A6001F787D /* JHOTinyTools.m */; };
 		EDBE20571660B884001F787D /* JHOBaseWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDBE20561660B884001F787D /* JHOBaseWebViewController.m */; };
 		EDBE2064166108FD001F787D /* 37x-Checkmark.png in Resources */ = {isa = PBXBuildFile; fileRef = EDBE2062166108FD001F787D /* 37x-Checkmark.png */; };
@@ -320,6 +324,11 @@
 		EDB7F52C1686B77800CF54BF /* timelineCategory3-0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "timelineCategory3-0.png"; path = "Resources/timelineCategory3-0.png"; sourceTree = "<group>"; };
 		EDB7F52D1686B77800CF54BF /* timelineCategory3-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "timelineCategory3-1.png"; path = "Resources/timelineCategory3-1.png"; sourceTree = "<group>"; };
 		EDB7F52E1686B77800CF54BF /* timelineCategory3-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "timelineCategory3-2.png"; path = "Resources/timelineCategory3-2.png"; sourceTree = "<group>"; };
+		EDB7F5381686C44000CF54BF /* JHOCommentModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JHOCommentModel.h; path = Model/JHOCommentModel.h; sourceTree = "<group>"; };
+		EDB7F5391686C44000CF54BF /* JHOCommentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JHOCommentModel.m; path = Model/JHOCommentModel.m; sourceTree = "<group>"; };
+		EDB7F53C1686C94800CF54BF /* 地址2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "地址2.png"; path = "Resources/地址2.png"; sourceTree = "<group>"; };
+		EDB7F53E1686CEB500CF54BF /* 赞more.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "赞more.png"; path = "Resources/赞more.png"; sourceTree = "<group>"; };
+		EDB7F5401686D2CC00CF54BF /* 评论，赞分隔线.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "评论，赞分隔线.png"; path = "Resources/评论，赞分隔线.png"; sourceTree = "<group>"; };
 		EDBE1FDF166098A6001F787D /* JHOTinyTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JHOTinyTools.h; path = Tools/JHOTinyTools.h; sourceTree = "<group>"; };
 		EDBE1FE0166098A6001F787D /* JHOTinyTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JHOTinyTools.m; path = Tools/JHOTinyTools.m; sourceTree = "<group>"; };
 		EDBE20551660B884001F787D /* JHOBaseWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JHOBaseWebViewController.h; path = Controllers/JHOBaseWebViewController.h; sourceTree = "<group>"; };
@@ -434,6 +443,8 @@
 		ED3809E216830854003B7630 /* Comment */ = {
 			isa = PBXGroup;
 			children = (
+				EDB7F5381686C44000CF54BF /* JHOCommentModel.h */,
+				EDB7F5391686C44000CF54BF /* JHOCommentModel.m */,
 			);
 			name = Comment;
 			sourceTree = "<group>";
@@ -675,12 +686,15 @@
 		ED50B1AE1681B97D00240321 /* Timeline */ = {
 			isa = PBXGroup;
 			children = (
+				EDB7F5401686D2CC00CF54BF /* 评论，赞分隔线.png */,
+				EDB7F53E1686CEB500CF54BF /* 赞more.png */,
 				EDB7F52A1686B77800CF54BF /* timelineCategory2-0.png */,
 				EDB7F52B1686B77800CF54BF /* timelineCategory2-1.png */,
 				EDB7F52C1686B77800CF54BF /* timelineCategory3-0.png */,
 				EDB7F52D1686B77800CF54BF /* timelineCategory3-1.png */,
 				EDB7F52E1686B77800CF54BF /* timelineCategory3-2.png */,
 				ED50B1BF1681D8E300240321 /* 地址3.png */,
+				EDB7F53C1686C94800CF54BF /* 地址2.png */,
 				ED50B1BD1681D87D00240321 /* 地址1.png */,
 				ED50B1B91681D6C200240321 /* 地址bg.png */,
 				ED50B1BA1681D6C200240321 /* 签到流分割线.png */,
@@ -1180,6 +1194,9 @@
 				EDB7F5311686B77800CF54BF /* timelineCategory3-0.png in Resources */,
 				EDB7F5321686B77800CF54BF /* timelineCategory3-1.png in Resources */,
 				EDB7F5331686B77800CF54BF /* timelineCategory3-2.png in Resources */,
+				EDB7F53D1686C94800CF54BF /* 地址2.png in Resources */,
+				EDB7F53F1686CEB500CF54BF /* 赞more.png in Resources */,
+				EDB7F5411686D2CC00CF54BF /* 评论，赞分隔线.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1239,6 +1256,7 @@
 				ED0440AD1685736C0098BC9A /* JHOFilterControl.m in Sources */,
 				ED0440BE1685A6530098BC9A /* JHOPrivacySegmentedView.m in Sources */,
 				EDB7F5291686B51300CF54BF /* JHOTimelineCategoryControl.m in Sources */,
+				EDB7F53A1686C44000CF54BF /* JHOCommentModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

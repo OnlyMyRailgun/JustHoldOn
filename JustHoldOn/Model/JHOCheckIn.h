@@ -25,6 +25,8 @@ typedef enum {
 @property int commentNum;
 @property (nonatomic, retain) NSArray *preComments;
 @property (nonatomic, retain) NSString *dateLine;
-@property (nonatomic, retain) NSString *isEncouraged;
+@property (nonatomic, retain) NSString *hasEncouraged;
+@property int encourageNum;
+@property (nonatomic, retain) NSArray *preEncourages;
 @property (nonatomic, retain) NSString *msgType;
 @end

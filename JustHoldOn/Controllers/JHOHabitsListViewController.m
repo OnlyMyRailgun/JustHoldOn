@@ -121,11 +121,12 @@ static JHOHabitsListViewController *sharedHabitsListViewController = nil;
     
     if(cell == nil)
     {
-        cell = [[JHOHabitListTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+        cell = [[[JHOHabitListTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
         cell.accessoryView = nil;
     }
     cell.textLabel.text = [NSString stringWithFormat:@"%@:每天八杯水", self.selectionItemLabel.text];
     cell.detailTextLabel.text = @"标签1;标签2;";
+    cell.detailTextLabel.backgroundColor = [UIColor clearColor];
     [cell.imageView setImage:[UIImage imageNamed:[NSString stringWithFormat:@"habittype%d", indexPath.row%4]]];
     return cell;
 }

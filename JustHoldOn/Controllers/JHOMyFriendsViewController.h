@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "JHOBaseWebViewController.h"
 
-@interface JHOMyFriendsViewController : UIViewController
+@interface JHOMyFriendsViewController : JHOBaseWebViewController<NetworkTaskDelegate>
+
+@property (nonatomic, retain) NSMutableArray *dataSourceArray;
+@property (retain, nonatomic) IBOutlet UITableView *contentTableView;
 
 @end

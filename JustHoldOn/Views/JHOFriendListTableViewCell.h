@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "JHOUserModel.h"
 
 @interface JHOFriendListTableViewCell : UITableViewCell
+@property (nonatomic, retain) UIImageView *genderImageView;
+@property (nonatomic, retain) UILabel *friendHabitsNumLabel;
+@property (nonatomic, retain) UILabel *habitsNum;
 
+- (void)updateCellWithUser:(JHOUserModel *)_model;
 @end

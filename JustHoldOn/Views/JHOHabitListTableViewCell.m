@@ -52,9 +52,19 @@
     self.imageView.frame = CGRectMake(10.0f, 5.0f, 50.0f,50.0f);
 }
 
+- (void)setChecked:(BOOL)checked
+{
+    UIButton *tapedBtn = (UIButton *)self.accessoryView;
+    tapedBtn.selected = checked;
+}
+
 - (void)actionCheckIn
 {
     UIButton *tapedBtn = (UIButton *)self.accessoryView;
-    tapedBtn.selected = YES;
+    if(!tapedBtn.selected)
+    {
+        if(_callback && _habitID &&[_callback respondsToSelector:@selector(actionBtnPressed:)])
+            [_callback performSelector:@selector(actionBtnPressed:) withObject:_habitID];
+    }
 }
 @end

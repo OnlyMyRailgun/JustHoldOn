@@ -40,7 +40,6 @@
         UIBarButtonItem *rightBarBtn = [[UIBarButtonItem alloc] initWithTitle:@"完成" style:UIBarButtonSystemItemDone target:self action:@selector(showMainFrameHabits)];
         self.navigationItem.rightBarButtonItem = rightBarBtn;
         [rightBarBtn release];
-        networkDelegate = self;
     }
     return self;
 }

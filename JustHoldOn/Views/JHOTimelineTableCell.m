@@ -8,6 +8,7 @@
 
 #import "JHOTimelineTableCell.h"
 #import "JHOLocationLabelView.h"
+#import "JHOTinyTools.h"
 
 #define TLC_WIDTH 235
 @implementation JHOTimelineTableCell
@@ -16,6 +17,8 @@
 @synthesize btnComment;
 @synthesize checkInSeparator;
 @synthesize verticalUIView;
+@synthesize checkInPublisherLabel;
+@synthesize checkInPublishTimeLabel;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -44,6 +47,8 @@
     [commentTableView release];
     [checkInSeparator release];
     [verticalUIView release];
+    [checkInPublisherLabel release];
+    [checkInPublishTimeLabel release];
     [super dealloc];
 }
 
@@ -89,6 +94,8 @@
 
 - (void)updateCellHeightToCheckIn:(JHOCheckIn *)checkIn
 {
+    checkInPublisherLabel.text = checkIn.ownerName;
+    checkInPublishTimeLabel.text = [JHOTinyTools caculatePublishTimeWithInterval:[checkIn.dateLine doubleValue]/1000];
     NSMutableArray *viewArrays = [NSMutableArray array];
     switch ([checkIn.msgType intValue]) {
         case TMCheckIn:

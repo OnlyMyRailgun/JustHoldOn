@@ -34,12 +34,11 @@
         // Custom initialization
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         NSDictionary *appUserInfo = [defaults objectForKey:@"AppUserData"];
-//        if ([appUserInfo objectForKey:@"username"] && [appUserInfo objectForKey:@"password"])
-//        {
+        if ([appUserInfo objectForKey:@"uid"] && [appUserInfo objectForKey:@"password"])
+        {
             [self initializeViewControllers];
             [self changeCenterControllerAtIndex:1];
-//        }
-/*****test****
+        }
         else
         {
             JHOLoginViewController *loginViewController = [[JHOLoginViewController alloc] init];
@@ -51,7 +50,7 @@
             [nav release];
             self.leftController = nil;
             self.rightController = nil;
-        }*/
+        }
         //properties
         self.centerhiddenInteractivity = IIViewDeckCenterHiddenNotUserInteractiveWithTapToClose;
         self.leftLedge = 52;
@@ -75,10 +74,18 @@
     switch (index) {
         case 0:
         {
-            JHOMyHomePageViewController *homePageViewController = [JHOMyHomePageViewController shared];
-            UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:homePageViewController];
-            self.centerController = navController;
-            [navController release];
+            [self closeLeftView];
+            [[JHOAppUserInfo shared] removeUserInfo];
+            JHOLoginViewController *loginViewController = [[JHOLoginViewController alloc] init];
+            [self initializeSinaWeiboWithDelegate:loginViewController];
+            loginViewController.sinaWeibo = _sinaweibo;
+            UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:loginViewController];
+            [loginViewController.sinaWeibo logOut];
+            [loginViewController release];
+            self.centerController = nav;
+            [nav release];
+            self.leftController = nil;
+            self.rightController = nil;
             break;
         }
         case 1:
@@ -108,19 +115,6 @@
         }
             break;
         case 5:
-//            [self closeLeftView];
-//            [[JHOAppUserInfo shared] removeUserInfo];
-//            JHOLoginViewController *loginViewController = [[JHOLoginViewController alloc] init];
-//            [self initializeSinaWeiboWithDelegate:loginViewController];
-//            loginViewController.sinaWeibo = _sinaweibo;
-//            UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:loginViewController];
-//            [loginViewController.sinaWeibo logOut];
-//            [loginViewController release];
-//            self.centerController = nav;
-//            [nav release];
-//            self.leftController = nil;
-//            self.rightController = nil;
-
             break;
         default:
             break;

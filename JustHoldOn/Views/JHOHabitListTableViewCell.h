@@ -9,4 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface JHOHabitListTableViewCell : UITableViewCell
+@property (nonatomic, retain) id callback;
+@property (nonatomic, retain) NSString *habitID;
+
+- (void)setChecked:(BOOL)checked;
 @end

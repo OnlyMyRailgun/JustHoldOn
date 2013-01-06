@@ -32,13 +32,8 @@
 	[self.navigationController.view addSubview:HUD];
 	
 	HUD.delegate = self;
-	HUD.labelText = @"Loading";
-    HUD.margin = 10.f;
-    HUD.yOffset = 150.f;
-	
-    if(networkDelegate)
-        [networkDelegate initializeDelegateAndSoOn];
-    
+	HUD.labelText = @"正在载入";
+	  
     networkHelper = [[JHONetworkHelper alloc] init];
 
 //    if(networkDelegate)
@@ -92,6 +87,14 @@
 //        
 //        sleep(2);
 //    }
+}
+
+- (void)taskDidFailed:(NSString *)failedReason
+{
+    HUD.mode = MBProgressHUDModeText;
+    HUD.labelText = failedReason;
+    
+    [HUD hide:YES afterDelay:2];
 }
 
 - (void)createIndicator

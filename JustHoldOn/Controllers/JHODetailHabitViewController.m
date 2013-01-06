@@ -10,11 +10,15 @@
 #import "JHOTimelineTableCell.h"
 #import "JHOCheckIn.h"
 #import "JHOTimelineCategoryControl.h"
+#import "JHOCustomizeHabitViewController.h"
+
 @interface JHODetailHabitViewController ()
 
 @end
 
 @implementation JHODetailHabitViewController
+@synthesize habitNameLabel;
+@synthesize habitTagLabel;
 @synthesize detailTableView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -26,11 +30,11 @@
         
         UIButton* backButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 53, 26)];
         [backButton setBackgroundImage:[UIImage imageNamed:@"返回"] forState:UIControlStateNormal];
+        [backButton setBackgroundImage:[UIImage imageNamed:@"返回点击后"] forState:UIControlStateHighlighted];
         [backButton.titleLabel setFont:[UIFont fontWithName:@"Helvetica" size:13.0f]];
         [backButton setTitle:@"返回" forState:UIControlStateNormal];
         [backButton setTitleEdgeInsets:UIEdgeInsetsMake(1.0, 4, 0, 0.0)];
         [backButton addTarget:self action:@selector(backAction) forControlEvents:UIControlEventTouchUpInside];
-        //    [backButton setTitle:@"返回" forState:UIControlStateNormal];
         UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithCustomView:backButton];
         self.navigationItem.leftBarButtonItem = backItem;
         [backButton release];
@@ -57,6 +61,7 @@
         [test1 release];
         [test2 release];
         [test3 release];
+        _dataSourceArray = [[NSMutableArray alloc] init];
     }
     return self;
 }
@@ -73,6 +78,26 @@
     _btnShowFriendIn.titleLabel.numberOfLines = 2;
     
     [detailTableView setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"签到流bg"]]];
+    
+    networkHelper.networkDelegate = self;
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [self showIndicator];
+    NSDictionary *_dic = [NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:@"1", _habitModel.habitID, @"20", @"0", @"refresh", nil] forKeys:[NSArray arrayWithObjects:@"type", @"habitid", @"num", @"startpos", @"updateway", nil]];
+    [networkHelper getCheckIns:_dic];
+}
+
+- (void)updateHabitModelWithHabit:(JHOHabitModel *)model
+{
+    _habitModel = model;
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    habitNameLabel.text = _habitModel.habitName;
 }
 
 - (void)viewDidUnload
@@ -81,6 +106,8 @@
     [self setBtnShowMyProgress:nil];
     [self setBtnShowFriendIn:nil];
     [self setDetailTableView:nil];
+    [self setHabitNameLabel:nil];
+    [self setHabitTagLabel:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -93,8 +120,8 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if(_dataArray)
-    return 20;
+    if(_dataSourceArray)
+    return _dataSourceArray.count;
     else
         return 0;
 }
@@ -107,7 +134,7 @@
     {
         cell = [[[UINib nibWithNibName:@"JHOTimelineTableCell" bundle:nil] instantiateWithOwner:nil options:nil] lastObject];
     }
-    [cell updateCellHeightToCheckIn:[_dataArray objectAtIndex:indexPath.row%3]];
+    [cell updateCellHeightToCheckIn:[_dataSourceArray objectAtIndex:indexPath.row]];
     //cell.textLabel.text = @"test";
     return cell;
 }
@@ -141,7 +168,28 @@
     [_btnShowFriendIn release];
     [detailTableView release];
     [_dataArray release];
+    [habitNameLabel release];
+    [habitTagLabel release];
+    [_dataSourceArray release];
     [super dealloc];
+}
+
+- (void)task:(NetworkRequestOperation)tag didSuccess:(NSDictionary *)result
+{
+    if(tag == NEGetCheckIns)
+    {
+        [_dataSourceArray removeAllObjects];
+        [_dataSourceArray addObjectsFromArray:[networkHelper getCheckInsResult:result]];
+        [detailTableView reloadData];
+        [HUD hide:YES];
+    }
+}
+
+- (IBAction)actionBtnPressed:(UIButton *)sender {
+    JHOCustomizeHabitViewController *customHabit = [[JHOCustomizeHabitViewController alloc] initWithNibName:@"JHOCustomizeHabitViewController" bundle:nil];
+    [customHabit updateHabitModelWithHabit:_habitModel];
+    [self.navigationController pushViewController:customHabit animated:YES];
+    [customHabit release];
 }
 
 - (void)backAction

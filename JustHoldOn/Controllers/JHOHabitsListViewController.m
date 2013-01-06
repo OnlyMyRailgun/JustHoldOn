@@ -8,7 +8,8 @@
 
 #import "JHOHabitsListViewController.h"
 #import "JHOHabitListTableViewCell.h"
-#import "JHOCustomizeHabitViewController.h"
+#import "JHODetailHabitViewController.h"
+#import "JHOHabitModel.h"
 
 @interface JHOHabitsListViewController ()
 
@@ -40,14 +41,14 @@ static JHOHabitsListViewController *sharedHabitsListViewController = nil;
 
 - (void)viewDidLoad
 {
-    self.items = [NSArray arrayWithObjects:@"Headlines", @"UK", @"International", @"Politics", @"Weather", @"Travel", @"Radio", @"Hollywood", @"Sports", @"Others", nil];
-    [self.horizMenu reloadData];
-    [self.horizMenu setSelectedIndex:0 animated:NO];
+//    self.items = [NSArray arrayWithObjects:@"Headlines", @"UK", @"International", @"Politics", @"Weather", @"Travel", @"Radio", @"Hollywood", @"Sports", @"Others", nil];
+//    [self.horizMenu reloadData];
+//    [self.horizMenu setSelectedIndex:0 animated:NO];
     [super viewDidLoad];
-}
-
--(void) viewDidAppear:(BOOL)animated
-{
+    
+    [self showIndicator];
+    networkHelper.networkDelegate = self;
+    [networkHelper getHabitGroup];
 }
 
 - (void)viewDidUnload
@@ -91,6 +92,15 @@ static JHOHabitsListViewController *sharedHabitsListViewController = nil;
 {
     self.selectionItemLabel.text = [self.items objectAtIndex:index];
     [_habitsListTableView reloadData];
+    [self showIndicator];
+    networkHelper.networkDelegate = self;
+    NSMutableDictionary *_dic = [NSMutableDictionary dictionary];
+    
+    [_dic setObject:@"20" forKey:@"maxnum"];
+    [_dic setObject:[self.items objectAtIndex:index] forKey:@"typevalue"];
+    [_dic setObject:@"0" forKey:@"startpos"];
+    [_dic setObject:@"0" forKey:@"sorttype"];
+    [networkHelper getHabitLib:_dic];
 }
 
 #pragma mark -
@@ -98,9 +108,13 @@ static JHOHabitsListViewController *sharedHabitsListViewController = nil;
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    JHOCustomizeHabitViewController *cusHabit = [[JHOCustomizeHabitViewController alloc] initWithNibName:@"JHOCustomizeHabitViewController" bundle:nil];
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:cusHabit];
-    [cusHabit release];
+//    JHOCustomizeHabitViewController *cusHabit = [[JHOCustomizeHabitViewController alloc] initWithNibName:@"JHOCustomizeHabitViewController" bundle:nil];
+    
+    JHODetailHabitViewController *detailHabit = [[JHODetailHabitViewController alloc] initWithNibName:@"JHODetailHabitViewController" bundle:nil];
+    JHOHabitModel *modelToDisplay = [_dataSourceArray objectAtIndex:indexPath.row];
+    [detailHabit updateHabitModelWithHabit:modelToDisplay];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:detailHabit];
+    [detailHabit release];
     [self presentModalViewController:nav animated:YES];
     [nav release];
 }
@@ -109,7 +123,10 @@ static JHOHabitsListViewController *sharedHabitsListViewController = nil;
 #pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 10;
+    if(_dataSourceArray)
+        return _dataSourceArray.count;
+    else
+        return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -124,8 +141,9 @@ static JHOHabitsListViewController *sharedHabitsListViewController = nil;
         cell = [[[JHOHabitListTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
         cell.accessoryView = nil;
     }
-    cell.textLabel.text = [NSString stringWithFormat:@"%@:每天八杯水", self.selectionItemLabel.text];
-    cell.detailTextLabel.text = @"标签1;标签2;";
+    JHOHabitModel *modelToDisplay = [_dataSourceArray objectAtIndex:indexPath.row];
+    cell.textLabel.text = modelToDisplay.habitName;
+    cell.detailTextLabel.text = modelToDisplay.habitTag;
     cell.detailTextLabel.backgroundColor = [UIColor clearColor];
     [cell.imageView setImage:[UIImage imageNamed:[NSString stringWithFormat:@"habittype%d", indexPath.row%4]]];
     return cell;
@@ -140,5 +158,24 @@ static JHOHabitsListViewController *sharedHabitsListViewController = nil;
 - (void)dealloc {
     [_habitsListTableView release];
     [super dealloc];
+}
+
+#pragma mark - NetworkTaskDelegate
+- (void)task:(NetworkRequestOperation)tag didSuccess:(NSDictionary *)result
+{
+    if(tag == NEGetHabitGroup)
+    {
+        self.items = [NSArray arrayWithArray:[networkHelper getHabitGroupResult:result]];
+        [self.horizMenu reloadData];
+        [self.horizMenu setSelectedIndex:0 animated:NO];
+    }
+    else if(tag == NEGetHabitLib)
+    {
+        if(_dataSourceArray && _dataSourceArray.retainCount > 0)
+            [_dataSourceArray release];
+        _dataSourceArray = [[networkHelper getHabitLibResult:result] retain];
+        [_habitsListTableView reloadData];
+        [HUD hide:YES];
+    }
 }
 @end

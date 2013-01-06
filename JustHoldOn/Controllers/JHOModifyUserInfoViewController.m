@@ -24,12 +24,13 @@
 @synthesize descriptionTextView = _descriptionTextView;
 @synthesize gender = _gender;
 @synthesize userName = _userName;
+
 - (void)viewDidLoad
 {
-    networkDelegate = self;
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    [networkDelegate networkJob:networkHelper];
+    [self initializeDelegateAndSoOn];
+    [self refreshMainThreadUI];
 }
 
 - (void)initializeDelegateAndSoOn
@@ -95,23 +96,17 @@
 {
     [_userName resignFirstResponder];
     [_descriptionTextView resignFirstResponder];
-    [JHOAppUserInfo shared].userName = self.userName.text;
-    [JHOAppUserInfo shared].userDescription = self.descriptionTextView.text;
-    if(!HUD)
-    {
-        HUD = [[MBProgressHUD alloc] initWithView:self.view];
-        [self.navigationController.view addSubview:HUD];
-        
-        HUD.delegate = self;
-        HUD.labelText = @"Loading";
-    }
-    [HUD showWhileExecuting:@selector(uploadMyInfo) onTarget:self withObject:nil animated:YES];
-    [self showAlternativeTargets];
+
+    [self showIndicator];
+    networkHelper.networkDelegate = self;
+    NSDictionary *_dic = [NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:[JHOAppUserInfo shared].userID, [JHOAppUserInfo shared].userPsw, self.userName.text, self.descriptionTextView.text, nil] forKeys:[NSArray arrayWithObjects:@"uid", @"password", @"username", @"description", nil]];
+    networkHelper.networkDelegate = self;
+    [networkHelper updateUserInfo:_dic];
 }
 
-- (void)uploadMyInfo
-{
-    [networkHelper updateUserInfo];
+//- (void)uploadMyInfo
+//{
+//    [networkHelper updateUserInfo];
 //    if(resultDic != nil)
 //    {
 //        if([[resultDic objectForKey:@"status"] isEqualToString:@"0"])
@@ -144,7 +139,7 @@
 //        
 //        sleep(2);
 //    }
-}
+//}
 
 - (void)showAlternativeTargets
 {
@@ -155,24 +150,19 @@
 
 #pragma mark -
 #pragma mark - NetworkTaskDelegate
-- (void)networkJob:(JHONetworkHelper *)helper
-{
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSDictionary *sinaWeiboAuthInfo = [defaults objectForKey:@"SinaWeiboAuthData"];
-    NSLog(@"%@", [sinaWeiboAuthInfo objectForKey:@"AccessTokenKey"]);
-    [networkHelper registerWithWeiboAccessToken:[sinaWeiboAuthInfo objectForKey:@"AccessTokenKey"]];
-}
 
 - (void)task:(NetworkRequestOperation)tag didSuccess:(NSDictionary *)result
 {
-    [[JHOAppUserInfo shared] modifyUserInfo:result];
-    [self performSelectorOnMainThread:@selector(refreshMainThreadUI) withObject:nil waitUntilDone:NO];
+    if(tag == NEModifyUserInfo)
+    {
+        [JHOAppUserInfo shared].userName = self.userName.text;
+        [JHOAppUserInfo shared].userDescription = self.descriptionTextView.text;
+        [HUD hide:YES];
+        [self showAlternativeTargets];
+
+    }
 }
 
-- (void)taskDidFailed:(NSString *)failedReason
-{
-    
-}
 #pragma mark -
 #pragma mark - UIActionSheetDelegate
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex

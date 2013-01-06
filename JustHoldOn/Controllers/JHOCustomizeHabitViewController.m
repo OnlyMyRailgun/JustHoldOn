@@ -11,10 +11,14 @@
 #import "JHOPrivacySegmentedView.h"
 
 @interface JHOCustomizeHabitViewController ()
-
+{
+    JHOFilterControl *control;
+    JHOPrivacySegmentedView *segmentedView;
+}
 @end
 
 @implementation JHOCustomizeHabitViewController
+@synthesize habitNameLabel;
 @synthesize baseScrollView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -43,21 +47,30 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    JHOFilterControl *control = [[JHOFilterControl alloc] initWithFrame:CGRectMake(10, 146, 300, 38) titles:[NSArray arrayWithObjects:@"1天", @"2天", @"3天", @"4天", @"5天", @"6天", @"7天", nil]];
+    control = [[JHOFilterControl alloc] initWithFrame:CGRectMake(10, 146, 300, 38) titles:[NSArray arrayWithObjects:@"1天", @"2天", @"3天", @"4天", @"5天", @"6天", @"7天", nil]];
     [self.baseScrollView addSubview:control];
     [control release];
     
-    JHOPrivacySegmentedView *segmentedView = [[JHOPrivacySegmentedView alloc] initWithFrame:CGRectMake(10, 309, 300, 27) titles:[NSArray arrayWithObjects:@"所有人", @"仅好友", @"仅自己", nil]];
+    segmentedView = [[JHOPrivacySegmentedView alloc] initWithFrame:CGRectMake(10, 309, 300, 27) titles:[NSArray arrayWithObjects:@"所有人", @"仅好友", @"仅自己", nil]];
     [self.baseScrollView addSubview:segmentedView];
     [segmentedView release];
     
     self.baseScrollView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"签到流bg"]];
     self.baseScrollView.contentSize = CGSizeMake(320, 610);
+    
+    networkHelper.networkDelegate = self;
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    habitNameLabel.text = _habitModel.habitName;
 }
 
 - (void)viewDidUnload
 {
     [self setBaseScrollView:nil];
+    [self setHabitNameLabel:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -70,11 +83,32 @@
 
 - (void)dealloc {
     [baseScrollView release];
+    [habitNameLabel release];
     [super dealloc];
+}
+
+- (void)updateHabitModelWithHabit:(JHOHabitModel *)model
+{
+    _habitModel = model;
+}
+
+- (IBAction)customCompletePressed:(UIButton *)sender {
+    NSMutableDictionary *_dic = [NSMutableDictionary dictionary];
+    [_dic setObject:_habitModel.habitID forKey:@"habitid"]
+    ;
+    [_dic setValue:[NSNumber numberWithInt:(control.selectedIndex+1)] forKey:@"fre"];
+    [_dic setValue:[NSNumber numberWithInt:(segmentedView.selectedIndex)] forKey:@"privacy"];
+    [networkHelper addHabit:_dic];
 }
 
 - (void)backAction
 {
-    [self dismissModalViewControllerAnimated:YES];
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+#pragma mark - NetworkTaskDelegate
+- (void)task:(NetworkRequestOperation)tag didSuccess:(NSDictionary *)result
+{
+
 }
 @end

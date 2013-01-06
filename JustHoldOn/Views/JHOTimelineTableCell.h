@@ -18,6 +18,9 @@
 @property (retain, nonatomic) IBOutlet UIImageView *checkInSeparator;
 @property (retain, nonatomic) IBOutlet UIView *verticalUIView;
 
+@property (retain, nonatomic) IBOutlet UILabel *checkInPublisherLabel;
+@property (retain, nonatomic) IBOutlet UILabel *checkInPublishTimeLabel;
+
 @property (retain, nonatomic) NSArray *allViewsArray;
 
 - (void)updateCellHeightToCheckIn:(JHOCheckIn *)checkIn;

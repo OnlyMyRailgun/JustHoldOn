@@ -67,4 +67,30 @@
     
     return destDateString;
 }
+
++ (NSString *)caculatePublishTimeWithInterval:(NSTimeInterval) interval
+{
+    NSString *result;
+    NSDate *publishDate = [NSDate dateWithTimeIntervalSince1970:interval];
+    NSLog(@"%@", publishDate.description);
+    int difference = [[NSDate date] timeIntervalSince1970] - interval;
+    if(difference < 60)
+        result = [NSString stringWithFormat:@"%d秒前",difference];
+    else if (difference < 3600)
+        result = [NSString stringWithFormat:@"%d分钟前",difference/60];
+    else
+    {
+        result = [JHOTinyTools stringFromDate:publishDate];
+    }
+    return result;
+}
+
+//计算 宽度
++ (CGFloat)calculateTextWidth:(NSString *)strContent withFont:(UIFont *)strFont{
+    //    CGSize constraint = CGSizeMake(heightInput, heightInput);
+    CGFloat constrainedSize = 26500.0f; //其他大小也行
+    CGSize size = [strContent sizeWithFont:strFont constrainedToSize:CGSizeMake(constrainedSize, CGFLOAT_MAX) lineBreakMode:UILineBreakModeWordWrap];
+    //    CGFloat height = MAX(size.height, 44.0f);
+    return size.width;
+}
 @end

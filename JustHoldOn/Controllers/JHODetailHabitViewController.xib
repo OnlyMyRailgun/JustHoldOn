@@ -253,7 +253,7 @@
 												<string key="NSFrame">{{2, 62}, {210, 111}}</string>
 												<reference key="NSSuperview" ref="554621533"/>
 												<reference key="NSWindow"/>
-												<reference key="NSNextKeyView" ref="113780041"/>
+												<reference key="NSNextKeyView" ref="336077097"/>
 												<string key="NSReuseIdentifierKey">_NS:9</string>
 												<bool key="IBUIClipsSubviews">YES</bool>
 												<bool key="IBUIMultipleTouchEnabled">YES</bool>
@@ -278,6 +278,29 @@
 													<double key="NSSize">14</double>
 													<int key="NSfFlags">16</int>
 												</object>
+											</object>
+											<object class="IBUIButton" id="336077097">
+												<reference key="NSNextResponder" ref="554621533"/>
+												<int key="NSvFlags">292</int>
+												<string key="NSFrame">{{220, 116}, {72, 37}}</string>
+												<reference key="NSSuperview" ref="554621533"/>
+												<reference key="NSWindow"/>
+												<reference key="NSNextKeyView" ref="113780041"/>
+												<string key="NSReuseIdentifierKey">_NS:9</string>
+												<bool key="IBUIOpaque">NO</bool>
+												<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+												<int key="IBUIContentHorizontalAlignment">0</int>
+												<int key="IBUIContentVerticalAlignment">0</int>
+												<int key="IBUIButtonType">1</int>
+												<string key="IBUINormalTitle">加入</string>
+												<reference key="IBUIHighlightedTitleColor" ref="89973831"/>
+												<object class="NSColor" key="IBUINormalTitleColor">
+													<int key="NSColorSpace">1</int>
+													<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
+												</object>
+												<reference key="IBUINormalTitleShadowColor" ref="214441522"/>
+												<reference key="IBUIFontDescription" ref="14054199"/>
+												<reference key="IBUIFont" ref="717492070"/>
 											</object>
 										</array>
 										<string key="NSFrameSize">{320, 173}</string>
@@ -326,6 +349,7 @@
 				<string key="NSFrame">{{0, 64}, {320, 416}}</string>
 				<reference key="NSSuperview"/>
 				<reference key="NSWindow"/>
+				<reference key="NSNextKeyView" ref="314571194"/>
 				<object class="NSColor" key="IBUIBackgroundColor">
 					<int key="NSColorSpace">3</int>
 					<bytes key="NSWhite">MQA</bytes>
@@ -382,6 +406,22 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">habitNameLabel</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="550596105"/>
+					</object>
+					<int key="connectionID">36</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">habitTagLabel</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="744504965"/>
+					</object>
+					<int key="connectionID">37</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">dataSource</string>
 						<reference key="source" ref="314571194"/>
 						<reference key="destination" ref="372490531"/>
@@ -395,6 +435,15 @@
 						<reference key="destination" ref="372490531"/>
 					</object>
 					<int key="connectionID">20</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">actionBtnPressed:</string>
+						<reference key="source" ref="336077097"/>
+						<reference key="destination" ref="372490531"/>
+						<int key="IBEventType">7</int>
+					</object>
+					<int key="connectionID">39</int>
 				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -449,6 +498,7 @@
 							<reference ref="744504965"/>
 							<reference ref="550596105"/>
 							<reference ref="238159616"/>
+							<reference ref="336077097"/>
 						</array>
 						<reference key="parent" ref="170231927"/>
 					</object>
@@ -503,6 +553,11 @@
 						<reference key="object" ref="238159616"/>
 						<reference key="parent" ref="554621533"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">38</int>
+						<reference key="object" ref="336077097"/>
+						<reference key="parent" ref="554621533"/>
+					</object>
 				</array>
 			</object>
 			<dictionary class="NSMutableDictionary" key="flattenedProperties">
@@ -518,6 +573,7 @@
 				<string key="15.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="17.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="18.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+				<string key="38.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="5.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="6.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="7.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -528,18 +584,39 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">35</int>
+			<int key="maxID">39</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
 				<object class="IBPartialClassDescription">
-					<string key="className">JHODetailHabitViewController</string>
+					<string key="className">JHOBaseWebViewController</string>
 					<string key="superclassName">UIViewController</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/JHOBaseWebViewController.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">JHODetailHabitViewController</string>
+					<string key="superclassName">JHOBaseWebViewController</string>
+					<object class="NSMutableDictionary" key="actions">
+						<string key="NS.key.0">actionBtnPressed:</string>
+						<string key="NS.object.0">UIButton</string>
+					</object>
+					<object class="NSMutableDictionary" key="actionInfosByName">
+						<string key="NS.key.0">actionBtnPressed:</string>
+						<object class="IBActionInfo" key="NS.object.0">
+							<string key="name">actionBtnPressed:</string>
+							<string key="candidateClassName">UIButton</string>
+						</object>
+					</object>
 					<dictionary class="NSMutableDictionary" key="outlets">
 						<string key="btnShowDetailInstruction">UIButton</string>
 						<string key="btnShowFriendIn">UIButton</string>
 						<string key="btnShowMyProgress">UIButton</string>
 						<string key="detailTableView">UITableView</string>
+						<string key="habitNameLabel">UILabel</string>
+						<string key="habitTagLabel">UILabel</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
 						<object class="IBToOneOutletInfo" key="btnShowDetailInstruction">
@@ -557,6 +634,14 @@
 						<object class="IBToOneOutletInfo" key="detailTableView">
 							<string key="name">detailTableView</string>
 							<string key="candidateClassName">UITableView</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="habitNameLabel">
+							<string key="name">habitNameLabel</string>
+							<string key="candidateClassName">UILabel</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="habitTagLabel">
+							<string key="name">habitTagLabel</string>
+							<string key="candidateClassName">UILabel</string>
 						</object>
 					</dictionary>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">

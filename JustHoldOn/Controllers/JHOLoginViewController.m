@@ -123,9 +123,13 @@
 {
     NSLog(@"sinaweiboDidLogIn userID = %@ accesstoken = %@ expirationDate = %@ refresh_token = %@", _sinaWeibo.userID, _sinaWeibo.accessToken, _sinaWeibo.expirationDate, _sinaWeibo.refreshToken);
     [self storeAuthData];
-    JHOModifyUserInfoViewController *modifyHelper = [[JHOModifyUserInfoViewController alloc] initWithNibName:@"JHOModifyUserInfoViewController" bundle:nil];
-    [self.navigationController pushViewController:modifyHelper animated:YES];
-    [modifyHelper release];
+    
+    networkHelper.networkDelegate = self;
+    [self showIndicator];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSDictionary *sinaWeiboAuthInfo = [defaults objectForKey:@"SinaWeiboAuthData"];
+    NSLog(@"%@", [sinaWeiboAuthInfo objectForKey:@"AccessTokenKey"]);
+    [networkHelper registerWithWeiboAccessToken:[sinaWeiboAuthInfo objectForKey:@"AccessTokenKey"]];
     //[self presentModalViewController:modifyHelper animated:YES];
 }
 
@@ -185,8 +189,6 @@
         [galleryPageControl setCurrentPage:index];
 }
 
-
-
 //UIScrollView响应gesture的action
 - (void)singleTapGestureCaptured:(UITapGestureRecognizer *)gesture
 {
@@ -194,4 +196,15 @@
     NSInteger index = touchPoint.x/320;
     NSLog(@"%d selected", index);
 }
+
+#pragma mark - NetworkTaskDelegate
+- (void)task:(NetworkRequestOperation)tag didSuccess:(NSDictionary *)result
+{
+    [networkHelper registerWithWeiboAccessTokenResult:result];
+    [HUD hide:YES];
+    JHOModifyUserInfoViewController *modifyHelper = [[JHOModifyUserInfoViewController alloc] initWithNibName:@"JHOModifyUserInfoViewController" bundle:nil];
+    [self.navigationController pushViewController:modifyHelper animated:YES];
+    [modifyHelper release];
+}
+
 @end

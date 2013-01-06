@@ -16,4 +16,7 @@
 + (BOOL)saveAvatarPhoto:(UIImage *)image;
 + (NSOperationQueue *)theOperationQueue;
 + (NSString *)stringFromDate:(NSDate *)date;
++ (NSString *)caculatePublishTimeWithInterval:(NSTimeInterval) interval
+;
++ (CGFloat)calculateTextWidth:(NSString *)strContent withFont:(UIFont *)strFont;
 @end

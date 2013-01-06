@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "JHOModifyUserInfoViewController.h"
 #import "SinaWeibo.h"
+#import "JHOBaseWebViewController.h"
 
-@interface JHOLoginViewController : UIViewController<UIScrollViewDelegate>
+@interface JHOLoginViewController : JHOBaseWebViewController<UIScrollViewDelegate, NetworkTaskDelegate>
 {
     NSDictionary *userInfo;
 }

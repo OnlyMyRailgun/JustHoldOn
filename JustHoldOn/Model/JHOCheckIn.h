@@ -16,6 +16,7 @@ typedef enum {
 @interface JHOCheckIn : NSObject
 @property (nonatomic, retain) NSString *ownerUid;
 @property (nonatomic, retain) NSString *ownerPic;
+@property (nonatomic, retain) NSString *ownerName;
 @property (nonatomic, retain) NSString *checkInId;
 @property (nonatomic, retain) NSString *location;
 @property (nonatomic, retain) NSString *latitude;
@@ -23,10 +24,12 @@ typedef enum {
 @property (nonatomic, retain) NSString *checkInDescription;
 @property (nonatomic, retain) NSString *picURL;
 @property int commentNum;
-@property (nonatomic, retain) NSArray *preComments;
+@property (nonatomic, retain) NSMutableArray *preComments;
 @property (nonatomic, retain) NSString *dateLine;
 @property (nonatomic, retain) NSString *hasEncouraged;
 @property int encourageNum;
-@property (nonatomic, retain) NSArray *preEncourages;
+@property (nonatomic, retain) NSMutableArray *preEncourages;
 @property (nonatomic, retain) NSString *msgType;
+@property (nonatomic, retain) NSString *habitID;
+@property (nonatomic, retain) NSString *habitName;
 @end

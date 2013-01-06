@@ -10,8 +10,12 @@
 #import "JHOTinyTools.h"
 #import "JHOHabitListTableViewCell.h"
 #import "JHODetailHabitViewController.h"
+#import "JHOHabitModel.h"
 
 @interface JHOMyHabitsViewController ()
+@property (nonatomic, retain) NSMutableArray *dataSourceArray0;
+@property (nonatomic, retain) NSMutableArray *dataSourceArray1;
+@property (nonatomic, retain) NSMutableArray *dataSourceArray2;
 @end
 
 @implementation JHOMyHabitsViewController
@@ -40,6 +44,10 @@ static JHOMyHabitsViewController *sharedMyhabitsViewController = nil;
         self.navigationItem.leftBarButtonItem = menuItem;
         [menuButton release];
         [menuItem release];
+        
+        _dataSourceArray0 = [[NSMutableArray alloc] init];
+        _dataSourceArray1 = [[NSMutableArray alloc] init];
+        _dataSourceArray2 = [[NSMutableArray alloc] init];
     }
     return self;
 }
@@ -48,6 +56,12 @@ static JHOMyHabitsViewController *sharedMyhabitsViewController = nil;
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+//    [JHOAppUserInfo shared].userID = @"aaa";
+//    [JHOAppUserInfo shared].userPsw = @"bbb";
+    NSDictionary *formDic = [NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:[JHOAppUserInfo shared].userID, [JHOAppUserInfo shared].userPsw, [JHOAppUserInfo shared].userID, nil] forKeys:[NSArray arrayWithObjects:@"uid", @"password", @"who", nil]];
+    [self showIndicator];
+    networkHelper.networkDelegate = self;
+    [networkHelper getUserHabits:formDic];
 }
 
 - (void)viewDidUnload
@@ -65,16 +79,37 @@ static JHOMyHabitsViewController *sharedMyhabitsViewController = nil;
 
 - (void)dealloc {
     [_myHabitsTableView release];
+    [_dataSourceArray0 release];
+    [_dataSourceArray1 release];
+    [_dataSourceArray2 release];
     [super dealloc];
+}
+
+- (void)actionBtnPressed:(NSString *)habitID
+{
+    //签到
+    [self showIndicator];
+    NSDictionary *_dic = [NSDictionary dictionaryWithObject:habitID forKey:@"habitid"];
+    [networkHelper toCheckIn:_dic];
 }
 
 #pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if(section == 0)
-        return 1;
-    else
-        return 4;
+    switch (section)
+    {
+        case 0:
+            return 1;
+        case 1:
+            return _dataSourceArray0.count;
+        case 2:
+            return _dataSourceArray1.count;
+        case 3:
+            return _dataSourceArray2.count;
+        default:
+            return 0;
+            break;
+    }
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -100,24 +135,52 @@ static JHOMyHabitsViewController *sharedMyhabitsViewController = nil;
     
     if(cell == nil)
     {
-//        cell = [[[NSBundle mainBundle] loadNibNamed:@"JHOHabitListTableViewCell" owner:self options:nil] lastObject];
-        //cell.thumbImageView.image = nil;
         if(indexPath.section == 0)
         {
             cell = [[[JHOHabitListTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:addNewHabitIdentifier] autorelease];
-            [cell.imageView setImage:[UIImage imageNamed:@"addnewhabit"]];
-            cell.textLabel.text = @"添加新习惯";
-            //cell.checkInBtn.hidden = YES;
-            cell.accessoryView = nil;
         }
         else
         {
             cell = [[[JHOHabitListTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:addNewHabitIdentifier] autorelease];
-            [cell.imageView setImage:[UIImage imageNamed:@"addnewhabit"]];
-            cell.textLabel.text = @"每天八杯水";
-            cell.detailTextLabel.text = @"本周已签到:";
-            [cell.imageView setImage:[UIImage imageNamed:[NSString stringWithFormat:@"habittype%d", indexPath.row]]];
         }
+    }
+    switch (indexPath.section) {
+        case 0:
+            [cell.imageView setImage:[UIImage imageNamed:@"addnewhabit"]];
+            cell.textLabel.text = @"添加新习惯";
+            cell.accessoryView = nil;
+            break;
+        case 1:
+        {
+            JHOHabitModel *habitToDisplay = [_dataSourceArray0 objectAtIndex:indexPath.row];
+            cell.textLabel.text = habitToDisplay.habitName;
+            cell.detailTextLabel.text = [NSString stringWithFormat:@"本周已签到:%d次", habitToDisplay.unitcheckinnum];
+            [cell.imageView setImage:[UIImage imageNamed:[NSString stringWithFormat:@"habittype%d", indexPath.row]]];
+            cell.callback = self;
+            cell.habitID = habitToDisplay.habitID;
+            [cell setChecked:habitToDisplay.hasCheckedInToday];
+        }
+            break;
+        case 2:
+        {
+            JHOHabitModel *habitToDisplay = [_dataSourceArray1 objectAtIndex:indexPath.row];
+            cell.textLabel.text = habitToDisplay.habitName;
+            cell.detailTextLabel.text = [NSString stringWithFormat:@"本周已签到:%d次", habitToDisplay.unitcheckinnum];
+            [cell.imageView setImage:[UIImage imageNamed:[NSString stringWithFormat:@"habittype%d", indexPath.row]]];
+            cell.accessoryView = nil;
+        }
+            break;
+        case 3:
+        {
+            JHOHabitModel *habitToDisplay = [[_dataSourceArray2 objectAtIndex:indexPath.section - 1] objectAtIndex:indexPath.row];
+            cell.textLabel.text = habitToDisplay.habitName;
+            cell.detailTextLabel.text = [NSString stringWithFormat:@"本周已签到:%d次", habitToDisplay.unitcheckinnum];
+            [cell.imageView setImage:[UIImage imageNamed:[NSString stringWithFormat:@"habittype%d", indexPath.row]]];
+            cell.accessoryView = nil;
+        }
+            break;
+        default:
+            break;
     }
     return cell;
 }
@@ -194,20 +257,29 @@ static JHOMyHabitsViewController *sharedMyhabitsViewController = nil;
     else
         return 62;
 }
-#pragma mark - NetworkTaskDelegate
-- (void)networkJob:(JHONetworkHelper *)helper
-{
-    
-}
 
+#pragma mark - NetworkTaskDelegate
 - (void)task:(NetworkRequestOperation)tag didSuccess:(NSDictionary *)result
 {
-    
-}
-
-- (void)taskDidFailed:(NSString *)failedReason
-{
-    
+    if(tag == NEGetUserHabits)
+    {
+        NSArray *resultArray = [networkHelper getUserHabitResult:result];
+        [_dataSourceArray0 removeAllObjects];
+        [_dataSourceArray0 addObjectsFromArray:[resultArray objectAtIndex:0]];
+        [_dataSourceArray1 removeAllObjects];
+        [_dataSourceArray1 addObjectsFromArray:[resultArray objectAtIndex:1]];
+        [_dataSourceArray2 removeAllObjects];
+        [_dataSourceArray2 addObjectsFromArray:[resultArray objectAtIndex:2]];
+        [_myHabitsTableView reloadData];
+        [HUD hide:YES];
+    }
+    else if (tag == NEToCheckIn)
+    {
+        HUD.customView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"37x-Checkmark.png"]] autorelease];
+        HUD.mode = MBProgressHUDModeCustomView;
+        HUD.labelText = @"签到成功";
+        [HUD hide:YES afterDelay:1.5];
+    }
 }
 
 - (void)initializeDelegateAndSoOn

@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "UINavigationBar+CustomBackground.h"
+#import "UISearchBar+CustomBackground.h"
 @class ASIDownloadCache;
 @class JHOMainFrameViewController;
 

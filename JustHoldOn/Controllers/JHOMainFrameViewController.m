@@ -15,7 +15,7 @@
 #import "JHOAppUserInfo.h"
 #import "JHOMyHabitsViewController.h"
 #import "JHOTimelineMsgViewController.h"
-
+#import "JHOMyFriendsViewController.h"
 
 #define kAppKey             @"1481623116"
 #define kAppSecret          @"308f792a8a1f7ca244da5c81d3a8798b"
@@ -32,25 +32,26 @@
     if(self = [super init])
     {
         // Custom initialization
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveMsg:) name:@"CenterControllerChanged" object:nil];
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         NSDictionary *appUserInfo = [defaults objectForKey:@"AppUserData"];
-        if ([appUserInfo objectForKey:@"uid"] && [appUserInfo objectForKey:@"password"])
-        {
+//        if ([appUserInfo objectForKey:@"uid"] && [appUserInfo objectForKey:@"password"])
+//        {
             [self initializeViewControllers];
             [self changeCenterControllerAtIndex:1];
-        }
-        else
-        {
-            JHOLoginViewController *loginViewController = [[JHOLoginViewController alloc] init];
-            [self initializeSinaWeiboWithDelegate:loginViewController];
-            loginViewController.sinaWeibo = _sinaweibo;
-            UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:loginViewController];
-            [loginViewController release];
-            self.centerController = nav;
-            [nav release];
-            self.leftController = nil;
-            self.rightController = nil;
-        }
+//        }
+//        else
+//        {
+//            JHOLoginViewController *loginViewController = [[JHOLoginViewController alloc] init];
+//            [self initializeSinaWeiboWithDelegate:loginViewController];
+//            loginViewController.sinaWeibo = _sinaweibo;
+//            UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:loginViewController];
+//            [loginViewController release];
+//            self.centerController = nav;
+//            [nav release];
+//            self.leftController = nil;
+//            self.rightController = nil;
+//        }
         //properties
         self.centerhiddenInteractivity = IIViewDeckCenterHiddenNotUserInteractiveWithTapToClose;
         self.leftLedge = 52;
@@ -67,6 +68,13 @@
         self.leftController = slideMenuViewController;
         [slideMenuViewController release];
     }
+}
+
+- (void)receiveMsg:(NSNotification*)param
+{
+    NSNumber *choosedIndex = param.object;
+    [self changeCenterControllerAtIndex:choosedIndex.intValue];
+    [self closeLeftView];
 }
 
 - (void)changeCenterControllerAtIndex:(NSInteger) index
@@ -104,7 +112,9 @@
         }
         case 3:
         {
-
+            JHOMyFriendsViewController *myFriendsViewController = [[JHOMyFriendsViewController alloc] initWithNibName:@"JHOMyFriendsViewController" bundle:nil];
+            self.centerController = myFriendsViewController;
+            [myFriendsViewController release];
         }
             break;
         case 4:

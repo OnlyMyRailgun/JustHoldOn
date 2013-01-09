@@ -27,6 +27,8 @@ typedef enum {
     NEGetUserFriends,//取得某人在本应用内的好友
     NEInviteSocialFriends,//邀请微博好友加入本应用
     NEGetSocialFriends,//获取某个人所有微博好友（粉丝）
+    NEDoEncourage,//鼓励
+    NEDoRemind,//提醒
 } NetworkRequestOperation;
 
 @protocol NetworkTaskDelegate

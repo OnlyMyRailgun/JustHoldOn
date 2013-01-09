@@ -8,6 +8,7 @@
 
 #import "JHOBaseWebViewController.h"
 #import "JHONetworkHelper.h"
+#import "JHOTinyTools.h"
 
 @interface JHOBaseWebViewController ()
 

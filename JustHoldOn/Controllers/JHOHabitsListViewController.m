@@ -45,10 +45,6 @@ static JHOHabitsListViewController *sharedHabitsListViewController = nil;
 //    [self.horizMenu reloadData];
 //    [self.horizMenu setSelectedIndex:0 animated:NO];
     [super viewDidLoad];
-    
-    [self showIndicator];
-    networkHelper.networkDelegate = self;
-    [networkHelper getHabitGroup];
 }
 
 - (void)viewDidUnload
@@ -57,6 +53,19 @@ static JHOHabitsListViewController *sharedHabitsListViewController = nil;
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [self showIndicator];
+    networkHelper.networkDelegate = self;
+    [networkHelper getHabitGroup];
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [HUD hide:YES];
+    
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

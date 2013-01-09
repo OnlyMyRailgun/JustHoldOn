@@ -25,10 +25,10 @@
         self.imageView.clipsToBounds = YES;
         self.imageView.contentMode = UIViewContentModeScaleAspectFill;
                
-        UIView *backgroundUIView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 62)];
+        UIView *backgroundUIView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 52)];
         [backgroundUIView setBackgroundColor:[UIColor colorWithRed:246 green:246 blue:246 alpha:1.0f]];
         [backgroundUIView setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"签到流bg"]]];
-        UIImageView *separatorImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 60, 320, 2)];
+        UIImageView *separatorImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 50, 320, 2)];
         [separatorImageView setImage:[UIImage imageNamed:@"myhabit_separator"]];
         [backgroundUIView addSubview:separatorImageView];
         self.backgroundView = backgroundUIView;
@@ -36,16 +36,28 @@
         [backgroundUIView release];
         
         //好友时的acessoryView
-        _friendHabitsNumLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 80, 15)];
+        
+        NSString *placeHolderStr = @"正在坚持     个习惯";
+        UIFont *placeHolderFont = [UIFont systemFontOfSize:12.0f];
+        CGFloat placeHolderWidth = [JHOTinyTools calculateTextWidth:placeHolderStr withFont:placeHolderFont];
+        UIView *accessoryViewOfhabits = [[UIView alloc] initWithFrame:CGRectMake(320 - placeHolderWidth - 10, 18, placeHolderWidth, 15)];
+        accessoryViewOfhabits.backgroundColor = [UIColor clearColor];
+        _friendHabitsNumLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, placeHolderWidth, 15)];
         _friendHabitsNumLabel.textColor = [UIColor colorWithRed:83.0/255 green:83.0/255 blue:83.0/255 alpha:1.0f];
-        _friendHabitsNumLabel.text = @"参加过    习惯";
+        _friendHabitsNumLabel.text = placeHolderStr;
+        _friendHabitsNumLabel.font = placeHolderFont;
+        _friendHabitsNumLabel.backgroundColor = [UIColor clearColor];
         
-        _habitsNum = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 80, 15)];
+        _habitsNum = [[UILabel alloc] initWithFrame:CGRectMake(placeHolderWidth/2+2, 0, 30, 14)];
         _habitsNum.textColor = [UIColor colorWithRed:56.0/255 green:110.0/255 blue:149.0/255 alpha:1.0f];
-        _habitsNum.text = @"86";
-        
+        _habitsNum.backgroundColor = [UIColor clearColor];
+        [accessoryViewOfhabits addSubview:_friendHabitsNumLabel];
+        [accessoryViewOfhabits addSubview:_habitsNum];
         [_friendHabitsNumLabel release];
         [_habitsNum release];
+        
+        [self addSubview:accessoryViewOfhabits];
+        [accessoryViewOfhabits release];
         //非好友时的acessoryView
         UIButton *actionButton = [[UIButton alloc] initWithFrame:CGRectMake(265, 13, 34, 34)];
         //        [checkInButton setImage:[UIImage imageNamed:@"tocheckin"] forState:UIControlStateNormal];
@@ -76,12 +88,14 @@
     
     [self.contentView addSubview:_genderImageView];
     [_genderImageView release];
+    
+    _habitsNum.text = [NSString stringWithFormat:@"%d",_model.habitNum];
 }
 
 - (void)layoutSubviews {
     
     [super layoutSubviews];
     
-    self.imageView.frame = CGRectMake(10.0f, 5.0f, 50.0f,50.0f);
+    self.imageView.frame = CGRectMake(10.0f, 5.0f, 40.0f,40.0f);
 }
 @end

@@ -75,6 +75,9 @@
         case NEGetSocialFriends:
             [str appendString:@"getSocialFriends"];
             break;
+        case NEDoEncourage:
+            [str appendString:@"doEncourage"];
+            break;
         default:
             break;
     }
@@ -856,6 +859,7 @@ list.checkintime	签到时间
         JHOUserModel *userModel = [[JHOUserModel alloc] init];
         userModel.uid = [aUser objectForKey:@"uid"];
         userModel.userName = [aUser objectForKey:@"username"];
+        userModel.avatarURL = [aUser objectForKey:@"avatarurl"];
         userModel.userGender = [aUser objectForKey:@"sex"];
         userModel.userDescription = [aUser objectForKey:@"description"];
         userModel.avatarURL = [aUser objectForKey:@"groupname"];
@@ -866,6 +870,127 @@ list.checkintime	签到时间
         [userModel release];
     }
     return array;
+}
+
+#pragma mark - 获取用户的所有微博好友
+/*7.4 获取用户的所有微博好友（粉丝）[done]待修改，加type选择 关注，粉丝好友【定制习惯后推荐给微博关注】
+ method：getSocialFriends（接口已实现）
+ 调用参数
+ 参数	描 述	格 式
+ uid	用户id	字符串
+ password	密码	字符串
+ count	每次取得数目	默认20
+ cursor	请求的起始位置
+ 
+ 返回项说明：
+ 返回项	描 述	格 式
+ status	是否成功	“0”表示成功，其他为失败原因代码
+ msg	消息	“成功”，或失败原因
+ content.resultnum		数字，结果总数
+ content.nextstartpos		下次请求起始位，数字
+ content.list
+ content.uid	社交账号id	字符串
+ content.username	社交账号用户名	字符串
+ content.avatarurl	社交网络的头像	备注：这个图像url不是本地，而是社交网络上的（小头像就够了）
+ content.isfriend	是否是我的应用内好友
+ content.isinapp	是否已经加入该应用
+ */
+- (void)getSocialFriends:(NSDictionary *)_dic
+{
+    ASIFormDataRequest *_formDataRequest = [ASIFormDataRequest requestWithURL:[self getCompleteURL:NEGetSocialFriends]];
+    [_formDataRequest setPostValue:[_dic objectForKey:@"count"] forKey:@"count"];
+    [_formDataRequest setPostValue:[_dic objectForKey:@"cursor"] forKey:@"cursor"];
+    [_formDataRequest setPostValue:[JHOAppUserInfo shared].userID forKey:@"uid"];
+    [_formDataRequest setPostValue:[JHOAppUserInfo shared].userPsw forKey:@"password"];
+    
+    [_formDataRequest setDelegate:self];
+    _formDataRequest.tag = NEGetSocialFriends;
+    
+    [[JHOTinyTools theOperationQueue] addOperation:_formDataRequest];
+}
+
+- (NSDictionary *)getSocialFriendsResult:(NSDictionary *)_dic
+{
+    NSArray *arrayFromDic = [_dic objectForKey:@"list"];
+    NSMutableArray *inAppArray = [NSMutableArray array];
+    NSMutableArray *notInAppArray = [NSMutableArray array];
+    for(NSDictionary *aUser in arrayFromDic)
+    {
+        if(![[aUser objectForKey:@"isfriend"] boolValue])
+        {
+            JHOUserModel *userModel = [[JHOUserModel alloc] init];
+            userModel.uid = [aUser objectForKey:@"uid"];
+            userModel.userName = [aUser objectForKey:@"username"];
+            userModel.avatarURL = [aUser objectForKey:@"avatarurl"];
+            if([[aUser objectForKey:@"isinapp"] boolValue])
+                [inAppArray addObject:userModel];
+            else
+                [notInAppArray addObject:userModel];
+            [userModel release];
+        }
+    }
+    return [NSDictionary dictionaryWithObjects: [NSArray arrayWithObjects:inAppArray, notInAppArray, nil] forKeys:[NSArray arrayWithObjects: @"inAppArray", @"notInAppArray", nil]];
+}
+
+#pragma mark - 鼓励
+/*
+ 8.8 鼓励
+ Method：doEncourage
+ 
+ 调用参数
+ 参数	描 述	格 式
+ uid	用户唯一ID	字符串
+ password	密码	字符串
+ checkinid	鼓励的签到 id	字符串
+ 
+ 返回项说明：
+ 返回项	描 述	格 式
+ status	是否成功	0表示成功，其他为失败原因代码
+ msg	消息	“成功”，或失败原因
+ content	返回内容	“”
+ */
+- (void)doEncourage:(NSString *)_checkInID
+{
+    ASIFormDataRequest *_formDataRequest = [ASIFormDataRequest requestWithURL:[self getCompleteURL:NEDoEncourage]];
+    [_formDataRequest setPostValue:_checkInID forKey:@"checkinid"];
+    [_formDataRequest setPostValue:[JHOAppUserInfo shared].userID forKey:@"uid"];
+    [_formDataRequest setPostValue:[JHOAppUserInfo shared].userPsw forKey:@"password"];
+    
+    [_formDataRequest setDelegate:self];
+    _formDataRequest.tag = NEDoEncourage;
+    
+    [[JHOTinyTools theOperationQueue] addOperation:_formDataRequest];
+}
+
+/*
+ 8.9	cc提醒
+ Method：doRemind
+ 
+ 调用参数
+ 参数	描 述	格 式
+ uid	用户唯一ID	字符串
+ password	密码	字符串
+ habitid	鼓励的习惯id
+ who    鼓励的对象id
+ 
+ 返回项说明：
+ 返回项	描 述	格 式
+ status	是否成功	0表示成功，其他为失败原因代码
+ msg	消息	“成功”，或失败原因
+ content	返回内容	“”
+ */
+- (void)doRemind:(NSDictionary *)_dic
+{
+    ASIFormDataRequest *_formDataRequest = [ASIFormDataRequest requestWithURL:[self getCompleteURL:NEDoRemind]];
+    [_formDataRequest setPostValue:[_dic objectForKey:@"habitid"] forKey:@"habitid"];
+    [_formDataRequest setPostValue:[_dic objectForKey:@"who"] forKey:@"who"];
+    [_formDataRequest setPostValue:[JHOAppUserInfo shared].userID forKey:@"uid"];
+    [_formDataRequest setPostValue:[JHOAppUserInfo shared].userPsw forKey:@"password"];
+    
+    [_formDataRequest setDelegate:self];
+    _formDataRequest.tag = NEDoRemind;
+    
+    [[JHOTinyTools theOperationQueue] addOperation:_formDataRequest];
 }
 
 #pragma mark - ASIHTTPDelegate

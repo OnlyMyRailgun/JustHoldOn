@@ -144,9 +144,7 @@
     // Navigation logic may go here. Create and push another view controller.
     if(indexPath.section == 0)
     {
-        JHOMainFrameViewController *viewDeck = (JHOMainFrameViewController *)self.viewDeckController;
-        [viewDeck changeCenterControllerAtIndex:indexPath.row];
-        [viewDeck closeLeftViewAnimated:YES];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"CenterControllerChanged" object:[NSNumber numberWithInt:indexPath.row]];
     }
     else if (indexPath.section == 1)
     {

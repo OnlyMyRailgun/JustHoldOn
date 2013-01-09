@@ -16,6 +16,7 @@
 
 @implementation JHOMyFriendsViewController
 @synthesize contentTableView;
+@synthesize myFriendSearchBar;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -36,6 +37,7 @@
 - (void)viewDidUnload
 {
     [self setContentTableView:nil];
+    [self setMyFriendSearchBar:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -43,10 +45,31 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    [self showIndicator];
-    networkHelper.networkDelegate = self;
-    NSDictionary *_dic = [NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:[JHOAppUserInfo shared].userID, [NSNumber numberWithInt:0], @"20", nil] forKeys:[NSArray arrayWithObjects:@"who", @"starpos", @"maxnum", nil]];
-    [networkHelper getUserFriends:_dic];
+//    [self showIndicator];
+//    networkHelper.networkDelegate = self;
+//    NSDictionary *_dic = [NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:[JHOAppUserInfo shared].userID, [NSNumber numberWithInt:0], @"20", nil] forKeys:[NSArray arrayWithObjects:@"who", @"starpos", @"maxnum", nil]];
+//    [networkHelper getUserFriends:_dic];
+    _dataSourceArray = [[NSMutableArray alloc] init];
+    JHOUserModel *test1 = [[JHOUserModel alloc] init];
+    test1.userName = @"hello moto";
+    test1.habitNum = 6;
+    
+    JHOUserModel *test2 = [[JHOUserModel alloc] init];
+    test2.userName = @"nokia";
+    test2.habitNum = 2;
+    
+    JHOUserModel *test3 = [[JHOUserModel alloc] init];
+    test3.userName = @"sony";
+    test3.habitNum = 5;
+    
+    [_dataSourceArray addObject:test1];
+    [_dataSourceArray addObject:test2];
+    [_dataSourceArray addObject:test3];
+    
+    [test1 release];
+    [test2 release];
+    [test3 release];
+    [contentTableView reloadData];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -56,6 +79,8 @@
 
 - (void)dealloc {
     [contentTableView release];
+    [_dataSourceArray release];
+    [myFriendSearchBar release];
     [super dealloc];
 }
 
@@ -64,7 +89,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if(_dataSourceArray)
-        return _dataSourceArray.count;
+        return _dataSourceArray.count*3;
     else
         return 0;
 }
@@ -81,7 +106,7 @@
         cell = [[[JHOFriendListTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
         cell.accessoryView = nil;
     }
-    JHOUserModel *modelToDisplay = [_dataSourceArray objectAtIndex:indexPath.row];
+    JHOUserModel *modelToDisplay = [_dataSourceArray objectAtIndex:indexPath.row%_dataSourceArray.count];
     [cell updateCellWithUser:modelToDisplay];
     [cell.imageView setImage:[UIImage imageNamed:@"IMG_0022.JPG"]];
     return cell;
@@ -89,7 +114,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 62;
+    return 52;
 }
 
 #pragma mark - NetworkTaskDelegate

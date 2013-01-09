@@ -56,9 +56,7 @@ static JHOMyHabitsViewController *sharedMyhabitsViewController = nil;
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-//    [JHOAppUserInfo shared].userID = @"aaa";
-//    [JHOAppUserInfo shared].userPsw = @"bbb";
-    NSDictionary *formDic = [NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:[JHOAppUserInfo shared].userID, [JHOAppUserInfo shared].userPsw, [JHOAppUserInfo shared].userID, nil] forKeys:[NSArray arrayWithObjects:@"uid", @"password", @"who", nil]];
+    NSDictionary *formDic = [NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:@"me", nil] forKeys:[NSArray arrayWithObjects:@"who", nil]];
     [self showIndicator];
     networkHelper.networkDelegate = self;
     [networkHelper getUserHabits:formDic];
@@ -189,11 +187,14 @@ static JHOMyHabitsViewController *sharedMyhabitsViewController = nil;
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    JHODetailHabitViewController *viewController = [[JHODetailHabitViewController alloc] initWithNibName:@"JHODetailHabitViewController" bundle:nil];
-    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:viewController];
-    [self presentModalViewController:navController animated:YES];
-    [viewController release];
-    [navController release];
+    if(indexPath.section == 1)
+    {
+        JHODetailHabitViewController *viewController = [[JHODetailHabitViewController alloc] initWithNibName:@"JHODetailHabitViewController" bundle:nil];
+        UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:viewController];
+        [self presentModalViewController:navController animated:YES];
+        [viewController release];
+        [navController release];
+    }
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {

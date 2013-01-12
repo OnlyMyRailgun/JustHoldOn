@@ -17,6 +17,7 @@
 @implementation JHOMyFriendsViewController
 @synthesize contentTableView;
 @synthesize myFriendSearchBar;
+@synthesize navBar;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -32,12 +33,33 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    UIButton *addMoreFriendBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 64, 27)];
+    [addMoreFriendBtn setTitle:@"添加好友" forState:UIControlStateNormal];
+    [addMoreFriendBtn setBackgroundImage:[UIImage imageNamed:@"添加好友、修改资料按钮"] forState:UIControlStateNormal];
+    [addMoreFriendBtn setBackgroundImage:[UIImage imageNamed:@"添加好友、修改资料按钮点击后"] forState:UIControlStateHighlighted];
+    [addMoreFriendBtn.titleLabel setFont:[UIFont systemFontOfSize:14.0f]];
+    UIBarButtonItem *addMoreFriend = [[UIBarButtonItem alloc] initWithCustomView:addMoreFriendBtn];
+    [addMoreFriendBtn release];
+    UIButton* menuButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 39, 26)];
+    [menuButton setBackgroundImage:[UIImage imageNamed:@"showsidemenu"] forState:UIControlStateNormal];
+    UIBarButtonItem *menuItem = [[UIBarButtonItem alloc] initWithCustomView:menuButton];
+
+    UINavigationItem *navItem = [[UINavigationItem alloc] initWithTitle:@"我的好友"];
+    navItem.leftBarButtonItem = menuItem;
+    navItem.rightBarButtonItem = addMoreFriend;
+    [navBar popNavigationItemAnimated:NO];
+    [navBar pushNavigationItem:navItem animated:NO];
+    [addMoreFriend release];
+    [menuButton release];
+    [menuItem release];
+    [navItem release];
 }
 
 - (void)viewDidUnload
 {
     [self setContentTableView:nil];
     [self setMyFriendSearchBar:nil];
+    [self setNavBar:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -81,6 +103,7 @@
     [contentTableView release];
     [_dataSourceArray release];
     [myFriendSearchBar release];
+    [navBar release];
     [super dealloc];
 }
 
@@ -126,7 +149,7 @@
             [_dataSourceArray release];
         _dataSourceArray = [[networkHelper getUserFriendsResult:result] retain];
         [contentTableView reloadData];
-        [HUD hide:YES];
+        [self hideIndicator];
     }
 }
 @end

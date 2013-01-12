@@ -11,12 +11,12 @@
 #import "JHONetworkHelper.h"
 #import "JHOAppUserInfo.h"
 
-@interface JHOBaseWebViewController : UIViewController<MBProgressHUDDelegate>
+@interface JHOBaseWebViewController : UIViewController
 {
-    MBProgressHUD *HUD;
     JHONetworkHelper *networkHelper;
 }
 
 - (void)showIndicator;
+- (void)hideIndicator;
 - (void)taskDidFailed:(NSString *)failedReason;
 @end

@@ -14,5 +14,6 @@
 @property (nonatomic, retain) NSMutableArray *dataSourceArray;
 @property (retain, nonatomic) IBOutlet UITableView *contentTableView;
 @property (retain, nonatomic) IBOutlet UISearchBar *myFriendSearchBar;
+@property (retain, nonatomic) IBOutlet UINavigationBar *navBar;
 
 @end

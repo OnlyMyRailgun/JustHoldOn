@@ -24,7 +24,7 @@
     NSURL *url;
 }
 
-#define BASESERVERURL @"http://192.168.0.106:8080/JustHoldOnServer-1.0.0/"
+#define BASESERVERURL @"http://192.168.0.113:8080/JustHoldOnServer-1.0.0/"
 
 - (NSURL *)getCompleteURL:(NetworkRequestOperation)goal
 {

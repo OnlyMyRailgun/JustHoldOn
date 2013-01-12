@@ -272,14 +272,14 @@ static JHOMyHabitsViewController *sharedMyhabitsViewController = nil;
         [_dataSourceArray2 removeAllObjects];
         [_dataSourceArray2 addObjectsFromArray:[resultArray objectAtIndex:2]];
         [_myHabitsTableView reloadData];
-        [HUD hide:YES];
+        [self hideIndicator];
     }
     else if (tag == NEToCheckIn)
     {
-        HUD.customView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"37x-Checkmark.png"]] autorelease];
-        HUD.mode = MBProgressHUDModeCustomView;
-        HUD.labelText = @"签到成功";
-        [HUD hide:YES afterDelay:1.5];
+//        HUD.customView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"37x-Checkmark.png"]] autorelease];
+//        HUD.mode = MBProgressHUDModeCustomView;
+//        HUD.labelText = @"签到成功";
+//        [HUD hide:YES afterDelay:1.5];
     }
 }
 

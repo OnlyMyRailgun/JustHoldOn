@@ -181,7 +181,7 @@
         [_dataSourceArray removeAllObjects];
         [_dataSourceArray addObjectsFromArray:[networkHelper getCheckInsResult:result]];
         [detailTableView reloadData];
-        [HUD hide:YES];
+        [self hideIndicator];
     }
 }
 

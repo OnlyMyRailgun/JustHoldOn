@@ -7,18 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MKHorizMenu.h"
 #import "UITableViewCell+UITableViewCellExt.h"
 #import "JHOBaseWebViewController.h"
 
-@interface JHOHabitsListViewController : JHOBaseWebViewController <MKHorizMenuDataSource, MKHorizMenuDelegate, UITableViewDelegate, UITableViewDataSource, NetworkTaskDelegate> {
-    
-    MKHorizMenu *_horizMenu;
-    NSMutableArray *_items;
+@interface JHOHabitsListViewController : JHOBaseWebViewController <UITableViewDelegate, UITableViewDataSource, NetworkTaskDelegate> {
+
     UILabel *_selectionItemLabel;
 }
-
-@property (nonatomic, retain) IBOutlet MKHorizMenu *horizMenu;
 @property (nonatomic, retain) NSMutableArray *items;
 @property (nonatomic, retain) NSMutableArray *dataSourceArray;
 @property (nonatomic, assign) IBOutlet UILabel *selectionItemLabel;

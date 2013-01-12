@@ -93,4 +93,5 @@
     //    CGFloat height = MAX(size.height, 44.0f);
     return size.width;
 }
+
 @end

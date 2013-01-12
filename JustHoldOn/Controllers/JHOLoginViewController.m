@@ -201,7 +201,7 @@
 - (void)task:(NetworkRequestOperation)tag didSuccess:(NSDictionary *)result
 {
     [networkHelper registerWithWeiboAccessTokenResult:result];
-    [HUD hide:YES];
+    [self hideIndicator];
     JHOModifyUserInfoViewController *modifyHelper = [[JHOModifyUserInfoViewController alloc] initWithNibName:@"JHOModifyUserInfoViewController" bundle:nil];
     [self.navigationController pushViewController:modifyHelper animated:YES];
     [modifyHelper release];

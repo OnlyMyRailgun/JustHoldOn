@@ -35,23 +35,23 @@
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveMsg:) name:@"CenterControllerChanged" object:nil];
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         NSDictionary *appUserInfo = [defaults objectForKey:@"AppUserData"];
-//        if ([appUserInfo objectForKey:@"uid"] && [appUserInfo objectForKey:@"password"])
-//        {
+        if ([appUserInfo objectForKey:@"uid"] && [appUserInfo objectForKey:@"password"])
+        {
             [self initializeViewControllers];
             [self changeCenterControllerAtIndex:1];
-//        }
-//        else
-//        {
-//            JHOLoginViewController *loginViewController = [[JHOLoginViewController alloc] init];
-//            [self initializeSinaWeiboWithDelegate:loginViewController];
-//            loginViewController.sinaWeibo = _sinaweibo;
-//            UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:loginViewController];
-//            [loginViewController release];
-//            self.centerController = nav;
-//            [nav release];
-//            self.leftController = nil;
-//            self.rightController = nil;
-//        }
+        }
+        else
+        {
+            JHOLoginViewController *loginViewController = [[JHOLoginViewController alloc] init];
+            [self initializeSinaWeiboWithDelegate:loginViewController];
+            loginViewController.sinaWeibo = _sinaweibo;
+            UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:loginViewController];
+            [loginViewController release];
+            self.centerController = nav;
+            [nav release];
+            self.leftController = nil;
+            self.rightController = nil;
+        }
         //properties
         self.centerhiddenInteractivity = IIViewDeckCenterHiddenNotUserInteractiveWithTapToClose;
         self.leftLedge = 52;

@@ -126,8 +126,6 @@
 
 - (void)taskDidFailed:(NSString *)failedReason
 {
-    HUD.labelText = failedReason;
-    sleep(2);
 }
 
 #pragma mark - DraggableLocation

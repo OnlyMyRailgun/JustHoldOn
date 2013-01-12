@@ -10,9 +10,12 @@
 #import "JHOHabitListTableViewCell.h"
 #import "JHODetailHabitViewController.h"
 #import "JHOHabitModel.h"
+#import "JHOHabitCategoryTableView.h"
 
 @interface JHOHabitsListViewController ()
-
+{
+    JHOHabitCategoryTableView *habitCategoryView;
+}
 @end
 
 @implementation JHOHabitsListViewController
@@ -41,10 +44,13 @@ static JHOHabitsListViewController *sharedHabitsListViewController = nil;
 
 - (void)viewDidLoad
 {
-//    self.items = [NSArray arrayWithObjects:@"Headlines", @"UK", @"International", @"Politics", @"Weather", @"Travel", @"Radio", @"Hollywood", @"Sports", @"Others", nil];
-//    [self.horizMenu reloadData];
-//    [self.horizMenu setSelectedIndex:0 animated:NO];
     [super viewDidLoad];
+    
+    habitCategoryView = [[JHOHabitCategoryTableView alloc] initWithFrame:CGRectMake(0, 260, 320, 200)];
+    habitCategoryView.delegate = self;
+    [habitCategoryView closeCategoryView];
+    [self.view addSubview:habitCategoryView];
+    [habitCategoryView release];
 }
 
 - (void)viewDidUnload
@@ -57,15 +63,7 @@ static JHOHabitsListViewController *sharedHabitsListViewController = nil;
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    [self showIndicator];
     networkHelper.networkDelegate = self;
-    [networkHelper getHabitGroup];
-}
-
-- (void)viewDidDisappear:(BOOL)animated
-{
-    [HUD hide:YES];
-    
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -74,50 +72,10 @@ static JHOHabitsListViewController *sharedHabitsListViewController = nil;
 }
 
 #pragma mark -
-#pragma mark HorizMenu Data Source
-- (UIImage*) selectedItemImageForMenu:(MKHorizMenu*) tabMenu
-{
-    return [[UIImage imageNamed:@"ButtonSelected"] stretchableImageWithLeftCapWidth:16 topCapHeight:0];
-}
-
-- (UIColor*) backgroundColorForMenu:(MKHorizMenu *)tabView
-{
-    return [UIColor colorWithPatternImage:[UIImage imageNamed:@"MenuBar"]];
-}
-
-- (int) numberOfItemsForMenu:(MKHorizMenu *)tabView
-{
-    return [self.items count];
-}
-
-- (NSString*) horizMenu:(MKHorizMenu *)horizMenu titleForItemAtIndex:(NSUInteger)index
-{
-    return [self.items objectAtIndex:index];
-}
-
-#pragma mark -
-#pragma mark HorizMenu Delegate
--(void) horizMenu:(MKHorizMenu *)horizMenu itemSelectedAtIndex:(NSUInteger)index
-{
-    self.selectionItemLabel.text = [self.items objectAtIndex:index];
-    [_habitsListTableView reloadData];
-    [self showIndicator];
-    networkHelper.networkDelegate = self;
-    NSMutableDictionary *_dic = [NSMutableDictionary dictionary];
-    
-    [_dic setObject:@"20" forKey:@"maxnum"];
-    [_dic setObject:[self.items objectAtIndex:index] forKey:@"typevalue"];
-    [_dic setObject:@"0" forKey:@"startpos"];
-    [_dic setObject:@"0" forKey:@"sorttype"];
-    [networkHelper getHabitLib:_dic];
-}
-
-#pragma mark -
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-//    JHOCustomizeHabitViewController *cusHabit = [[JHOCustomizeHabitViewController alloc] initWithNibName:@"JHOCustomizeHabitViewController" bundle:nil];
     
     JHODetailHabitViewController *detailHabit = [[JHODetailHabitViewController alloc] initWithNibName:@"JHODetailHabitViewController" bundle:nil];
     JHOHabitModel *modelToDisplay = [_dataSourceArray objectAtIndex:indexPath.row];
@@ -169,14 +127,18 @@ static JHOHabitsListViewController *sharedHabitsListViewController = nil;
     [super dealloc];
 }
 
+#pragma mark - UIScrollView
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
+    [habitCategoryView closeCategoryView];
+}
+
 #pragma mark - NetworkTaskDelegate
 - (void)task:(NetworkRequestOperation)tag didSuccess:(NSDictionary *)result
 {
     if(tag == NEGetHabitGroup)
     {
-        self.items = [NSArray arrayWithArray:[networkHelper getHabitGroupResult:result]];
-        [self.horizMenu reloadData];
-        [self.horizMenu setSelectedIndex:0 animated:NO];
+
     }
     else if(tag == NEGetHabitLib)
     {
@@ -184,7 +146,7 @@ static JHOHabitsListViewController *sharedHabitsListViewController = nil;
             [_dataSourceArray release];
         _dataSourceArray = [[networkHelper getHabitLibResult:result] retain];
         [_habitsListTableView reloadData];
-        [HUD hide:YES];
+        [self hideIndicator];
     }
 }
 @end

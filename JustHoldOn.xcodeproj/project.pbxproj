@@ -72,6 +72,22 @@
 		ED682A601680667700789555 /* JHODetailHabitViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED682A5E1680667700789555 /* JHODetailHabitViewController.xib */; };
 		ED682A6816806A1400789555 /* detailhabit_btnViewBg.png in Resources */ = {isa = PBXBuildFile; fileRef = ED682A6716806A1400789555 /* detailhabit_btnViewBg.png */; };
 		ED682A6A16806ACF00789555 /* detailhabitBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = ED682A6916806ACF00789555 /* detailhabitBtn.png */; };
+		ED7396F916A117A200F1282A /* 男.png in Resources */ = {isa = PBXBuildFile; fileRef = ED7396F716A117A200F1282A /* 男.png */; };
+		ED7396FA16A117A200F1282A /* 女.png in Resources */ = {isa = PBXBuildFile; fileRef = ED7396F816A117A200F1282A /* 女.png */; };
+		ED7396FD16A117AC00F1282A /* 添加好友、修改资料按钮.png in Resources */ = {isa = PBXBuildFile; fileRef = ED7396FB16A117AC00F1282A /* 添加好友、修改资料按钮.png */; };
+		ED7396FE16A117AC00F1282A /* 添加好友、修改资料按钮点击后.png in Resources */ = {isa = PBXBuildFile; fileRef = ED7396FC16A117AC00F1282A /* 添加好友、修改资料按钮点击后.png */; };
+		ED73970016A117BA00F1282A /* 白色加号.png in Resources */ = {isa = PBXBuildFile; fileRef = ED7396FF16A117BA00F1282A /* 白色加号.png */; };
+		ED73970416A11F4300F1282A /* JHOHabitCategoryTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = ED73970316A11F4300F1282A /* JHOHabitCategoryTableView.m */; };
+		ED73970816A1200D00F1282A /* JHOHabitCategoryHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = ED73970716A1200D00F1282A /* JHOHabitCategoryHeader.m */; };
+		ED73971016A120E000F1282A /* 习惯列表选中后bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ED73970A16A120E000F1282A /* 习惯列表选中后bg@2x.png */; };
+		ED73971116A120E000F1282A /* 习惯列表bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ED73970B16A120E000F1282A /* 习惯列表bg@2x.png */; };
+		ED73971216A120E000F1282A /* 习惯列表分隔线@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ED73970C16A120E000F1282A /* 习惯列表分隔线@2x.png */; };
+		ED73971316A120E000F1282A /* 习惯列表12-28_02@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ED73970D16A120E000F1282A /* 习惯列表12-28_02@2x.png */; };
+		ED73971416A120E000F1282A /* 习惯列表12-28_05.png in Resources */ = {isa = PBXBuildFile; fileRef = ED73970E16A120E000F1282A /* 习惯列表12-28_05.png */; };
+		ED73971516A120E000F1282A /* 习惯列表12-28_12.png in Resources */ = {isa = PBXBuildFile; fileRef = ED73970F16A120E000F1282A /* 习惯列表12-28_12.png */; };
+		ED73971916A1373D00F1282A /* JHOHabitCategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED73971816A1373D00F1282A /* JHOHabitCategoryCell.m */; };
+		ED73971C16A13C7B00F1282A /* 习惯列表12-28_14.png in Resources */ = {isa = PBXBuildFile; fileRef = ED73971A16A13C7B00F1282A /* 习惯列表12-28_14.png */; };
+		ED73971D16A13C7B00F1282A /* 习惯列表12-28_16.png in Resources */ = {isa = PBXBuildFile; fileRef = ED73971B16A13C7B00F1282A /* 习惯列表12-28_16.png */; };
 		ED852826169A8E2E006FCA83 /* JHOWeiboUser.m in Sources */ = {isa = PBXBuildFile; fileRef = ED852825169A8E2E006FCA83 /* JHOWeiboUser.m */; };
 		ED9192EF165CA7BC00A488AF /* ASIAuthenticationDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = ED91929B165CA7BC00A488AF /* ASIAuthenticationDialog.m */; };
 		ED9192F0165CA7BC00A488AF /* ASIDataCompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = ED91929E165CA7BC00A488AF /* ASIDataCompressor.m */; };
@@ -100,10 +116,6 @@
 		EDB1F730165F339500FFD7F9 /* IMG_0022.JPG in Resources */ = {isa = PBXBuildFile; fileRef = EDB1F72F165F339500FFD7F9 /* IMG_0022.JPG */; };
 		EDB1F739165F3A0600FFD7F9 /* JHOHabitsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB1F737165F3A0600FFD7F9 /* JHOHabitsListViewController.m */; };
 		EDB1F73A165F3A0600FFD7F9 /* JHOHabitsListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDB1F738165F3A0600FFD7F9 /* JHOHabitsListViewController.xib */; };
-		EDB1F741165F3B8000FFD7F9 /* ButtonSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = EDB1F73C165F3B8000FFD7F9 /* ButtonSelected.png */; };
-		EDB1F742165F3B8000FFD7F9 /* MenuBar.png in Resources */ = {isa = PBXBuildFile; fileRef = EDB1F73D165F3B8000FFD7F9 /* MenuBar.png */; };
-		EDB1F743165F3B8000FFD7F9 /* MenuBar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EDB1F73E165F3B8000FFD7F9 /* MenuBar@2x.png */; };
-		EDB1F744165F3B8000FFD7F9 /* MKHorizMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB1F740165F3B8000FFD7F9 /* MKHorizMenu.m */; };
 		EDB1F785165F476100FFD7F9 /* JHONetworkHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB1F784165F476100FFD7F9 /* JHONetworkHelper.m */; };
 		EDB1F78A165F7F3500FFD7F9 /* JHOAppUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB1F789165F7F3500FFD7F9 /* JHOAppUserInfo.m */; };
 		EDB57C231680403900BF323D /* hascheckin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EDB57C211680403900BF323D /* hascheckin@2x.png */; };
@@ -262,6 +274,25 @@
 		ED682A5E1680667700789555 /* JHODetailHabitViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = JHODetailHabitViewController.xib; path = Controllers/JHODetailHabitViewController.xib; sourceTree = "<group>"; };
 		ED682A6716806A1400789555 /* detailhabit_btnViewBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = detailhabit_btnViewBg.png; path = Resources/detailhabit_btnViewBg.png; sourceTree = "<group>"; };
 		ED682A6916806ACF00789555 /* detailhabitBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = detailhabitBtn.png; path = Resources/detailhabitBtn.png; sourceTree = "<group>"; };
+		ED7396F716A117A200F1282A /* 男.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "男.png"; path = "Resources/男.png"; sourceTree = "<group>"; };
+		ED7396F816A117A200F1282A /* 女.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "女.png"; path = "Resources/女.png"; sourceTree = "<group>"; };
+		ED7396FB16A117AC00F1282A /* 添加好友、修改资料按钮.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "添加好友、修改资料按钮.png"; path = "Resources/添加好友、修改资料按钮.png"; sourceTree = "<group>"; };
+		ED7396FC16A117AC00F1282A /* 添加好友、修改资料按钮点击后.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "添加好友、修改资料按钮点击后.png"; path = "Resources/添加好友、修改资料按钮点击后.png"; sourceTree = "<group>"; };
+		ED7396FF16A117BA00F1282A /* 白色加号.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "白色加号.png"; path = "Resources/白色加号.png"; sourceTree = "<group>"; };
+		ED73970216A11F4300F1282A /* JHOHabitCategoryTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JHOHabitCategoryTableView.h; path = Views/JHOHabitCategoryTableView.h; sourceTree = "<group>"; };
+		ED73970316A11F4300F1282A /* JHOHabitCategoryTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JHOHabitCategoryTableView.m; path = Views/JHOHabitCategoryTableView.m; sourceTree = "<group>"; };
+		ED73970616A1200D00F1282A /* JHOHabitCategoryHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JHOHabitCategoryHeader.h; path = Views/JHOHabitCategoryHeader.h; sourceTree = "<group>"; };
+		ED73970716A1200D00F1282A /* JHOHabitCategoryHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JHOHabitCategoryHeader.m; path = Views/JHOHabitCategoryHeader.m; sourceTree = "<group>"; };
+		ED73970A16A120E000F1282A /* 习惯列表选中后bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "习惯列表选中后bg@2x.png"; path = "Resources/习惯列表选中后bg@2x.png"; sourceTree = "<group>"; };
+		ED73970B16A120E000F1282A /* 习惯列表bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "习惯列表bg@2x.png"; path = "Resources/习惯列表bg@2x.png"; sourceTree = "<group>"; };
+		ED73970C16A120E000F1282A /* 习惯列表分隔线@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "习惯列表分隔线@2x.png"; path = "Resources/习惯列表分隔线@2x.png"; sourceTree = "<group>"; };
+		ED73970D16A120E000F1282A /* 习惯列表12-28_02@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "习惯列表12-28_02@2x.png"; path = "Resources/习惯列表12-28_02@2x.png"; sourceTree = "<group>"; };
+		ED73970E16A120E000F1282A /* 习惯列表12-28_05.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "习惯列表12-28_05.png"; path = "Resources/习惯列表12-28_05.png"; sourceTree = "<group>"; };
+		ED73970F16A120E000F1282A /* 习惯列表12-28_12.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "习惯列表12-28_12.png"; path = "Resources/习惯列表12-28_12.png"; sourceTree = "<group>"; };
+		ED73971716A1373D00F1282A /* JHOHabitCategoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JHOHabitCategoryCell.h; path = Views/JHOHabitCategoryCell.h; sourceTree = "<group>"; };
+		ED73971816A1373D00F1282A /* JHOHabitCategoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JHOHabitCategoryCell.m; path = Views/JHOHabitCategoryCell.m; sourceTree = "<group>"; };
+		ED73971A16A13C7B00F1282A /* 习惯列表12-28_14.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "习惯列表12-28_14.png"; path = "Resources/习惯列表12-28_14.png"; sourceTree = "<group>"; };
+		ED73971B16A13C7B00F1282A /* 习惯列表12-28_16.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "习惯列表12-28_16.png"; path = "Resources/习惯列表12-28_16.png"; sourceTree = "<group>"; };
 		ED852824169A8E2E006FCA83 /* JHOWeiboUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JHOWeiboUser.h; path = Model/JHOWeiboUser.h; sourceTree = "<group>"; };
 		ED852825169A8E2E006FCA83 /* JHOWeiboUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JHOWeiboUser.m; path = Model/JHOWeiboUser.m; sourceTree = "<group>"; };
 		ED91929A165CA7BC00A488AF /* ASIAuthenticationDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIAuthenticationDialog.h; sourceTree = "<group>"; };
@@ -312,11 +343,6 @@
 		EDB1F736165F3A0600FFD7F9 /* JHOHabitsListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JHOHabitsListViewController.h; path = Controllers/JHOHabitsListViewController.h; sourceTree = "<group>"; };
 		EDB1F737165F3A0600FFD7F9 /* JHOHabitsListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JHOHabitsListViewController.m; path = Controllers/JHOHabitsListViewController.m; sourceTree = "<group>"; };
 		EDB1F738165F3A0600FFD7F9 /* JHOHabitsListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = JHOHabitsListViewController.xib; path = Controllers/JHOHabitsListViewController.xib; sourceTree = "<group>"; };
-		EDB1F73C165F3B8000FFD7F9 /* ButtonSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ButtonSelected.png; sourceTree = "<group>"; };
-		EDB1F73D165F3B8000FFD7F9 /* MenuBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MenuBar.png; sourceTree = "<group>"; };
-		EDB1F73E165F3B8000FFD7F9 /* MenuBar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MenuBar@2x.png"; sourceTree = "<group>"; };
-		EDB1F73F165F3B8000FFD7F9 /* MKHorizMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKHorizMenu.h; sourceTree = "<group>"; };
-		EDB1F740165F3B8000FFD7F9 /* MKHorizMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKHorizMenu.m; sourceTree = "<group>"; };
 		EDB1F783165F476100FFD7F9 /* JHONetworkHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JHONetworkHelper.h; path = Network/JHONetworkHelper.h; sourceTree = "<group>"; };
 		EDB1F784165F476100FFD7F9 /* JHONetworkHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JHONetworkHelper.m; path = Network/JHONetworkHelper.m; sourceTree = "<group>"; };
 		EDB1F788165F7F3500FFD7F9 /* JHOAppUserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JHOAppUserInfo.h; path = Model/JHOAppUserInfo.h; sourceTree = "<group>"; };
@@ -559,7 +585,6 @@
 			isa = PBXGroup;
 			children = (
 				EDC82F2616674DD000746914 /* SEDraggable */,
-				EDB1F73B165F3B8000FFD7F9 /* MKHorizMenu */,
 				EDDA5EB4165E1F030002B38A /* SinaWeibo */,
 				ED91936E165CB23A00A488AF /* MBProgressHUD */,
 				ED919299165CA7BC00A488AF /* ASIHTTPRequest */,
@@ -594,6 +619,8 @@
 		ED462F041658D7F400E53720 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				ED73970916A1207B00F1282A /* Habitlist */,
+				ED7396F516A1178800F1282A /* Friend */,
 				ED4E8B2216845E5800BCBE62 /* CustomizeHabit */,
 				ED50B1AE1681B97D00240321 /* Timeline */,
 				ED682A65168069EE00789555 /* DetailHabit */,
@@ -659,6 +686,9 @@
 		ED462F721658EBC700E53720 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				ED73971616A1370B00F1282A /* HabitCategoryCell */,
+				ED73970516A11FE600F1282A /* HabitCategoryHeader */,
+				ED73970116A11F1700F1282A /* HabitCategoryTable */,
 				EDDFC1E4169C0C1C00B2E585 /* UISearchBar+CustomBackground */,
 				ED02EC991699A2E600EAAA5E /* FriendTableCell */,
 				EDB7F5251686B4CE00CF54BF /* TimelineCategory */,
@@ -785,6 +815,60 @@
 			name = DetailHabit;
 			sourceTree = "<group>";
 		};
+		ED7396F516A1178800F1282A /* Friend */ = {
+			isa = PBXGroup;
+			children = (
+				ED7396FF16A117BA00F1282A /* 白色加号.png */,
+				ED7396FB16A117AC00F1282A /* 添加好友、修改资料按钮.png */,
+				ED7396FC16A117AC00F1282A /* 添加好友、修改资料按钮点击后.png */,
+				ED7396F716A117A200F1282A /* 男.png */,
+				ED7396F816A117A200F1282A /* 女.png */,
+			);
+			name = Friend;
+			sourceTree = "<group>";
+		};
+		ED73970116A11F1700F1282A /* HabitCategoryTable */ = {
+			isa = PBXGroup;
+			children = (
+				ED73970216A11F4300F1282A /* JHOHabitCategoryTableView.h */,
+				ED73970316A11F4300F1282A /* JHOHabitCategoryTableView.m */,
+			);
+			name = HabitCategoryTable;
+			sourceTree = "<group>";
+		};
+		ED73970516A11FE600F1282A /* HabitCategoryHeader */ = {
+			isa = PBXGroup;
+			children = (
+				ED73970616A1200D00F1282A /* JHOHabitCategoryHeader.h */,
+				ED73970716A1200D00F1282A /* JHOHabitCategoryHeader.m */,
+			);
+			name = HabitCategoryHeader;
+			sourceTree = "<group>";
+		};
+		ED73970916A1207B00F1282A /* Habitlist */ = {
+			isa = PBXGroup;
+			children = (
+				ED73971A16A13C7B00F1282A /* 习惯列表12-28_14.png */,
+				ED73971B16A13C7B00F1282A /* 习惯列表12-28_16.png */,
+				ED73970A16A120E000F1282A /* 习惯列表选中后bg@2x.png */,
+				ED73970B16A120E000F1282A /* 习惯列表bg@2x.png */,
+				ED73970C16A120E000F1282A /* 习惯列表分隔线@2x.png */,
+				ED73970D16A120E000F1282A /* 习惯列表12-28_02@2x.png */,
+				ED73970E16A120E000F1282A /* 习惯列表12-28_05.png */,
+				ED73970F16A120E000F1282A /* 习惯列表12-28_12.png */,
+			);
+			name = Habitlist;
+			sourceTree = "<group>";
+		};
+		ED73971616A1370B00F1282A /* HabitCategoryCell */ = {
+			isa = PBXGroup;
+			children = (
+				ED73971716A1373D00F1282A /* JHOHabitCategoryCell.h */,
+				ED73971816A1373D00F1282A /* JHOHabitCategoryCell.m */,
+			);
+			name = HabitCategoryCell;
+			sourceTree = "<group>";
+		};
 		ED852822169A8DF3006FCA83 /* WeiboUser */ = {
 			isa = PBXGroup;
 			children = (
@@ -908,19 +992,6 @@
 				EDB1F738165F3A0600FFD7F9 /* JHOHabitsListViewController.xib */,
 			);
 			name = HabitsList;
-			sourceTree = "<group>";
-		};
-		EDB1F73B165F3B8000FFD7F9 /* MKHorizMenu */ = {
-			isa = PBXGroup;
-			children = (
-				EDB1F73C165F3B8000FFD7F9 /* ButtonSelected.png */,
-				EDB1F73D165F3B8000FFD7F9 /* MenuBar.png */,
-				EDB1F73E165F3B8000FFD7F9 /* MenuBar@2x.png */,
-				EDB1F73F165F3B8000FFD7F9 /* MKHorizMenu.h */,
-				EDB1F740165F3B8000FFD7F9 /* MKHorizMenu.m */,
-			);
-			name = MKHorizMenu;
-			path = ThirdParts/MKHorizMenu;
 			sourceTree = "<group>";
 		};
 		EDB1F782165F473900FFD7F9 /* Network */ = {
@@ -1184,9 +1255,6 @@
 				EDB1F72E165F251700FFD7F9 /* JHOAlternativeTargetsViewController.xib in Resources */,
 				EDB1F730165F339500FFD7F9 /* IMG_0022.JPG in Resources */,
 				EDB1F73A165F3A0600FFD7F9 /* JHOHabitsListViewController.xib in Resources */,
-				EDB1F741165F3B8000FFD7F9 /* ButtonSelected.png in Resources */,
-				EDB1F742165F3B8000FFD7F9 /* MenuBar.png in Resources */,
-				EDB1F743165F3B8000FFD7F9 /* MenuBar@2x.png in Resources */,
 				EDBE2064166108FD001F787D /* 37x-Checkmark.png in Resources */,
 				EDBE2065166108FD001F787D /* 37x-Checkmark@2x.png in Resources */,
 				EDDBBA5516663F6400A6CA65 /* 登陆页面.jpg in Resources */,
@@ -1270,6 +1338,19 @@
 				EDB7F5411686D2CC00CF54BF /* 评论，赞分隔线.png in Resources */,
 				EDB9D22B168D6BDC0099395E /* 返回点击后.png in Resources */,
 				EDDFC1E3169C058800B2E585 /* 签到流bg@2x.png in Resources */,
+				ED7396F916A117A200F1282A /* 男.png in Resources */,
+				ED7396FA16A117A200F1282A /* 女.png in Resources */,
+				ED7396FD16A117AC00F1282A /* 添加好友、修改资料按钮.png in Resources */,
+				ED7396FE16A117AC00F1282A /* 添加好友、修改资料按钮点击后.png in Resources */,
+				ED73970016A117BA00F1282A /* 白色加号.png in Resources */,
+				ED73971016A120E000F1282A /* 习惯列表选中后bg@2x.png in Resources */,
+				ED73971116A120E000F1282A /* 习惯列表bg@2x.png in Resources */,
+				ED73971216A120E000F1282A /* 习惯列表分隔线@2x.png in Resources */,
+				ED73971316A120E000F1282A /* 习惯列表12-28_02@2x.png in Resources */,
+				ED73971416A120E000F1282A /* 习惯列表12-28_05.png in Resources */,
+				ED73971516A120E000F1282A /* 习惯列表12-28_12.png in Resources */,
+				ED73971C16A13C7B00F1282A /* 习惯列表12-28_14.png in Resources */,
+				ED73971D16A13C7B00F1282A /* 习惯列表12-28_16.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1306,7 +1387,6 @@
 				EDDA5EC0165E1F030002B38A /* SinaWeiboRequest.m in Sources */,
 				EDB1F72D165F251700FFD7F9 /* JHOAlternativeTargetsViewController.m in Sources */,
 				EDB1F739165F3A0600FFD7F9 /* JHOHabitsListViewController.m in Sources */,
-				EDB1F744165F3B8000FFD7F9 /* MKHorizMenu.m in Sources */,
 				EDB1F785165F476100FFD7F9 /* JHONetworkHelper.m in Sources */,
 				EDB1F78A165F7F3500FFD7F9 /* JHOAppUserInfo.m in Sources */,
 				EDBE1FE1166098A6001F787D /* JHOTinyTools.m in Sources */,
@@ -1335,6 +1415,9 @@
 				ED02EC9C1699A34200EAAA5E /* JHOFriendListTableViewCell.m in Sources */,
 				ED852826169A8E2E006FCA83 /* JHOWeiboUser.m in Sources */,
 				EDDFC1E0169BFFA900B2E585 /* UISearchBar+CustomBackground.m in Sources */,
+				ED73970416A11F4300F1282A /* JHOHabitCategoryTableView.m in Sources */,
+				ED73970816A1200D00F1282A /* JHOHabitCategoryHeader.m in Sources */,
+				ED73971916A1373D00F1282A /* JHOHabitCategoryCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1402,15 +1485,15 @@
 		ED462ED91658CC2000E53720 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: longw Shen (LMC2HM7GY6)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: longw Shen (LMC2HM7GY6)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: 扬 杨 (E6D7QURJRA)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: 扬 杨 (E6D7QURJRA)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "JustHoldOn/JustHoldOn-Prefix.pch";
 				INFOPLIST_FILE = "JustHoldOn/JustHoldOn-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "C0D296B3-6923-40D1-B496-6B85819D6E53";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "C0D296B3-6923-40D1-B496-6B85819D6E53";
+				PROVISIONING_PROFILE = "6B21E268-66CB-4EC5-81D3-FB48BEAA4279";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "6B21E268-66CB-4EC5-81D3-FB48BEAA4279";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;

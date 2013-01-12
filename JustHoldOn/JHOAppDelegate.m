@@ -87,6 +87,44 @@
     [self.downloadCache setDefaultCachePolicy:ASIOnlyLoadIfNotCachedCachePolicy];
 }
 
+- (void)createIndicator
+{
+	if(HUD != nil)
+		return;
+	
+	HUD = [[MBProgressHUD alloc] initWithView: _window];
+    HUD.delegate = self;
+	HUD.labelText = @"正在载入";
+	[_window addSubview:HUD];
+}
+
+- (void)showIndicator
+{
+	[self createIndicator];
+	
+	[_window bringSubviewToFront:HUD];
+	HUD.labelText = @"正在载入...";
+	[HUD show:YES];
+}
+
+- (void)hideIndicatorAfterDelay:(int)delay withStr:(NSString *)str
+{
+    if(str)
+    {
+        HUD.mode = MBProgressHUDModeText;
+        HUD.labelText = str;
+    }
+    [HUD hide:YES afterDelay:delay];
+}
+#pragma mark -
+#pragma mark - MBProgressHUDDelegate methods
+- (void)hudWasHidden:(MBProgressHUD *)hud {
+	// Remove HUD from screen when the HUD was hidded
+	[HUD removeFromSuperview];
+	[HUD release];
+	HUD = nil;
+}
+
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

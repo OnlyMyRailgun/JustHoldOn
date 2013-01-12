@@ -9,6 +9,7 @@
 #import "JHOBaseWebViewController.h"
 #import "JHONetworkHelper.h"
 #import "JHOTinyTools.h"
+#import "JHOAppDelegate.h"
 
 @interface JHOBaseWebViewController ()
 
@@ -28,13 +29,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
-    HUD = [[MBProgressHUD alloc] initWithView:self.view];
-	[self.navigationController.view addSubview:HUD];
-	
-	HUD.delegate = self;
-	HUD.labelText = @"正在载入";
-	  
+	// Do any additional setup after loading the view.  
     networkHelper = [[JHONetworkHelper alloc] init];
 
 //    if(networkDelegate)
@@ -46,6 +41,11 @@
     [networkHelper release];
     
     [super dealloc];
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [self hideIndicator];
 }
 
 - (void)viewDidUnload
@@ -92,37 +92,16 @@
 
 - (void)taskDidFailed:(NSString *)failedReason
 {
-    HUD.mode = MBProgressHUDModeText;
-    HUD.labelText = failedReason;
-    
-    [HUD hide:YES afterDelay:2];
-}
-
-- (void)createIndicator
-{
-	if(HUD != nil)
-		return;
-	
-	HUD = [[MBProgressHUD alloc] initWithView:self.view];
-	[self.view addSubview:HUD];
+    [((JHOAppDelegate *)[UIApplication sharedApplication].delegate) hideIndicatorAfterDelay:2 withStr:failedReason];
 }
 
 - (void)showIndicator
 {
-	[self createIndicator];
-	
-	[self.view bringSubviewToFront:HUD];
-	HUD.labelText = @"正在载入...";
-	[HUD show:YES];
+	[((JHOAppDelegate *)[UIApplication sharedApplication].delegate) showIndicator];
 }
 
-#pragma mark -
-#pragma mark - MBProgressHUDDelegate methods
-
-- (void)hudWasHidden:(MBProgressHUD *)hud {
-	// Remove HUD from screen when the HUD was hidded
-	[HUD removeFromSuperview];
-	[HUD release];
-	HUD = nil;
+- (void)hideIndicator
+{
+    [((JHOAppDelegate *)[UIApplication sharedApplication].delegate) hideIndicatorAfterDelay:0 withStr:nil];
 }
 @end
